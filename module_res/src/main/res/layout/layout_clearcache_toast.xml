@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="40mm"
+    android:background="#000000"
+    android:gravity="center_vertical">
+<ImageView
+    android:layout_width="30mm"
+    android:layout_height="30mm"
+    android:layout_marginLeft="12mm"
+    android:src="@drawable/gou"/>
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28mm"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="5mm"
+        android:text="缓存清除成功"/>
+</LinearLayout>

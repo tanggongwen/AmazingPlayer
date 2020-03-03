@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="554mm"
+android:layout_height="75mm">
+<TextView
+    android:id="@+id/tvNewsTop"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:maxLines="1"
+    android:ellipsize="end"
+    android:textSize="24mm"
+    android:textColor="#000000"
+    android:layout_alignParentTop="true"/>
+<TextView
+    android:id="@+id/tvNewsBottom"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:maxLines="1"
+    android:ellipsize="end"
+    android:textSize="24mm"
+    android:textColor="#000000"
+    android:layout_alignParentBottom="true"/>
+</RelativeLayout>

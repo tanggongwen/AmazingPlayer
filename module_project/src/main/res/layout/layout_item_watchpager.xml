@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.mahuahudong.project.viewmodel.WatchHistoryPagerItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60mm"
+            android:textSize="26mm"
+            android:gravity="center_vertical"
+            android:text="一周内"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            binding:itemBinding="@{itemViewModel.onItemBind}"
+            binding:items = "@{itemViewModel.items}"
+            android:orientation="vertical"/>
+    </LinearLayout>
+</layout>

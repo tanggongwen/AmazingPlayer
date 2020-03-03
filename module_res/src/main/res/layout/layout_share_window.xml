@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="360mm">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ryContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        binding:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        binding:spanCount="5"
+        android:background="#eeeeee"
+        android:paddingBottom="45mm"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100mm"
+        android:background="#ffffff">
+        <TextView
+            android:id="@+id/tvDismiss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="36mm"
+            android:textColor="#000000"
+            android:text="取消"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</LinearLayout>

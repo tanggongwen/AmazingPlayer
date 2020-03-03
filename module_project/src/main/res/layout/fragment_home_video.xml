@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mahuahudong.project.viewmodel.HomeVideoViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/swipe_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="100mm"
+            android:background="#f0f0f0"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="暂时没有内容！"
+                android:layout_gravity="center_horizontal"
+                android:textSize="28mm"
+                android:textColor="#cacaca"/>
+
+
+        </LinearLayout>
+
+        <com.mahuahudong.res.weiget.swipetoloadlayout.SwipeToLoadLayout
+            android:id="@+id/swipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:onRefreshCommand="@{viewModel.refreshCommand}"
+            binding:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}">
+            <com.mahuahudong.res.weiget.swipetoloadlayout.HeaderView
+                android:id="@+id/swipe_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/swipe_target"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:itemBinding="@{viewModel.onItemBind}"
+                binding:items = "@{viewModel.items}"
+                android:orientation="vertical"
+                android:background="#ffffff"
+                android:paddingLeft="34mm"
+                android:paddingRight="34mm"
+                binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <com.mahuahudong.res.weiget.swipetoloadlayout.FooterView
+                android:id="@+id/swipe_load_more_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.mahuahudong.res.weiget.swipetoloadlayout.SwipeToLoadLayout>
+
+    </LinearLayout>
+</layout>

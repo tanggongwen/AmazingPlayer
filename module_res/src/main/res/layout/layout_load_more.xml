@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="100mm"
+    android:background="#f0f0f0"
+    android:gravity="center">
+    <ImageView
+        android:id="@+id/imgDefault"
+        android:layout_width="30mm"
+        android:layout_height="30mm"
+        android:visibility="visible"
+        android:src="@drawable/shuaxin_default"/>
+    <ImageView
+        android:id="@+id/imgShuaxin"
+        android:layout_width="38mm"
+        android:layout_height="38mm"
+        android:visibility="gone"
+        android:src="@drawable/shuaxin"/>
+    <TextView
+        android:id="@+id/tvTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32mm"
+        android:text="释放加载"
+        android:layout_marginLeft="20mm"
+        android:textColor="#666666"/>
+</LinearLayout>

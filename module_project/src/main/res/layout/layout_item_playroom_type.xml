@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.mahuahudong.project.viewmodel.PlayRoomTypeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="300mm"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        binding:onClickCommand="@{itemViewModel.typeSelectCommand}">
+            <ImageView
+                android:layout_width="140mm"
+                android:layout_height="140mm"
+                android:background="#A03434"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="26mm"
+                android:layout_marginTop="10mm"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{itemViewModel.typeOb}"/>
+    </LinearLayout>
+</layout>

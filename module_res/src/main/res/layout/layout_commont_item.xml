@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="118mm">
+            <com.mahuahudong.res.weiget.CircleImageView
+                android:id="@+id/imgHead"
+                android:layout_width="64mm"
+                android:layout_height="64mm"
+                android:layout_marginLeft="34mm"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/tvNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30mm"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/imgHead"
+                android:text="我的昵称很长"
+                android:layout_marginLeft="20mm"/>
+            <TextView
+                android:id="@+id/tvLikeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20mm"
+                android:textColor="#dcdcdc"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/imgLike"
+                android:text="20"
+                android:layout_marginRight="12mm"
+                android:layout_marginLeft="20mm"/>
+            <ImageView
+                android:id="@+id/imgLike"
+                android:layout_width="36mm"
+                android:layout_height="36mm"
+                android:src="@drawable/icon_like_normal"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40mm"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tvCommont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="114mm"
+            android:paddingRight="40mm"
+            android:lineSpacingExtra="20mm"
+            android:textSize="32mm"
+            android:text="我的评论很长，长到我自己都看不下去了，我的评论很长，长到我自己都看不下去了，"
+            android:textColor="#3f3f3f"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90mm">
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22mm"
+                android:layout_marginTop="36mm"
+                android:layout_marginLeft="110mm"
+                android:text=""/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

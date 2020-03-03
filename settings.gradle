@@ -1,0 +1,2 @@
+include ':app', ':module_mvvm', ':module_res',':library_media', ':module_project'
+rootProject.name='AmazingPlayer'

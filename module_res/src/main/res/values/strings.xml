@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">module_res</string>
+    <string name="video_replay">重新播放</string>
+    <string name="video_lock_tip">请先解锁屏幕！</string>
+    <string name="video_unlocked">已解锁</string>
+    <string name="video_locked">已锁定</string>
+    <string name="login_tip"><u>意见反馈</u></string>
+    <string name="umeng_socialize_sharetosina">分享到新浪微博</string>
+    <string name="umeng_socialize_sharetodouban">分享到豆瓣</string>
+    <string name="umeng_socialize_sharetorenren">分享到人人网</string>
+
+    <string name="umeng_socialize_sharetotencent">分享到腾讯微博</string>
+    <string name="umeng_socialize_sharetotwitter">分享到twitter</string>
+    <string name="umeng_socialize_sharetolinkin">分享到领英</string>
+    <string name="privacy_tip1">依据最新的法律要求，我们更新了用户协议与隐私政策，根据您使用的具体服务和功能，合法合规对您的个人信息进行收集、使用。请您仔细阅读</string>
+    <string name="privacy_tip2">，并确认了解我们对您的个人信息处理原则包括\n1、我们如何收集和使用您的个人信息；\n2、我们如何保存管理您的个人信息；\n3、个人信息安全保护措施；\n4、关于协议更新；\n5、未成年人使用条款；\n6、关于争议解决；</string>
+    <string name="privacy_tip3">如您同意</string>
+    <string name="privacy_tip4">，请点击"同意"后使用我们的产品和服务。</string>
+</resources>

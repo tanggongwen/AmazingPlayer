@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="180mm"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="20mm"
+    android:layout_height="92mm">
+    <TextView
+        android:id="@+id/tvList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20mm"
+        android:gravity="center"
+        android:textSize="26mm"
+        android:text="001-050"
+        android:textColor="#b0b0b0"
+        android:background="@drawable/shape_audioswitcher_item_bg"/>
+</LinearLayout>

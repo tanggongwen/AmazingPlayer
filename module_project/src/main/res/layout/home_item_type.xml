@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.mahuahudong.project.viewmodel.HomeTypeItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:paddingLeft="20mm"
+        android:paddingRight="20mm"
+        android:layout_height="100mm">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            binding:itemBinding="@{itemViewModel.itemBinding}"
+            binding:items="@{itemViewModel.items}"
+            android:layout_marginRight="20mm"
+            binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_height="80mm"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            binding:onClickCommand="@{itemViewModel.typeSelectCommand}">
+            <ImageView
+                android:layout_width="50mm"
+                android:layout_height="50mm"
+                android:src="@drawable/icon_live_press"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:text="筛选"
+                android:textSize="28mm"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

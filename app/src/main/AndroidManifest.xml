@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mahuahudong.amazingplayer">
+
+    <application
+        android:name="com.mahuahudong.amazingplayer.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon_live_press"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon_live_press"
+        android:supportsRtl="true"
+        android:hardwareAccelerated = "true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.mahuahudong.amazingplayer.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.mahuahudong.amazingplayer.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Start">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="MGlHj3kPXr6LOtQh6HYPZPGbGwa9ZAXg" >
+        </meta-data>
+
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="750"/>
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="1334"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.mahuahudong.amazingplayer"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public">
+            </meta-data>
+        </provider>
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"> </service>
+    </application>
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+
+
+</manifest>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/icon_live_bg"
+        android:width="100mm"
+        android:height="100mm"/>
+    <item
+        android:width="40mm"
+        android:height="40mm"
+        android:gravity="center"
+        android:drawable="@drawable/icon_live_press"/>
+</layer-list>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="popwindowheight">920mm</dimen>
+    <dimen name="popinputwindowheight">100mm</dimen>
+    <dimen name="popsharewindowheight">544mm</dimen>
+    <dimen name="audiotimerwindowheight">856mm</dimen>
+    <dimen name="audioswitcherwindowheight">206mm</dimen>
+    <dimen name="inditvsize">26mm</dimen>
+    <dimen name="video_controller_height">70mm</dimen>
+    <dimen name="video_controller_icon_padding">12mm</dimen>
+    <dimen name="video_controller_text_size">16mm</dimen>
+    <dimen name="video_default_spacing">10mm</dimen>
+    <dimen name="video_controller_seekbar_size_n">18mm</dimen>
+    <dimen name="video_controller_seekbar_size_s">18mm</dimen>
+    <dimen name="video_controller_seekbar_max_size">1mm</dimen>
+    <dimen name="video_play_btn_size">50mm</dimen>
+    <dimen name="video_controller_time_text_size">18mm</dimen>
+    <dimen name="mine_popwindow_width">513mm</dimen>
+    <dimen name="mine_popwindow_heigt">306mm</dimen>
+    <dimen name="mine_signinpopwindow_width">423mm</dimen>
+    <dimen name="mine_signinpopwindow_heigt">491mm</dimen>
+    <dimen name="mine_chooseimage_heigt">314mm</dimen>
+    <dimen name="home_dra_heigt">314mm</dimen>
+    <dimen name="privacy_dialog_width">550mm</dimen>
+    <dimen name="privacy_dialog_height">906mm</dimen>
+
+    <dimen name="update_dialog_width">550mm</dimen>
+    <dimen name="update_dialog_height">706mm</dimen>
+
+    <dimen name="invite_dialog_width">550mm</dimen>
+    <dimen name="invite_dialog_height">1150mm</dimen>
+</resources>

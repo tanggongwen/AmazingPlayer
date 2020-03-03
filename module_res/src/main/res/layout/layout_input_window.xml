@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlyt_input"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="100mm"
+    android:focusable="true"
+    android:background="#FFFFFF"
+    android:layout_alignParentBottom="true"
+    android:focusableInTouchMode="true">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2mm"
+        android:layout_alignParentTop="true"
+        android:background="#efefef"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edtInput"
+            android:layout_width="wrap_content"
+            android:layout_height="60mm"
+            android:layout_marginRight="30mm"
+       android:layout_weight="9"
+            android:textSize="30mm"
+            android:hint="我来说两句"
+            android:textColorHint="#999999"
+            android:gravity="center_vertical"
+            android:paddingLeft="30mm"
+            android:layout_marginLeft="30mm"
+            android:background="@drawable/shape_input_bg"/>
+        <TextView
+            android:id="@+id/tvSend"
+            android:layout_width="wrap_content"
+            android:layout_height="50mm"
+            android:layout_weight="1"
+            android:textSize="26mm"
+            android:gravity="center"
+            android:layout_marginRight="20mm"
+            android:background="@drawable/shape_edit_bg"
+            android:text="发送"/>
+    </LinearLayout>
+
+</RelativeLayout>

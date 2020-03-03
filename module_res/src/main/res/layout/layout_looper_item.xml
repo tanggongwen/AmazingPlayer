@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="34mm"
+        android:minHeight="70mm"
+        android:lineSpacingExtra="8mm"
+        android:textColor="#000000"
+        android:textStyle="italic|bold"
+        android:text="" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvTitle"
+        android:layout_marginTop="45mm"
+        android:layout_alignParentLeft="true">
+
+        <TextView
+            android:id="@+id/tvFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#a7a7a7"
+            android:textSize="26mm"
+            android:text="来源" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#a7a7a7"
+            android:layout_marginLeft="10mm"
+            android:textSize="26mm"
+            android:text="时间"/>
+
+        <TextView
+            android:id="@+id/tvViewCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#a7a7a7"
+            android:layout_marginLeft="15mm"
+            android:textSize="26mm"
+            android:text="阅读量"/>
+
+    </LinearLayout>
+</LinearLayout>

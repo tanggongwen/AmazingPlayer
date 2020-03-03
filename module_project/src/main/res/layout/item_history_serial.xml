@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.mahuahudong.project.viewmodel.WatchHistorySerialItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="220mm"
+            android:layout_height="120mm">
+            <com.mahuahudong.res.weiget.NiceImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:corner_radius="5mm"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20mm"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:textSize="16mm"
+                android:text="12：20：20"
+                android:layout_marginBottom="5mm"
+                android:layout_marginRight="5mm"
+                android:background="#4DC4C1C1"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

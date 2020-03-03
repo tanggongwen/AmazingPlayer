@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlytRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="406mm"
+                android:layout_alignParentTop="true">
+
+                <com.mahuahudong.res.weiget.NiceImageView
+                    android:id="@+id/imgFocus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    binding:corner_radius="10mm" />
+
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="36mm"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:background="#00FFFFFF"
+                    android:layout_alignParentBottom="true"
+                    android:ellipsize="end"
+                    android:layout_marginLeft="30mm"
+                    android:layout_marginRight="100mm"
+                    android:layout_marginBottom="12mm"
+                    android:lineSpacingExtra="7mm" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

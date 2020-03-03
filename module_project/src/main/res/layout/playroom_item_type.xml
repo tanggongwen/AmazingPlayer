@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.mahuahudong.project.viewmodel.PlayRoomTypeItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="140mm">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            binding:itemBinding="@{itemViewModel.itemBinding}"
+            binding:items="@{itemViewModel.items}"
+            android:layout_marginRight="20mm"
+            binding:spanCount="3"
+            binding:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            android:layout_height="80mm"
+            />
+    </LinearLayout>
+</layout>

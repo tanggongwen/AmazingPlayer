@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mahuahudong.project" >
+
+    <application>
+        <activity android:name="com.mahuahudong.project.view.activity.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.mahuahudong.project.view.activity.WatchHistoryListActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+</manifest>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1000mm">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80mm"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/tv_pop_name"
+                    android:textSize="34mm"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:text="评论"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30mm"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/imgClose"
+                    android:layout_width="34mm"
+                    android:layout_height="34mm"
+                    android:src="@drawable/icon_close"
+                    android:layout_marginRight="24mm"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2mm"
+                android:background="#f2f2f2" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ryContent"
+                    android:background="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:paddingBottom="100mm"
+                    android:layout_weight="1"/>
+                <LinearLayout
+                    android:id="@+id/llytEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:background="#ffffff"
+                    android:visibility="visible"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="60mm"
+                        android:layout_height="60mm"
+                        android:src="@drawable/commont_empty" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10mm"
+                        android:textSize="22mm"
+                        android:text="该新闻暂无评论"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlyt_input"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="100mm"
+            android:focusable="true"
+            android:background="#FFFFFF"
+            android:layout_alignParentBottom="true"
+            android:focusableInTouchMode="true">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2mm"
+                android:layout_alignParentTop="true"
+                android:background="#efefef"/>
+
+            <TextView
+                android:id="@+id/tvInput"
+                android:layout_width="match_parent"
+                android:layout_height="60mm"
+                android:layout_centerVertical="true"
+                android:textSize="30mm"
+                android:hint="我来说两句"
+                android:layout_marginRight="30mm"
+                android:textColorHint="#999999"
+                android:gravity="center_vertical"
+                android:paddingLeft="30mm"
+                android:layout_marginLeft="30mm"
+                android:background="@drawable/shape_input_bg"/>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.mahuahudong.project.viewmodel.VideoGridViewModel" />
+        <import type="com.mahuahudong.res.weiget.LineManagers"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90mm"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/tvTypeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30mm"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginLeft="30mm"
+                android:text="@{itemViewModel.titleOb}"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2mm"
+            android:background="#f0f0f0"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rylcContentGridView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10mm"
+            binding:items ="@{itemViewModel.gridItems}"
+            binding:itemBinding="@{itemViewModel.gridItemBinding}"
+            binding:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            binding:spanCount="2"
+            binding:lineManager="@{LineManagers.typeNormalVideoVertical(10)}"
+            />
+    </LinearLayout>
+</layout>
