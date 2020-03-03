@@ -9,7 +9,11 @@ public class RouterActivityPath {
 //    /**
 
         private static final String HOME = "/home";
+        private static final String MINE = "/mine";
         /*主业务界面*/
         public static final String PAGER_HOME = HOME +"/Home";
+
+
+        public static final String PAGER_WATCHHISTORYLIST = MINE +"/WatchHistoryList";
 
 }

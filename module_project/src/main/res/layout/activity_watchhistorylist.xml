@@ -44,11 +44,11 @@
             binding:tl_rvtextsize="26mm"
             binding:tl_textsize="30mm"/>
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vp_videos"
+            android:id="@+id/historyPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             binding:adapter="@{viewModel.bindingViewPagerAdapter}"
-            binding:items="@{viewModel.imageitems}"
+            binding:items="@{viewModel.historyPagers}"
             binding:itemBinding="@{viewModel.imageBinding}"
             />
     </LinearLayout>

@@ -22,11 +22,11 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding;
 public class WatchHistoryListViewModel extends BaseViewModel<HomeModel> {
 
 
-    public SingleLiveEvent<List<ColunmBean>> colunList = new SingleLiveEvent<>();
+    public SingleLiveEvent<List<ColunmBean>> colunListEvent = new SingleLiveEvent<>();
 
 
 
-    public ObservableList<WatchHistoryPagerViewModel> imageitems = new ObservableArrayList<>();
+    public ObservableList<WatchHistoryPagerViewModel> historyPagers = new ObservableArrayList<>();
     public ItemBinding<WatchHistoryPagerViewModel> imageBinding = ItemBinding.of(BR.pagerViewModel, R.layout.layout_pager_watchlist);
 
 
@@ -44,12 +44,14 @@ public class WatchHistoryListViewModel extends BaseViewModel<HomeModel> {
         movie2.setColumnId("2");
         movie2.setColumnName("电影");
         ColunmBean movie3 = new ColunmBean();
-        movie3.setColumnId("2");
+        movie3.setColumnId("3");
         movie3.setColumnName("电视剧");
         list.add(movie);
         list.add(movie2);
         list.add(movie3);
-
-        colunList.setValue(list);
+        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
+        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
+        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
+        colunListEvent.setValue(list);
     }
 }

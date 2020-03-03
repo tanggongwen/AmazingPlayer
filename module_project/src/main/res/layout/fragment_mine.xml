@@ -60,7 +60,8 @@
             android:paddingLeft="30mm">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="40mm">
+                android:layout_height="40mm"
+                binding:onClickCommand="@{viewModel.openWatchHistoryListCommand}">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -78,7 +79,8 @@
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
-                android:layout_height="80mm"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20mm"
                 android:orientation="horizontal"
                 binding:itemBinding="@{viewModel.itemBinding}"
                 binding:items="@{viewModel.itemViewModels}"

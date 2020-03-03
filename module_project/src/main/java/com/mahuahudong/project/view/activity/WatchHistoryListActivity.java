@@ -3,18 +3,22 @@ package com.mahuahudong.project.view.activity;
 import android.os.Bundle;
 
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.mahuahudong.mvvm.base.BaseActivity;
+import com.mahuahudong.mvvm.router.RouterActivityPath;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
 import com.mahuahudong.project.beans.ColunmBean;
+import com.mahuahudong.project.config.HomeViewModelFactory;
 import com.mahuahudong.project.databinding.ActivityWatchhistorylistBinding;
 import com.mahuahudong.project.viewmodel.WatchHistoryListViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Route(path = RouterActivityPath.PAGER_WATCHHISTORYLIST)
 public class WatchHistoryListActivity extends BaseActivity<ActivityWatchhistorylistBinding, WatchHistoryListViewModel> {
     private List<String> columList = new ArrayList<>();
     @Override
@@ -29,26 +33,27 @@ public class WatchHistoryListActivity extends BaseActivity<ActivityWatchhistoryl
 
     @Override
     public void initData() {
-        binding.tabs.setViewPager(binding.vpVideos);
+
     }
 
     @Override
     public WatchHistoryListViewModel initViewModel() {
-        return super.initViewModel();
+        HomeViewModelFactory factory = HomeViewModelFactory.getInstance(getApplication());
+        return ViewModelProviders.of(this,factory).get(WatchHistoryListViewModel.class);
     }
 
     @Override
     public void initViewObservable() {
-        viewModel.colunList.observe(this, new Observer<List<ColunmBean>>() {
+        viewModel.colunListEvent.observe(this, new Observer<List<ColunmBean>>() {
             @Override
             public void onChanged(List<ColunmBean> colunmBeans) {
-                binding.vpVideos.setOffscreenPageLimit(colunmBeans.size());
+                binding.historyPager.setOffscreenPageLimit(colunmBeans.size());
                 columList.clear();
                 for (ColunmBean channelBean:colunmBeans){
                     columList.add(channelBean.getColumnName());
                 }
                 String[] titles = columList.toArray(new String[columList.size()]);
-                binding.tabs.setViewPager(binding.vpVideos,titles);
+//                binding.tabs.setViewPager(binding.historyPager,titles);
                 binding.tabs.setOnTabSelectListener(new OnTabSelectListener() {
                     @Override
                     public void onTabSelect(int position) {

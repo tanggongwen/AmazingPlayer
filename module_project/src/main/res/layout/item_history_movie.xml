@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -7,10 +8,56 @@
             type="com.mahuahudong.project.viewmodel.WatchHistoryMovieItemViewModel" />
     </data>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/rlytCover"
+            android:layout_width="220mm"
+            android:layout_marginLeft="30mm"
+            android:layout_height="120mm">
+            <com.mahuahudong.res.weiget.NiceImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:corner_radius="5mm"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20mm"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:textSize="16mm"
+                android:text="12：20：20"
+                android:layout_marginBottom="5mm"
+                android:layout_marginRight="5mm"
+                android:background="#4DC4C1C1"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/llytIntro"
+            android:layout_toRightOf="@id/rlytCover"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="20mm"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_marginRight="30mm"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:textColor="#000000"
+                android:textSize="28mm"
+                android:text="电视剧"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_marginTop="5mm"
+                android:textColor="#dddddd"
+                android:textSize="24mm"
+                android:text="观看到1%"/>
+        </LinearLayout>
+    </RelativeLayout>
 
-    </LinearLayout>
 </layout>

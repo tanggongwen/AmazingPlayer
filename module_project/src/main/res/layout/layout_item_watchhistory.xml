@@ -10,11 +10,11 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="220mm"
+        android:layout_width="260mm"
         android:gravity="center_horizontal"
         android:layout_height="wrap_content">
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="220mm"
             android:layout_height="120mm">
 
             <com.mahuahudong.res.weiget.NiceImageView
