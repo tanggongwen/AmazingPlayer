@@ -13,8 +13,10 @@ import com.mahuahudong.project.viewmodel.HomeFrgViewModel;
 import com.mahuahudong.project.viewmodel.HomeVideoViewModel;
 import com.mahuahudong.project.viewmodel.HomeViewModel;
 import com.mahuahudong.project.viewmodel.LiveFrgViewModel;
+import com.mahuahudong.project.viewmodel.LoginViewModel;
 import com.mahuahudong.project.viewmodel.MineFrgViewModel;
 import com.mahuahudong.project.viewmodel.PlayRoomFrgViewModel;
+import com.mahuahudong.project.viewmodel.RegisterViewModel;
 import com.mahuahudong.project.viewmodel.WatchHistoryListViewModel;
 
 /**
@@ -64,6 +66,10 @@ public class HomeViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new HomeVideoViewModel(mApplication, homeModel);
         }else  if (modelClass.isAssignableFrom(WatchHistoryListViewModel.class)){
             return (T) new WatchHistoryListViewModel(mApplication, homeModel);
+        }else  if (modelClass.isAssignableFrom(LoginViewModel.class)){
+            return (T) new LoginViewModel(mApplication, homeModel);
+        }else  if (modelClass.isAssignableFrom(RegisterViewModel.class)){
+            return (T) new RegisterViewModel(mApplication, homeModel);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

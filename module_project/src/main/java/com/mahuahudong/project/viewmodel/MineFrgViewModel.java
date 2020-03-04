@@ -30,7 +30,7 @@ public class MineFrgViewModel extends BaseViewModel<HomeModel> {
 
     public ObservableField<String> headUrl = new ObservableField<>();
 
-    public ObservableInt headPlaceHolder = new ObservableInt(R.drawable.head_defalut);
+    public ObservableInt headPlaceHolder = new ObservableInt(R.drawable.ic_account_circle_48px);
 
     public ItemBinding itemBinding = ItemBinding.of(BR.itemViewModel,R.layout.layout_item_watchhistory);
 
@@ -40,6 +40,14 @@ public class MineFrgViewModel extends BaseViewModel<HomeModel> {
         @Override
         public void call() {
             ARouter.getInstance().build(RouterActivityPath.PAGER_WATCHHISTORYLIST).navigation();
+        }
+    });
+
+
+    public BindingCommand loginCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            ARouter.getInstance().build(RouterActivityPath.PAGER_LOGIN).navigation();
         }
     });
 }

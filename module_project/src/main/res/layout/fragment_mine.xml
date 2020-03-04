@@ -12,17 +12,18 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f2f2f2">
+
+        android:background="#ffffff">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200mm"
+            android:layout_height="300mm"
             android:paddingLeft="30mm"
             android:paddingRight="30mm"
             android:background="#ffffff">
             <com.mahuahudong.res.weiget.CircleImageView
                 android:id="@+id/imgHead"
-                android:layout_width="100mm"
-                android:layout_height="100mm"
+                android:layout_width="120mm"
+                android:layout_height="120mm"
                 binding:url="@{viewModel.headUrl}"
                 binding:placeholderRes="@{viewModel.headPlaceHolder}"
                 android:layout_centerVertical="true"/>
@@ -32,11 +33,12 @@
                 android:orientation="vertical"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20mm"
+                binding:onClickCommand="@{viewModel.loginCommand}"
                 android:layout_toRightOf="@id/imgHead">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="32mm"
+                    android:textSize="36mm"
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:text="登录/注册"/>
@@ -44,20 +46,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#999999"
-                    android:textSize="26mm"
+                    android:textSize="30mm"
                     android:layout_marginTop="10mm"
                     android:text="登录一下，内容更精彩"/>
             </LinearLayout>
 
         </RelativeLayout>
         <LinearLayout
+            android:paddingLeft="30mm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="10mm"
             android:background="#ffffff"
             android:paddingTop="40mm"
-            android:paddingLeft="30mm">
+          >
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="40mm"
@@ -66,7 +69,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="28mm"
+                    android:textSize="32mm"
                     android:textColor="#000000"
                     android:layout_centerVertical="true"
                     android:text="观看历史"/>
@@ -85,6 +88,82 @@
                 binding:itemBinding="@{viewModel.itemBinding}"
                 binding:items="@{viewModel.itemViewModels}"
                 binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80mm"
+                binding:onClickCommand="@{viewModel.openWatchHistoryListCommand}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32mm"
+                    android:textColor="#000000"
+                    android:layout_centerVertical="true"
+                    android:text="我的关注"/>
+                <ImageView
+                    android:layout_width="30mm"
+                    android:layout_height="30mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_more"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80mm"
+                binding:onClickCommand="@{viewModel.openWatchHistoryListCommand}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32mm"
+                    android:textColor="#000000"
+                    android:layout_centerVertical="true"
+                    android:text="用户协议与隐私政策"/>
+                <ImageView
+                    android:layout_width="30mm"
+                    android:layout_height="30mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_more"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80mm"
+                binding:onClickCommand="@{viewModel.openWatchHistoryListCommand}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32mm"
+                    android:textColor="#000000"
+                    android:layout_centerVertical="true"
+                    android:text="关于"/>
+                <ImageView
+                    android:layout_width="30mm"
+                    android:layout_height="30mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_more"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80mm"
+                binding:onClickCommand="@{viewModel.openWatchHistoryListCommand}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32mm"
+                    android:textColor="#000000"
+                    android:layout_centerVertical="true"
+                    android:text="退出"/>
+                <ImageView
+                    android:layout_width="30mm"
+                    android:layout_height="30mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_more"/>
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 </layout>

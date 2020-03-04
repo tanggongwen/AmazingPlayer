@@ -1,6 +1,7 @@
 package com.mahuahudong.project.viewmodel;
 
 import android.app.Application;
+import android.os.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
@@ -36,7 +37,10 @@ public class WatchHistoryListViewModel extends BaseViewModel<HomeModel> {
 
     public WatchHistoryListViewModel(@NonNull Application application, HomeModel model) {
         super(application, model);
-        List<ColunmBean> list = new ArrayList<>();
+        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
+        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
+        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
+        final List<ColunmBean> list = new ArrayList<>();
         ColunmBean movie = new ColunmBean();
         movie.setColumnId("1");
         movie.setColumnName("全部");
@@ -49,9 +53,12 @@ public class WatchHistoryListViewModel extends BaseViewModel<HomeModel> {
         list.add(movie);
         list.add(movie2);
         list.add(movie3);
-        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
-        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
-        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
-        colunListEvent.setValue(list);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                colunListEvent.setValue(list);
+            }
+        },300);
+
     }
 }

@@ -20,6 +20,8 @@
             <com.mahuahudong.res.weiget.NiceImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                binding:placeholderRes="@{itemViewModel.coverPlaceHoder}"
+                binding:url="@{itemViewModel.coverOb}"
                 binding:corner_radius="5mm"/>
             <TextView
                 android:layout_width="wrap_content"

@@ -12,11 +12,33 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <androidx.recyclerview.widget.RecyclerView
+        <com.mahuahudong.res.weiget.swipetoloadlayout.SwipeToLoadLayout
+            android:id="@+id/swipe"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            binding:itemBinding="@{pagerViewModel.itemBinding}"
-            binding:items="@{pagerViewModel.items}"
-            binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            android:layout_height="match_parent"
+            binding:onRefreshCommand="@{pagerViewModel.refreshCommand}"
+            binding:onLoadMoreCommand="@{pagerViewModel.onLoadMoreCommand}">
+
+            <com.mahuahudong.res.weiget.swipetoloadlayout.HeaderView
+                android:id="@+id/swipe_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:paddingLeft="30mm"
+                android:paddingRight="30mm"
+                android:id="@+id/swipe_target"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                binding:itemBinding="@{pagerViewModel.itemBinding}"
+                binding:items="@{pagerViewModel.items}"
+                binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <com.mahuahudong.res.weiget.swipetoloadlayout.FooterView
+                android:id="@+id/swipe_load_more_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.mahuahudong.res.weiget.swipetoloadlayout.SwipeToLoadLayout>
+
+
     </LinearLayout>
 </layout>

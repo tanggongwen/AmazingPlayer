@@ -6,6 +6,7 @@
         <variable
             name="itemViewModel"
             type="com.mahuahudong.project.viewmodel.WatchHistoryPagerItemViewModel" />
+        <import type="com.mahuahudong.res.weiget.LineManagers"/>
     </data>
 
     <LinearLayout
@@ -24,6 +25,7 @@
             binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             binding:itemBinding="@{itemViewModel.onItemBind}"
             binding:items = "@{itemViewModel.items}"
+            binding:lineManager="@{LineManagers.horizontal(10,0,0)}"
             android:orientation="vertical"/>
     </LinearLayout>
 </layout>

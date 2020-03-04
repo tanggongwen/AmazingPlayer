@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Route(path = RouterActivityPath.PAGER_WATCHHISTORYLIST)
 public class WatchHistoryListActivity extends BaseActivity<ActivityWatchhistorylistBinding, WatchHistoryListViewModel> {
-    private List<String> columList = new ArrayList<>();
+    private List<String> colunmList = new ArrayList<>();
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_watchhistorylist;
@@ -48,12 +48,12 @@ public class WatchHistoryListActivity extends BaseActivity<ActivityWatchhistoryl
             @Override
             public void onChanged(List<ColunmBean> colunmBeans) {
                 binding.historyPager.setOffscreenPageLimit(colunmBeans.size());
-                columList.clear();
+                colunmList.clear();
                 for (ColunmBean channelBean:colunmBeans){
-                    columList.add(channelBean.getColumnName());
+                    colunmList.add(channelBean.getColumnName());
                 }
-                String[] titles = columList.toArray(new String[columList.size()]);
-//                binding.tabs.setViewPager(binding.historyPager,titles);
+                String[] titles = colunmList.toArray(new String[colunmList.size()]);
+                binding.tabs.setViewPager(binding.historyPager,titles);
                 binding.tabs.setOnTabSelectListener(new OnTabSelectListener() {
                     @Override
                     public void onTabSelect(int position) {

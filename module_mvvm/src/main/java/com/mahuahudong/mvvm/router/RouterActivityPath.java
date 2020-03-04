@@ -16,4 +16,8 @@ public class RouterActivityPath {
 
         public static final String PAGER_WATCHHISTORYLIST = MINE +"/WatchHistoryList";
 
+        public static final String PAGER_LOGIN = MINE +"/login";
+
+        public static final String PAGER_REGISTER = MINE +"/register";
+
 }

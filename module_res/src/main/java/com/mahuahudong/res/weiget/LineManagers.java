@@ -70,5 +70,14 @@ public class LineManagers {
         };
     }
 
+    public static LineManagerFactory horizontal(final int size, final int verticalMargin, final int horizonlMargin){
+        return new LineManagerFactory() {
+            @Override
+            public RecyclerView.ItemDecoration create(RecyclerView recyclerView) {
+                return new DividerLine(recyclerView.getContext(),size,DividerLine.LineDrawMode.HORIZONTAL,0,horizonlMargin,verticalMargin);
+            }
+        };
+    }
+
 
 }
