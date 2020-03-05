@@ -22,4 +22,11 @@ public class LoginViewModel extends BaseViewModel<HomeModel> {
             ARouter.getInstance().build(RouterActivityPath.PAGER_REGISTER).navigation();
         }
     });
+
+    public BindingCommand backCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            finish();
+        }
+    });
 }

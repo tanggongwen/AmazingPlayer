@@ -1,6 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="120mm"
+    android:layout_height="150mm"
     android:background="#00FFFFFF"
     android:foreground="?attr/selectableItemBackground">
     <TextView
@@ -9,8 +9,8 @@
         android:layout_marginTop="18mm" />
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="40mm"
-        android:layout_height="40mm"
+        android:layout_width="60mm"
+        android:layout_height="60mm"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="34mm"/>
 
@@ -18,7 +18,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20mm"
+        android:textSize="24mm"
         android:singleLine="true"
         android:layout_marginBottom="12mm"
         android:layout_gravity="bottom|center_horizontal"

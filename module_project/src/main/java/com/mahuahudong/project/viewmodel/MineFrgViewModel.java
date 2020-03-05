@@ -43,11 +43,25 @@ public class MineFrgViewModel extends BaseViewModel<HomeModel> {
         }
     });
 
+    public BindingCommand openMyAttentionCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            ARouter.getInstance().build(RouterActivityPath.PAGER_MYATTENTION).navigation();
+        }
+    });
+
 
     public BindingCommand loginCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
             ARouter.getInstance().build(RouterActivityPath.PAGER_LOGIN).navigation();
+        }
+    });
+
+    public BindingCommand openPersonInfoCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            ARouter.getInstance().build(RouterActivityPath.PAGER_PERSONINFO).navigation();
         }
     });
 }

@@ -25,6 +25,7 @@
                 android:layout_width="120mm"
                 android:layout_height="120mm"
                 binding:url="@{viewModel.headUrl}"
+                binding:onClickCommand="@{viewModel.openPersonInfoCommand}"
                 binding:placeholderRes="@{viewModel.headPlaceHolder}"
                 android:layout_centerVertical="true"/>
             <LinearLayout
@@ -78,7 +79,8 @@
                     android:layout_height="30mm"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/icon_more"/>
+                    android:layout_marginRight="20mm"
+                    android:src="@drawable/ic_keyboard_arrow_right_48px"/>
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
@@ -91,7 +93,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="80mm"
-                binding:onClickCommand="@{viewModel.openWatchHistoryListCommand}">
+                binding:onClickCommand="@{viewModel.openMyAttentionCommand}">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -105,7 +107,8 @@
                     android:layout_height="30mm"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/icon_more"/>
+                    android:layout_marginRight="20mm"
+                    android:src="@drawable/ic_keyboard_arrow_right_48px"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -124,7 +127,8 @@
                     android:layout_height="30mm"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/icon_more"/>
+                    android:layout_marginRight="20mm"
+                    android:src="@drawable/ic_keyboard_arrow_right_48px"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -142,8 +146,9 @@
                     android:layout_width="30mm"
                     android:layout_height="30mm"
                     android:layout_alignParentRight="true"
+                    android:layout_marginRight="20mm"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/icon_more"/>
+                    android:src="@drawable/ic_keyboard_arrow_right_48px"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -162,7 +167,8 @@
                     android:layout_height="30mm"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/icon_more"/>
+                    android:layout_marginRight="20mm"
+                    android:src="@drawable/ic_keyboard_arrow_right_48px"/>
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

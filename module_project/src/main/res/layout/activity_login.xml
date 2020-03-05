@@ -14,12 +14,13 @@
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="120mm">
+            android:layout_height="80mm">
             <ImageView
                 android:layout_width="70mm"
                 android:layout_height="70mm"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20mm"
+                binding:onClickCommand="@{viewModel.backCommand}"
                 android:src="@drawable/ic_chevron_left_48px"/>
         </RelativeLayout>
         <RelativeLayout

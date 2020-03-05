@@ -9,14 +9,18 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.mahuahudong.project.model.HomeModel;
+import com.mahuahudong.project.viewmodel.AccountManagerViewModel;
 import com.mahuahudong.project.viewmodel.HomeFrgViewModel;
 import com.mahuahudong.project.viewmodel.HomeVideoViewModel;
 import com.mahuahudong.project.viewmodel.HomeViewModel;
 import com.mahuahudong.project.viewmodel.LiveFrgViewModel;
 import com.mahuahudong.project.viewmodel.LoginViewModel;
 import com.mahuahudong.project.viewmodel.MineFrgViewModel;
+import com.mahuahudong.project.viewmodel.MyAttentionViewModel;
+import com.mahuahudong.project.viewmodel.PersonInfoViewModel;
 import com.mahuahudong.project.viewmodel.PlayRoomFrgViewModel;
 import com.mahuahudong.project.viewmodel.RegisterViewModel;
+import com.mahuahudong.project.viewmodel.TrendsViewModel;
 import com.mahuahudong.project.viewmodel.WatchHistoryListViewModel;
 
 /**
@@ -70,6 +74,14 @@ public class HomeViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new LoginViewModel(mApplication, homeModel);
         }else  if (modelClass.isAssignableFrom(RegisterViewModel.class)){
             return (T) new RegisterViewModel(mApplication, homeModel);
+        }else  if (modelClass.isAssignableFrom(PersonInfoViewModel.class)){
+            return (T) new PersonInfoViewModel(mApplication, homeModel);
+        }else  if (modelClass.isAssignableFrom(MyAttentionViewModel.class)){
+            return (T) new MyAttentionViewModel(mApplication, homeModel);
+        }else  if (modelClass.isAssignableFrom(TrendsViewModel.class)){
+            return (T) new TrendsViewModel(mApplication, homeModel);
+        }else  if (modelClass.isAssignableFrom(AccountManagerViewModel.class)){
+            return (T) new AccountManagerViewModel(mApplication, homeModel);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

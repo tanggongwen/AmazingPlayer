@@ -107,10 +107,10 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         PageNavigationView tab = findViewById(R.id.tab);
 
         NavigationController navigationController = tab.custom()
-                .addItem(newItem(R.drawable.icon_news_normal,R.drawable.icon_news_press,"首页"))
-                .addItem(newItem(R.drawable.icon_channel_normal,R.drawable.icon_channel_press,"放映厅"))
-                .addItem(newItem(R.drawable.icon_live_normal,R.drawable.icon_live_press,"直播"))
-                .addItem(newItem(R.drawable.icon_mine_normal,R.drawable.icon_mine_press,"我的"))
+                .addItem(newItem(R.drawable.ic_store_mall_directory_48px,R.drawable.ic_store_mall_directory_red_48px,"首页"))
+                .addItem(newItem(R.drawable.ic_video_library_48px,R.drawable.ic_video_library_red_48px,"放映厅"))
+                .addItem(newItem(R.drawable.ic_wifi_tethering_48px,R.drawable.ic_wifi_tethering_red_48px,"直播"))
+                .addItem(newItem(R.drawable.ic_person_48px,R.drawable.ic_person_red_48px,"我的"))
                 .build();
 
         viewPager = findViewById(R.id.viewPager);

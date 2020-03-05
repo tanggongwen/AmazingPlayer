@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mahuahudong.project.viewmodel.MyAttentionViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80mm">
+            <ImageView
+                android:layout_width="70mm"
+                android:layout_height="70mm"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20mm"
+                binding:onClickCommand="@{viewModel.backCommand}"
+                android:src="@drawable/ic_chevron_left_48px"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="34mm"
+                android:text="我的关注"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <com.mahuahudong.res.weiget.swipetoloadlayout.SwipeToLoadLayout
+            android:id="@+id/swipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:onRefreshCommand="@{viewModel.refreshCommand}"
+            binding:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}">
+
+            <com.mahuahudong.res.weiget.swipetoloadlayout.HeaderView
+                android:id="@+id/swipe_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:paddingLeft="30mm"
+                android:paddingRight="30mm"
+                android:id="@+id/swipe_target"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                binding:itemBinding="@{viewModel.itemBinding}"
+                binding:items="@{viewModel.items}"
+                binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <com.mahuahudong.res.weiget.swipetoloadlayout.FooterView
+                android:id="@+id/swipe_load_more_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.mahuahudong.res.weiget.swipetoloadlayout.SwipeToLoadLayout>
+
+    </LinearLayout>
+</layout>

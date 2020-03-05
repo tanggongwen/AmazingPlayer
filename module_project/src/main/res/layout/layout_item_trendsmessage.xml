@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.mahuahudong.project.viewmodel.TrendsMessageItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90mm"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="30mm">
+            <com.mahuahudong.res.weiget.CircleImageView
+                android:layout_width="60mm"
+                android:layout_height="60mm"
+                android:src="@drawable/ic_account_circle_48px"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20mm">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="26mm"
+                    android:text="Anthony"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22mm"
+                    android:text="1分钟前"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="26mm"
+
+            android:text="这里春天的夜晚比冬天的更冷"
+            android:layout_marginLeft="110mm"
+            android:layout_marginTop="10mm"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="500mm"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10mm"
+                binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                binding:itemBinding="@{itemViewModel.itemBinding}"
+                binding:items="@{itemViewModel.items}"
+                android:layout_marginLeft="110mm"/>
+    </LinearLayout>
+</layout>

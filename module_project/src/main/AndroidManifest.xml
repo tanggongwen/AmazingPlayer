@@ -10,5 +10,13 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.activity.LoginActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.PersonInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.MyAttentionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.TrendsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.AccountManagerActivity"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>

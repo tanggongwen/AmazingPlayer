@@ -34,7 +34,7 @@
             <ImageView
                 android:layout_width="50mm"
                 android:layout_height="50mm"
-                android:src="@drawable/icon_live_press"/>
+                android:src="@drawable/ic_apps_48px"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

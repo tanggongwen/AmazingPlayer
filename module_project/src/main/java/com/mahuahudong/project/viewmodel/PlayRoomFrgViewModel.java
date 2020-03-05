@@ -25,10 +25,10 @@ public class PlayRoomFrgViewModel extends BaseViewModel<HomeModel> {
         List<ColunmBean> list = new ArrayList<>();
         ColunmBean movie = new ColunmBean();
         movie.setColumnId("1");
-        movie.setColumnName("喜剧电视剧");
+        movie.setColumnName("午间剧场");
         ColunmBean movie2 = new ColunmBean();
         movie2.setColumnId("2");
-        movie2.setColumnName("恐怖电视剧");
+        movie2.setColumnName("晚间剧场");
         list.add(movie);
         imageitems.add(new PlayRoomVideoViewModel(PlayRoomFrgViewModel.this));
         list.add(movie2);

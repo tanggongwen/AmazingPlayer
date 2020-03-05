@@ -20,4 +20,12 @@ public class RouterActivityPath {
 
         public static final String PAGER_REGISTER = MINE +"/register";
 
+        public static final String PAGER_PERSONINFO = MINE+"/personinfo";
+
+        public static final String PAGER_MYATTENTION= MINE+"/myattention";
+
+        public static final String PAGER_TRENDS= MINE+"/trends";
+
+        public static final String PAGER_ACCOUNTMANAGER= MINE+"/accountmanager";
+
 }

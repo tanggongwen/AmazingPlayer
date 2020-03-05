@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 binding:corner_radius="5mm"
+                android:scaleType="fitXY"
                 binding:placeholderRes="@{itemViewModel.coverPlaceHoder}"
                 binding:url="@{itemViewModel.coverOb}"/>
             <TextView

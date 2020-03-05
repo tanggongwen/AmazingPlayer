@@ -12,29 +12,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="80mm"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="#ffffff">
-
-
-            <ImageView
-                android:layout_width="40mm"
-                android:layout_height="40mm"
-                android:src="@drawable/icon_search"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="30mm"/>
-            <ImageView
-                android:layout_width="40mm"
-                android:layout_height="40mm"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/icon_channel_editor"
-                android:layout_marginRight="30mm"/>
-        </RelativeLayout>
         <com.flyco.tablayout.SlidingTabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
@@ -45,8 +22,8 @@
             binding:tl_textSelectColor="#e70000"
             binding:tl_textUnselectColor="#000000"
             binding:tl_textBold="true"
-            binding:tl_rvtextsize="26mm"
-            binding:tl_textsize="30mm"/>
+            binding:tl_rvtextsize="34mm"
+            binding:tl_textsize="34mm"/>
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_videos"
             android:layout_width="match_parent"

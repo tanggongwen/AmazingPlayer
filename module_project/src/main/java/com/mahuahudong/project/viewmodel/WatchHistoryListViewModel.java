@@ -8,6 +8,8 @@ import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
 
 import com.mahuahudong.mvvm.base.BaseViewModel;
+import com.mahuahudong.mvvm.binding.command.BindingAction;
+import com.mahuahudong.mvvm.binding.command.BindingCommand;
 import com.mahuahudong.mvvm.bus.event.SingleLiveEvent;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
@@ -28,6 +30,7 @@ public class WatchHistoryListViewModel extends BaseViewModel<HomeModel> {
 
 
     public ObservableList<WatchHistoryPagerViewModel> historyPagers = new ObservableArrayList<>();
+
     public ItemBinding<WatchHistoryPagerViewModel> imageBinding = ItemBinding.of(BR.pagerViewModel, R.layout.layout_pager_watchlist);
 
 
@@ -61,4 +64,11 @@ public class WatchHistoryListViewModel extends BaseViewModel<HomeModel> {
         },300);
 
     }
+
+    public BindingCommand backCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            finish();
+        }
+    });
 }
