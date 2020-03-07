@@ -59,9 +59,9 @@ public class PlayRoomVideoViewModel extends ItemViewModel<PlayRoomFrgViewModel> 
     private void getHomeDatas(){
         items.add(new HomeHeadItemViewModel(viewModel));
         items.add(new PlayRoomTypeItemViewModel(viewModel));
-        items.add(new VideoGridViewModel<>(viewModel,"为您推荐", NetDateProvider.getVideoList()));
-        items.add(new VideoGridViewModel<>(viewModel,"精彩电视剧", NetDateProvider.getVideoList()));
-        items.add(new VideoGridViewModel<>(viewModel,"最新电视剧", NetDateProvider.getVideoList()));
+        items.add(new VideoGridViewModel<>(viewModel,"为您推荐", NetDateProvider.getVideoProgList()));
+        items.add(new VideoGridViewModel<>(viewModel,"精彩电视剧", NetDateProvider.getVideoProgList()));
+        items.add(new VideoGridViewModel<>(viewModel,"最新电视剧", NetDateProvider.getVideoProgList()));
     }
 
 

@@ -16,6 +16,8 @@ import com.mahuahudong.project.viewmodel.HomeViewModel;
 import com.mahuahudong.project.viewmodel.LiveFrgViewModel;
 import com.mahuahudong.project.viewmodel.LoginViewModel;
 import com.mahuahudong.project.viewmodel.MineFrgViewModel;
+import com.mahuahudong.project.viewmodel.MovieDetailViewModel;
+import com.mahuahudong.project.viewmodel.MovieSelectViewModel;
 import com.mahuahudong.project.viewmodel.MyAttentionViewModel;
 import com.mahuahudong.project.viewmodel.PersonInfoViewModel;
 import com.mahuahudong.project.viewmodel.PlayRoomFrgViewModel;
@@ -82,7 +84,12 @@ public class HomeViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new TrendsViewModel(mApplication, homeModel);
         }else  if (modelClass.isAssignableFrom(AccountManagerViewModel.class)){
             return (T) new AccountManagerViewModel(mApplication, homeModel);
+        }else  if (modelClass.isAssignableFrom(MovieDetailViewModel.class)){
+            return (T) new MovieDetailViewModel(mApplication, homeModel);
+        }else  if (modelClass.isAssignableFrom(MovieSelectViewModel.class)){
+            return (T) new MovieSelectViewModel(mApplication, homeModel);
         }
+
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }

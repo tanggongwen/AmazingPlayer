@@ -6,13 +6,17 @@ import androidx.databinding.ObservableInt;
 
 import com.mahuahudong.mvvm.base.ItemViewModel;
 import com.mahuahudong.project.R;
+import com.mahuahudong.project.beans.VideoBean;
 
 public class WatchHistoryItemViewModel extends ItemViewModel<MineFrgViewModel> {
-    public WatchHistoryItemViewModel(@NonNull MineFrgViewModel viewModel) {
+    public WatchHistoryItemViewModel(@NonNull MineFrgViewModel viewModel, VideoBean videoBean) {
         super(viewModel);
+        coverUrlOb.set(videoBean.getCover());
+        titleOb.set(videoBean.getIntro());
+
     }
 
-    public ObservableField<String> coverUrlOb = new ObservableField<>("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800440&di=2dd71882312b3e959510a4be4a97ad50&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fd4408991b088a2f7ac466d9253d7a654c6a69c07d3af-x7dJ92_fw658");
+    public ObservableField<String> coverUrlOb = new ObservableField<>("");
 
 
     public ObservableInt coverPlaceHolder = new ObservableInt(R.color.white);
@@ -20,5 +24,5 @@ public class WatchHistoryItemViewModel extends ItemViewModel<MineFrgViewModel> {
     public ObservableField<String> dateOb = new ObservableField<>();
 
 
-    public ObservableField<String> introOb = new ObservableField<>();
+    public ObservableField<String> titleOb = new ObservableField<>();
 }

@@ -22,10 +22,11 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding;
 public class MineFrgViewModel extends BaseViewModel<HomeModel> {
     public MineFrgViewModel(@NonNull Application application, HomeModel model) {
         super(application, model);
-        itemViewModels.add(new WatchHistoryItemViewModel(MineFrgViewModel.this));
-        itemViewModels.add(new WatchHistoryItemViewModel(MineFrgViewModel.this));
-        itemViewModels.add(new WatchHistoryItemViewModel(MineFrgViewModel.this));
-        itemViewModels.add(new WatchHistoryItemViewModel(MineFrgViewModel.this));
+
+//        itemViewModels.add(new WatchHistoryItemViewModel(MineFrgViewModel.this));
+//        itemViewModels.add(new WatchHistoryItemViewModel(MineFrgViewModel.this));
+//        itemViewModels.add(new WatchHistoryItemViewModel(MineFrgViewModel.this));
+//        itemViewModels.add(new WatchHistoryItemViewModel(MineFrgViewModel.this));
     }
 
     public ObservableField<String> headUrl = new ObservableField<>();

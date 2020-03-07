@@ -29,7 +29,6 @@ import com.mahuahudong.res.R;
 
 public class SlidingRvTabLayout extends HorizontalScrollView {
     private Context mContext;
-    private RecyclerView mRecyclerView;
     private String[] mTitles;
     private LinearLayout mTabsContainer;
     private int mCurrentTab;
@@ -160,33 +159,20 @@ public class SlidingRvTabLayout extends HorizontalScrollView {
         ta.recycle();
     }
 
-    /** 关联RecyclerView */
-    public void setRecyclerView(RecyclerView vp) {
-        if (vp == null || vp.getAdapter() == null) {
-            throw new IllegalStateException("RecyclerView or RecyclerView adapter can not be NULL !");
-        }
 
-        this.mRecyclerView = vp;
-
-        this.mRecyclerView.addOnScrollListener(onScrollListener);
-        notifyDataSetChanged();
-    }
 
     /** 关联RecyclerView,用于不想在RecyclerView适配器中设置titles数据的情况 */
-    public void setRecyclerView(RecyclerView vp, String[] titles) {
-        if (vp == null || vp.getAdapter() == null) {
-            throw new IllegalStateException("RecyclerView or RecyclerView adapter can not be NULL !");
-        }
+    public void setRecyclerView(String[] titles) {
+
 
         if (titles == null || titles.length == 0) {
             throw new IllegalStateException("Titles can not be EMPTY !");
         }
 
 
-        this.mRecyclerView = vp;
+
         this.mTitles = titles;
 
-        this.mRecyclerView.addOnScrollListener(onScrollListener);
         notifyDataSetChanged();
     }
 
@@ -195,15 +181,10 @@ public class SlidingRvTabLayout extends HorizontalScrollView {
     /** 更新数据 */
     public void notifyDataSetChanged() {
         mTabsContainer.removeAllViews();
-        this.mTabCount = mTitles == null ? mRecyclerView.getLayoutManager().getItemCount() : mTitles.length;
+        this.mTabCount =  mTitles.length;
         View tabView;
         for (int i = 0; i < mTabCount; i++) {
-            if (mRecyclerView.getAdapter() instanceof CustomTabProvider) {
-                tabView = ((CustomTabProvider) mRecyclerView.getAdapter()).getCustomTabView(this, i);
-            } else {
-                tabView = View.inflate(mContext, R.layout.layout_tab, null);
-            }
-
+            tabView = View.inflate(mContext, R.layout.layout_tab, null);
             CharSequence pageTitle = mTitles[i];
             addTab(i, pageTitle.toString(), tabView);
         }
@@ -296,13 +277,6 @@ public class SlidingRvTabLayout extends HorizontalScrollView {
                 tab_title.setTextColor(isSelect ? mTextSelectColor : mTextUnselectColor);
             }
 
-            if (mRecyclerView.getAdapter() instanceof CustomTabProvider) {
-                if (isSelect) {
-                    ((CustomTabProvider) mRecyclerView.getAdapter()).tabSelect(tabView);
-                } else {
-                    ((CustomTabProvider) mRecyclerView.getAdapter()).tabUnselect(tabView);
-                }
-            }
         }
     }
 
@@ -456,7 +430,6 @@ public class SlidingRvTabLayout extends HorizontalScrollView {
     //setter and getter
     public void setCurrentTab(int currentTab) {
         this.mCurrentTab = currentTab;
-        mRecyclerView.smoothScrollToPosition(currentTab+2);
         updateTabStyles();
         invalidate();
     }

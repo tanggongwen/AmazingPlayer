@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mahuahudong.project.viewmodel.MovieDetailViewModel" />
+
+    </data>
+    <RelativeLayout
+        android:id="@+id/rlytRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f2f2f2">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+              <com.lbs.apps.library.media.videoplayer.player.VideoView
+                  android:id="@+id/videoPlayer"
+                  android:layout_width="match_parent"
+                  android:layout_height="428mm"
+                  binding:autoPlay="true"
+                  binding:autoRotate="false"
+                  android:visibility="visible"
+                  android:background="#ffffff"/>
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="80mm">
+                  <ImageView
+                      android:layout_width="70mm"
+                      android:layout_height="70mm"
+                      android:layout_centerVertical="true"
+                      android:layout_marginLeft="20mm"
+                      binding:onClickCommand="@{viewModel.backClickCommand}"
+                      android:src="@drawable/ic_chevron_left_48px"/>
+
+              </RelativeLayout>
+          </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ryContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:itemBinding="@{viewModel.onItemBind}"
+                binding:items="@{viewModel.items}"
+                android:paddingBottom="110mm"
+                binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2mm"
+            android:background="#fefefe"
+            android:layout_above="@+id/rlyt_input"/>
+        <RelativeLayout
+            android:id="@+id/rlyt_input"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="100mm"
+            android:focusable="true"
+            android:background="#FFFFFF"
+            binding:onClickCommand="@{viewModel.bottomCommand}"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:id="@+id/tvInput"
+                android:layout_width="550mm"
+                android:layout_height="60mm"
+                android:layout_centerVertical="true"
+                android:textSize="30mm"
+                android:hint="@{viewModel.comontTipOb}"
+                android:textColorHint="#999999"
+                android:paddingLeft="30mm"
+                android:layout_marginLeft="30mm"
+                android:gravity="center_vertical"
+                binding:onClickCommand="@{viewModel.inputCommand}"
+                android:background="@drawable/shape_input_bg"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical">
+                <RelativeLayout
+                    android:id="@+id/rlytCommont"
+                    android:layout_width="72mm"
+                    android:layout_height="50mm"
+                    android:layout_marginRight="20mm"
+                    binding:onClickCommand="@{viewModel.commontCommand}"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@+id/imgWechat">
+                    <ImageView
+                        android:layout_width="44mm"
+                        android:layout_height="44mm"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/icon_commont"/>
+                    <TextView
+                        android:layout_width="50mm"
+                        android:layout_height="30mm"
+                        android:textSize="14mm"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        android:visibility="@{viewModel.commontCountVisible}"
+                        android:text="@{viewModel.commontCountOb}"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/shape_red_bg"/>
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</layout>

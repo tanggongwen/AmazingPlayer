@@ -207,6 +207,7 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
         private SingleLiveEvent<String> wxClientEvent;
         private SingleLiveEvent<Integer> indicEvent;
         private SingleLiveEvent<Integer> serviceIndicEvent;
+        private SingleLiveEvent<String> reloadEvent;
 
         public SingleLiveEvent<String> getShowDialogEvent() {
             return showDialogEvent = createLiveData(showDialogEvent);
@@ -258,6 +259,10 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
 
         public SingleLiveEvent<Integer> getServiceIndicEvent() {
             return serviceIndicEvent = createLiveData(serviceIndicEvent);
+        }
+
+        public SingleLiveEvent<String> getReloadEvent(){
+            return reloadEvent = createLiveData(reloadEvent);
         }
 
 

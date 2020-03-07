@@ -1,12 +1,10 @@
-package com.mahuahudong.project.beans;
-
-import org.greenrobot.greendao.annotation.Entity;
+package com.mahuahudong.mvvm.databean;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
 public class VideoBean implements Serializable {
+    private int Id;
     private String cover;
     private String title;
     private String point;
@@ -87,5 +85,13 @@ public class VideoBean implements Serializable {
 
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 }

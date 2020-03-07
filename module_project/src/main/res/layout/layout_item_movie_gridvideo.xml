@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="girdItemVideModel"
+            type="com.mahuahudong.project.viewmodel.MovieGridItemViewModel" />
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        binding:onClickCommand="@{girdItemVideModel.itemClickCommand}"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/rrly"
+            android:orientation="vertical"
+            android:layout_width="200mm"
+            android:layout_height="300mm">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:url="@{girdItemVideModel.coverOb}"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_height="28mm"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+
+                android:layout_marginRight="10mm"
+                android:layout_marginBottom="10mm"
+                android:background="@drawable/shape_gray_bg">
+
+
+
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="200mm"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:lineSpacingExtra="10mm"
+            android:textSize="28mm"
+            android:layout_marginTop="22mm"
+            android:maxLines="2"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:text="@{girdItemVideModel.titleOb}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20mm"/>
+    </LinearLayout>
+
+</layout>

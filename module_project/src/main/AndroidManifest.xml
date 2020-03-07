@@ -18,5 +18,12 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.activity.AccountManagerActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.MovieDetailActivity"
+            android:screenOrientation="portrait"
+            android:keepScreenOn="true"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name=".view.activity.MovieSelectActivity"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>

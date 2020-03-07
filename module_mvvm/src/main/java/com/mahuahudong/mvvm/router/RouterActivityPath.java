@@ -10,6 +10,8 @@ public class RouterActivityPath {
 
         private static final String HOME = "/home";
         private static final String MINE = "/mine";
+        private static final String MOVIE = "/movie";
+        private static final String PLAYROOM = "/playroom";
         /*主业务界面*/
         public static final String PAGER_HOME = HOME +"/Home";
 
@@ -27,5 +29,9 @@ public class RouterActivityPath {
         public static final String PAGER_TRENDS= MINE+"/trends";
 
         public static final String PAGER_ACCOUNTMANAGER= MINE+"/accountmanager";
+
+        public static final String PAGER_MOVIEDETAIL= MOVIE+"/moviedetail";
+
+        public static final String PAGER_MOVIESELECT= MOVIE+"/movieselect";
 
 }

@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.mahuahudong.mvvm.base.ItemViewModel;
 import com.mahuahudong.mvvm.binding.command.BindingAction;
 import com.mahuahudong.mvvm.binding.command.BindingCommand;
+import com.mahuahudong.mvvm.router.RouterActivityPath;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.NetDateProvider;
 import com.mahuahudong.project.R;
@@ -36,7 +38,7 @@ public class HomeTypeItemViewModel extends ItemViewModel<HomeVideoViewModel> {
     public BindingCommand typeSelectCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-
+            ARouter.getInstance().build(RouterActivityPath.PAGER_MOVIESELECT).navigation();
         }
     });
 }
