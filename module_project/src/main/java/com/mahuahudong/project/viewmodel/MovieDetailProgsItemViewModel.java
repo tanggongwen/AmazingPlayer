@@ -6,13 +6,11 @@ import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableList;
 
 import com.mahuahudong.mvvm.base.BaseViewModel;
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.project.BR;
-import com.mahuahudong.project.NetDateProvider;
 import com.mahuahudong.project.R;
-import com.mahuahudong.project.beans.VideoBean;
+
 import com.mahuahudong.project.model.HomeModel;
-import com.mahuahudong.res.beans.AskLawVideoMapBean;
-import com.mahuahudong.res.beans.NewsMapBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +27,14 @@ public class MovieDetailProgsItemViewModel<VM extends BaseViewModel<HomeModel>> 
         this.videoModel = videoModel;
         if (null!=videoBean&&null!=videoBean.getVideoBeans()&&videoBean.getVideoBeans().size()>0){
             for (VideoBean moreVideo:videoBean.getVideoBeans()){
-                gridItems.add(new MovieProgItemViewModel<>(viewModel,moreVideo));
+                gridItems.add(new MovieProgItemViewModel<>(viewModel,moreVideo,videoBean.getVideoId()));
             }
         }
     }
 
-    public void updateSeletedProg(String url){
+    public void updateSeletedProg(String videoId){
         for (MovieProgItemViewModel itemViewModel:gridItems){
-            itemViewModel.updateTvColor(url);
+            itemViewModel.updateTvColor(videoId);
         }
     }
 

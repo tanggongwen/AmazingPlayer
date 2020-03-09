@@ -6,13 +6,12 @@ import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableList;
 
 import com.mahuahudong.mvvm.base.BaseViewModel;
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.NetDateProvider;
 import com.mahuahudong.project.R;
-import com.mahuahudong.project.beans.VideoBean;
+
 import com.mahuahudong.project.model.HomeModel;
-import com.mahuahudong.res.beans.AskLawVideoMapBean;
-import com.mahuahudong.res.beans.NewsMapBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +40,7 @@ public class MovieDetailItemViewModel<VM extends BaseViewModel<HomeModel>>  {
 
     public ObservableList<MovieGridItemViewModel> gridItems = new ObservableArrayList();
 
-    public ItemBinding<MovieGridItemViewModel> gridItemBinding = ItemBinding.of(BR.itemViewModel, R.layout.layout_item_movie_gridvideo);
+    public ItemBinding<MovieGridItemViewModel> gridItemBinding = ItemBinding.of(BR.girdItemVideModel, R.layout.layout_item_movie_gridvideo);
 
     public ObservableField<String> typeTitle = new ObservableField<>("为你推荐");
 }

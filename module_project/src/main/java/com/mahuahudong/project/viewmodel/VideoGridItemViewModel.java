@@ -9,8 +9,9 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.mahuahudong.mvvm.base.BaseViewModel;
 import com.mahuahudong.mvvm.binding.command.BindingAction;
 import com.mahuahudong.mvvm.binding.command.BindingCommand;
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
-import com.mahuahudong.project.beans.VideoBean;
+
 import com.mahuahudong.res.constants.RouterParames;
 
 public class VideoGridItemViewModel<VM extends BaseViewModel> {

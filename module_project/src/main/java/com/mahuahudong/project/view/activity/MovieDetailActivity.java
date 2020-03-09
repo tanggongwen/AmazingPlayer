@@ -9,20 +9,18 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.lbs.apps.library.media.audioplayer.manager.AudioController;
 import com.lbs.apps.library.media.videoplayer.listener.OnVideoViewStateChangeListener;
 import com.lbs.apps.library.media.videoplayer.player.VideoView;
 import com.mahuahudong.mvvm.base.BaseActivity;
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
-import com.mahuahudong.project.beans.VideoBean;
 import com.mahuahudong.project.config.HomeViewModelFactory;
 import com.mahuahudong.project.databinding.ActivityMovieDetailBinding;
 import com.mahuahudong.project.viewmodel.MovieDetailViewModel;
 import com.mahuahudong.res.ScreenUtils;
 import com.mahuahudong.res.StringUtils;
-import com.mahuahudong.res.beans.AskLawVideoMapBean;
 import com.mahuahudong.res.beans.NewsCommontBean;
 import com.mahuahudong.res.constants.RouterParames;
 import com.mahuahudong.res.controller.PersonInfoManager;
@@ -111,11 +109,13 @@ public class MovieDetailActivity extends BaseActivity<ActivityMovieDetailBinding
                 commontPopupWindow.setCommontList(newsCommontBean);
             }
         });
-        viewModel.getUC().getReloadEvent().observe(this, new Observer<String>() {
+        viewModel.getUC().getReloadEvent().observe(this, new Observer<com.mahuahudong.mvvm.databean.VideoBean>() {
             @Override
-            public void onChanged(String url) {
-                binding.videoPlayer.setUrl(url);
-                viewModel.updataProg(url);
+            public void onChanged(VideoBean videoBean) {
+                binding.videoPlayer.release();
+                binding.videoPlayer.setUrl(videoBean.getVideoUrl());
+                binding.videoPlayer.start();
+                viewModel.updataProg(videoBean.getVideoId());
             }
         });
     }

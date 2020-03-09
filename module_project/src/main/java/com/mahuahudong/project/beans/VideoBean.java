@@ -1,11 +1,8 @@
 package com.mahuahudong.project.beans;
 
-import org.greenrobot.greendao.annotation.Entity;
-
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
 public class VideoBean implements Serializable {
     private String cover;
     private String title;

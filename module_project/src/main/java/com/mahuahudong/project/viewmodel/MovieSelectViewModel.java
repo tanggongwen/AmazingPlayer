@@ -9,10 +9,11 @@ import androidx.databinding.ObservableList;
 import com.mahuahudong.mvvm.base.BaseViewModel;
 import com.mahuahudong.mvvm.binding.command.BindingAction;
 import com.mahuahudong.mvvm.binding.command.BindingCommand;
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.NetDateProvider;
 import com.mahuahudong.project.R;
-import com.mahuahudong.project.beans.VideoBean;
+
 import com.mahuahudong.project.model.HomeModel;
 
 import java.util.ArrayList;

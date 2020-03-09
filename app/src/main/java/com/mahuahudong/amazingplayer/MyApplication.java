@@ -4,8 +4,8 @@ package com.mahuahudong.amazingplayer;
 
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.mahuahudong.module_live.LiveManager;
 import com.mahuahudong.mvvm.base.BaseApplication;
-import com.mahuahudong.mvvm.utils.LocationManager;
 import com.mahuahudong.res.Utils;
 
 import me.jessyan.autosize.AutoSizeConfig;
@@ -18,7 +18,7 @@ public class MyApplication extends BaseApplication {
         super.onCreate();
         //开启打印日志
 //        KLog.init(true);
-        LocationManager.INSTANCE.initLocationOption(getApplicationContext());
+        LiveManager.INSTANCE.init(getApplicationContext());
         //初始化阿里路由框架
         if (BuildConfig.DEBUG) {
             ARouter.openLog();     // 打印日志
@@ -27,10 +27,6 @@ public class MyApplication extends BaseApplication {
         Utils.init(getApplicationContext());
         ARouter.init(this); // 尽可能早，推荐在Application中初始化
         initAutoSize();
-
-
-
-
     }
 
 
@@ -45,6 +41,8 @@ public class MyApplication extends BaseApplication {
                 .setSupportSP(false)
                 .setSupportSubunits(Subunits.MM);
     }
+
+
 
 
 }

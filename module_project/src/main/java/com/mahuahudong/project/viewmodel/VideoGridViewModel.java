@@ -6,9 +6,10 @@ import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableList;
 
 import com.mahuahudong.mvvm.base.BaseViewModel;
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
-import com.mahuahudong.project.beans.VideoBean;
+
 
 import java.util.List;
 

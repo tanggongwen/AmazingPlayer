@@ -17,14 +17,14 @@ import com.mahuahudong.mvvm.binding.command.BindingCommand;
 import com.mahuahudong.mvvm.bus.RxBus;
 import com.mahuahudong.mvvm.bus.RxSubscriptions;
 import com.mahuahudong.mvvm.bus.event.SingleLiveEvent;
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
-import com.mahuahudong.project.beans.VideoBean;
 import com.mahuahudong.project.model.HomeModel;
 import com.mahuahudong.res.StringUtils;
-import com.mahuahudong.res.beans.AskLawLikeBean;
-import com.mahuahudong.res.beans.AskLawVideoMapBean;
+
+
 import com.mahuahudong.res.beans.NewsCommontBean;
 import com.mahuahudong.res.controller.PersonInfoManager;
 import com.mahuahudong.res.subscriptions.VideoDetailEnd;
@@ -85,14 +85,14 @@ public class MovieDetailViewModel extends BaseViewModel<HomeModel> {
     public SingleLiveEvent commontEvent = new SingleLiveEvent();
 
 
-    public SingleLiveEvent<VideoBean> initVideoEvent = new SingleLiveEvent<>();
+    public SingleLiveEvent<com.mahuahudong.mvvm.databean.VideoBean> initVideoEvent = new SingleLiveEvent<>();
 
 
     public SingleLiveEvent<List<NewsCommontBean.UserCommontBean>> updateNewsCommontsEvent = new SingleLiveEvent<>();
 
-    public void updataProg(String url){
+    public void updataProg(String videoId){
         if (null!=movieProgItemViewModel){
-            movieProgItemViewModel.updateSeletedProg(url);
+            movieProgItemViewModel.updateSeletedProg(videoId);
         }
     }
 

@@ -1,7 +1,6 @@
 package com.mahuahudong.project.view.activity;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -12,12 +11,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.baidu.location.BDLocation;
 import com.mahuahudong.mvvm.base.BaseActivity;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
 import com.mahuahudong.mvvm.router.RouterFragmentPath;
-import com.mahuahudong.mvvm.utils.LocationManager;
-import com.mahuahudong.mvvm.utils.ToastUtils;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
 import com.mahuahudong.project.adapter.HomePagerAdapter;
@@ -25,16 +21,11 @@ import com.mahuahudong.project.config.HomeViewModelFactory;
 import com.mahuahudong.project.databinding.ActivityHomeBinding;
 import com.mahuahudong.project.viewmodel.HomeViewModel;
 import com.mahuahudong.project.weiget.NormalTab;
-import com.mahuahudong.res.SPUtils;
 import com.mahuahudong.res.ScreenUtils;
-import com.mahuahudong.res.constants.Constants;
-import com.tbruyelle.rxpermissions2.Permission;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.functions.Consumer;
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.PageNavigationView;
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem;
@@ -70,7 +61,6 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
     @Override
     public void initData() {
 
-        requestPerMission();
         initFragment();
         initBottomTab();
 
@@ -178,32 +168,6 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
 
 
 
-    @SuppressLint("CheckResult")
-    private void requestPerMission(){
-        new RxPermissions(this).requestEach(perMissionGrop).subscribe(new Consumer<Permission>() {
-            @Override
-            public void accept(Permission permission) throws Exception {
-                if (permission.granted){
-                    LocationManager.INSTANCE.startLocation(new LocationManager.LocationListener() {
-                        @Override
-                        public void onLocation(BDLocation location) {
-
-                            if (!location.hasAddr()) {
-
-                                LocationManager.INSTANCE.stopLocation();
-                            } else {
-                                SPUtils.getInstance().put(Constants.LOCATION,location.getLongitude()+","+location.getLatitude());
-                                LocationManager.INSTANCE.stopLocation();
-                            }
-                        }
-                    });
-                }else if (permission.shouldShowRequestPermissionRationale){
-                }else {
-                    ToastUtils.showShort("请在设置开启权限，避免影响体验");
-                }
-            }
-        });
-    }
 
 
 

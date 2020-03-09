@@ -8,8 +8,9 @@ import com.mahuahudong.mvvm.base.BaseViewModel;
 import com.mahuahudong.mvvm.binding.command.BindingAction;
 import com.mahuahudong.mvvm.binding.command.BindingCommand;
 import com.mahuahudong.mvvm.bus.RxBus;
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
-import com.mahuahudong.project.beans.VideoBean;
+
 import com.mahuahudong.res.constants.RouterParames;
 import com.mahuahudong.res.subscriptions.VideoDetailEnd;
 

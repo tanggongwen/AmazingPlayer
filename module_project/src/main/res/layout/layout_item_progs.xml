@@ -22,7 +22,7 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="38mm"
-            android:textColor="@{itemViewModel.tvColorOb}"
+            binding:textColor="@{itemViewModel.tvColorOb}"
             android:text="@{itemViewModel.titleOb}"/>
     </LinearLayout>
 </layout>

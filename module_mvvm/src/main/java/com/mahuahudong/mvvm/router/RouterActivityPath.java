@@ -34,4 +34,6 @@ public class RouterActivityPath {
 
         public static final String PAGER_MOVIESELECT= MOVIE+"/movieselect";
 
+        public static final String PAGER_LIVELOGIN= "/live/login";
+
 }

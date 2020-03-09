@@ -106,7 +106,7 @@ public class NiceImageView extends AppCompatImageView {
         paint = new Paint();
         path = new Path();
 
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O) {
             xfermode = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
         } else {
             xfermode = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
@@ -149,7 +149,7 @@ public class NiceImageView extends AppCompatImageView {
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL);
         paint.setXfermode(xfermode);
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O) {
             canvas.drawPath(path, paint);
         } else {
             srcPath.addRect(srcRectF, Path.Direction.CCW);

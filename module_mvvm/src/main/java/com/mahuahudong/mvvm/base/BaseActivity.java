@@ -16,7 +16,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.mahuahudong.mvvm.bus.Messenger;
 import com.mahuahudong.mvvm.utils.MaterialDialogUtils;
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
-import com.umeng.analytics.MobclickAgent;
+
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -69,13 +69,13 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onResume(this);
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
+
     }
 
     /**

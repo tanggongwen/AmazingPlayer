@@ -1,8 +1,10 @@
 package com.mahuahudong.project;
 
+import com.mahuahudong.mvvm.databean.LiveBean;
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.project.beans.HeadBean;
 import com.mahuahudong.project.beans.PlayRoomTypeBean;
-import com.mahuahudong.project.beans.VideoBean;
+
 import com.mahuahudong.res.beans.VideoTypeBean;
 
 import java.util.ArrayList;
@@ -162,7 +164,7 @@ public class NetDateProvider {
         videoBean.setTitle("复仇者联盟");
         videoBean.setAsMovie(false);
         videoBean.setCurrentCount("1");
-        videoBean.setVideoBeans(getVideoList());
+        videoBean.setVideoBeans(getVideoProgsList());
         videoBean.setVideoUrl("https://oss.changsha.cn/2020/20200108/V1628zj014JiaoBiaoPianWei.mp4");
         VideoBean videoBean1 = new VideoBean();
         videoBean1.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
@@ -172,7 +174,7 @@ public class NetDateProvider {
         videoBean1.setTitle("复仇者联盟2");
         videoBean1.setAsMovie(false);
         videoBean1.setCurrentCount("2");
-        videoBean1.setVideoBeans(getVideoList());
+        videoBean1.setVideoBeans(getVideoProgsList());
         videoBean1.setVideoUrl("https://oss.changsha.cn/2020/20200108/V1628zj014JiaoBiaoPianWei.mp4");
         VideoBean videoBean2 = new VideoBean();
         videoBean2.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
@@ -181,7 +183,7 @@ public class NetDateProvider {
         videoBean2.setPoint("9.0");
         videoBean2.setTitle("复仇者联盟3");
         videoBean2.setCurrentCount("3");
-        videoBean2.setVideoBeans(getVideoList());
+        videoBean2.setVideoBeans(getVideoProgsList());
         videoBean2.setVideoUrl("https://oss.changsha.cn/2019/20191121/V1522NongDaJiaoBiao152200.mp4");
         videoBean2.setAsMovie(false);
         VideoBean videoBean3 = new VideoBean();
@@ -189,7 +191,7 @@ public class NetDateProvider {
         videoBean3.setIntro("这事国产动画片");
         videoBean3.setVideoId("00003");
         videoBean3.setPoint("9.0");
-        videoBean3.setVideoBeans(getVideoList());
+        videoBean3.setVideoBeans(getVideoProgsList());
         videoBean3.setTitle("钢铁侠");
         videoBean3.setCurrentCount("4");
         videoBean3.setVideoUrl("https://oss.changsha.cn/2020/20200108/V1628zj014JiaoBiaoPianWei.mp4");
@@ -198,7 +200,7 @@ public class NetDateProvider {
         videoBean4.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
         videoBean4.setIntro("电影简介4");
         videoBean4.setVideoId("00004");
-        videoBean4.setVideoBeans(getVideoList());
+        videoBean4.setVideoBeans(getVideoProgsList());
         videoBean4.setPoint("9.0");
         videoBean4.setTitle("蜘蛛侠");
         videoBean4.setCurrentCount("5");
@@ -211,7 +213,7 @@ public class NetDateProvider {
         videoBean5.setPoint("9.0");
         videoBean5.setCurrentCount("6");
         videoBean5.setTitle("蜘蛛侠");
-        videoBean5.setVideoBeans(getVideoList());
+        videoBean5.setVideoBeans(getVideoProgsList());
         videoBean5.setVideoUrl("https://oss.changsha.cn/2019/20190115/V16582019XingChenZhiLian_HeJi_DaGeShi.mp4");
         videoBean5.setAsMovie(false);
         videoBeanList.add(videoBean);
@@ -222,4 +224,96 @@ public class NetDateProvider {
         videoBeanList.add(videoBean5);
         return videoBeanList;
     }
+
+    public static List<VideoBean> getVideoProgsList(){
+        List<VideoBean> videoBeanList = new ArrayList<>();
+        VideoBean videoBean = new VideoBean();
+        videoBean.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
+        videoBean.setIntro("这不是复仇者联盟");
+        videoBean.setVideoId("0000");
+        videoBean.setPoint("9.0");
+        videoBean.setTitle("复仇者联盟");
+        videoBean.setAsMovie(false);
+        videoBean.setCurrentCount("1");
+
+        videoBean.setVideoUrl("https://oss.changsha.cn/2020/20200108/V1628zj014JiaoBiaoPianWei.mp4");
+        VideoBean videoBean1 = new VideoBean();
+        videoBean1.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
+        videoBean1.setIntro("电影简介1");
+        videoBean1.setVideoId("00001");
+        videoBean1.setPoint("9.0");
+        videoBean1.setTitle("复仇者联盟2");
+        videoBean1.setAsMovie(false);
+        videoBean1.setCurrentCount("2");
+
+        videoBean1.setVideoUrl("https://oss.changsha.cn/2020/20200108/V1628zj014JiaoBiaoPianWei.mp4");
+        VideoBean videoBean2 = new VideoBean();
+        videoBean2.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
+        videoBean2.setIntro("这是动画片");
+        videoBean2.setVideoId("00002");
+        videoBean2.setPoint("9.0");
+        videoBean2.setTitle("复仇者联盟3");
+        videoBean2.setCurrentCount("3");
+
+        videoBean2.setVideoUrl("https://oss.changsha.cn/2019/20191121/V1522NongDaJiaoBiao152200.mp4");
+        videoBean2.setAsMovie(false);
+        VideoBean videoBean3 = new VideoBean();
+        videoBean3.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
+        videoBean3.setIntro("这事国产动画片");
+        videoBean3.setVideoId("00003");
+        videoBean3.setPoint("9.0");
+
+        videoBean3.setTitle("钢铁侠");
+        videoBean3.setCurrentCount("4");
+        videoBean3.setVideoUrl("https://oss.changsha.cn/2020/20200108/V1628zj014JiaoBiaoPianWei.mp4");
+        videoBean3.setAsMovie(false);
+        VideoBean videoBean4 = new VideoBean();
+        videoBean4.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
+        videoBean4.setIntro("电影简介4");
+        videoBean4.setVideoId("00004");
+
+        videoBean4.setPoint("9.0");
+        videoBean4.setTitle("蜘蛛侠");
+        videoBean4.setCurrentCount("5");
+        videoBean4.setVideoUrl("https://oss.changsha.cn/2019/01/437c20fa8e5f818842e34ca29a9bc029.mp4");
+        videoBean4.setAsMovie(false);
+        VideoBean videoBean5 = new VideoBean();
+        videoBean5.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
+        videoBean5.setIntro("电影简介5");
+        videoBean5.setVideoId("00005");
+        videoBean5.setPoint("9.0");
+        videoBean5.setCurrentCount("6");
+        videoBean5.setTitle("蜘蛛侠");
+
+        videoBean5.setVideoUrl("https://oss.changsha.cn/2019/20190115/V16582019XingChenZhiLian_HeJi_DaGeShi.mp4");
+        videoBean5.setAsMovie(false);
+        videoBeanList.add(videoBean);
+        videoBeanList.add(videoBean1);
+        videoBeanList.add(videoBean2);
+        videoBeanList.add(videoBean3);
+        videoBeanList.add(videoBean4);
+        videoBeanList.add(videoBean5);
+        return videoBeanList;
+    }
+
+
+    public static List<LiveBean> getLiveList(){
+        List<LiveBean> videoBeanList = new ArrayList<>();
+        LiveBean videoBean = new LiveBean();
+        videoBean.setCover("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583422800442&di=0a66e6e9aac92e869f96dfd61505ac8b&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20130927%2FImg387363334.jpg");
+        videoBean.setLiveIntro("这不是复仇者联盟");
+        videoBean.setLiveId("0000");
+        videoBean.setLiveHot("90");
+        videoBean.setLiveOwner("主播1号");
+        videoBean.setLiveUrl("https://oss.changsha.cn/2020/20200108/V1628zj014JiaoBiaoPianWei.mp4");
+
+        videoBeanList.add(videoBean);
+        videoBeanList.add(videoBean);
+        videoBeanList.add(videoBean);
+        videoBeanList.add(videoBean);
+        videoBeanList.add(videoBean);
+        videoBeanList.add(videoBean);
+        return videoBeanList;
+    }
+
 }

@@ -12,7 +12,6 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.FragmentActivity;
 
 import com.mahuahudong.module_mvvm.R;
-import com.mahuahudong.mvvm.utils.constant.ShareEnum;
 import com.mahuahudong.res.StringUtils;
 import com.mahuahudong.res.Utils;
 import com.mahuahudong.res.constants.NewsTagEnum;
@@ -249,29 +248,6 @@ public enum  DataUtils {
         return formatterYMD.format(new Date(Long.valueOf(time+"000")));
     }
 
-    public List<ShareEnum> getTopShareList(String isCollect){
-       List<ShareEnum> shareEnumList = new ArrayList<>();
-        shareEnumList.add(ShareEnum.SHARE_WECHAT);
-        shareEnumList.add(ShareEnum.SHARE_PENGYOUQUAN);
-        shareEnumList.add(ShareEnum.SHARE_QQ);
-        shareEnumList.add(ShareEnum.SHARE_QQZONE);
-        if (isCollect.equals("1")){
-            shareEnumList.add(ShareEnum.SHARE_FAVORITED);
-        }else {
-            shareEnumList.add(ShareEnum.SHARE_FAVORITE);
-        }
-        shareEnumList.add(ShareEnum.SHARE_COMPLAIN);
-        return shareEnumList;
-    }
-
-    public List<ShareEnum>  getShareList(){
-        List<ShareEnum> shareEnumList = new ArrayList<>();
-        shareEnumList.add(ShareEnum.SHARE_WECHAT);
-        shareEnumList.add(ShareEnum.SHARE_PENGYOUQUAN);
-        shareEnumList.add(ShareEnum.SHARE_QQ);
-        shareEnumList.add(ShareEnum.SHARE_QQZONE);
-        return shareEnumList;
-    }
 
     public void hideSoftInput(Activity activity) {
 

@@ -6,7 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
 
 import com.mahuahudong.mvvm.base.BaseViewModel;
-import com.mahuahudong.project.beans.VideoBean;
+
+import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.project.model.HomeModel;
 
 public class MovieDetailRelatedViewModel<VM extends BaseViewModel<HomeModel>> {

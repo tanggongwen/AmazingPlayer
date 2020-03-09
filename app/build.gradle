@@ -77,6 +77,6 @@ dependencies {
 
         //组件独立运行时，宿主项目直接依赖基础库，避免编译错误
     api project(path: ':module_project')
-
+    api project(path: ':module_live')
 
 }

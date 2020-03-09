@@ -9,39 +9,44 @@ import androidx.databinding.ObservableInt;
 import com.mahuahudong.mvvm.base.BaseViewModel;
 import com.mahuahudong.mvvm.binding.command.BindingAction;
 import com.mahuahudong.mvvm.binding.command.BindingCommand;
-import com.mahuahudong.project.beans.VideoBean;
+import com.mahuahudong.mvvm.databean.VideoBean;
+import com.mahuahudong.project.R;
+
+import com.mahuahudong.res.Utils;
 
 public class MovieProgItemViewModel<VM extends BaseViewModel> {
     private VideoBean videoBean;
-    private int colorSelected = Color.parseColor("#EB2323");
-    private int colorNormal = Color.parseColor("#000000");
     public BindingCommand itemClickCommand = new BindingCommand(new BindingAction() {
 
         @Override
         public void call() {
-            viewModel.getUC().getReloadEvent().setValue(videoBean.getVideoUrl());
+            viewModel.getUC().getReloadEvent().setValue(videoBean);
         }
     });
 
     protected VM viewModel;
-    public MovieProgItemViewModel(@NonNull VM viewModel, VideoBean videoBean) {
+    public MovieProgItemViewModel(@NonNull VM viewModel, VideoBean videoBean,String videoId) {
         this.viewModel = viewModel;
         this.videoBean = videoBean;
         titleOb.set(videoBean.getCurrentCount());
-
+        if (videoBean.getVideoId().equals(videoId)){
+            tvColorOb.set(Utils.getContext().getResources().getColor(R.color.tvselected));
+        }else {
+            tvColorOb.set(Utils.getContext().getResources().getColor(R.color.tvNomormal));
+        }
     }
 
     public ObservableField<String> titleOb = new ObservableField<>();
 
-    public void updateTvColor(String url){
-        if (videoBean.getVideoUrl().equals(url)){
-            tvColorOb.set(colorSelected);
+    public void updateTvColor(String videoId){
+        if (videoBean.getVideoId().equals(videoId)){
+            tvColorOb.set(Utils.getContext().getResources().getColor(R.color.tvselected));
         }else {
-            tvColorOb.set(colorNormal);
+            tvColorOb.set(Utils.getContext().getResources().getColor(R.color.tvNomormal));
         }
     }
 
-    public ObservableInt tvColorOb = new ObservableInt(colorNormal);
+    public ObservableInt tvColorOb = new ObservableInt();
 
 
 }
