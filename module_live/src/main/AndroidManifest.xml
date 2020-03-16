@@ -44,12 +44,12 @@
 
         <meta-data
             android:name="com.netease.nim.appKey"
-			android:value="d25f86e4f00aa9db6838dd1b17a2b160" />
+			android:value="6f49e3f759ccd47810b445444eebc090" />
 
         <uses-library
             android:name="com.google.android.maps"
             android:required="false" />
-
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
         <!-- IM -->
         <activity
             android:name="com.mahuahudong.module_live.im.activity.WelcomeActivity"

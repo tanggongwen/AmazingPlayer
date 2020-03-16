@@ -19,7 +19,7 @@ public class LiveGridItemViewModel<VM extends BaseViewModel> {
 
         @Override
         public void call() {
-            ARouter.getInstance().build("/live/enterroom").navigation();
+            ARouter.getInstance().build("/live/login").navigation();
         }
     });
 
