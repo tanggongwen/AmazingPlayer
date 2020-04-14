@@ -5,16 +5,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.mahuahudong.project.beans.ColunmBean;
 import com.mahuahudong.project.view.fragment.HomeVideoFragment;
-import com.mahuahudong.res.beans.ColumnBean;
+import com.mahuahudong.res.beans.FirstColumnBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFrgPagerAdapter extends FragmentPagerAdapter {
-    private List<Fragment> fragmentList = new ArrayList<>();
-    private List<ColunmBean> titleList = new ArrayList<>();
+    private ArrayList<Fragment> fragmentList = new ArrayList<>();
+    private ArrayList<FirstColumnBean.TabBean> titleList = new ArrayList<>();
 
     @Override
     public int getCount() {
@@ -28,7 +27,7 @@ public class HomeFrgPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return titleList.get(position).getColumnName();
+        return titleList.get(position).getList_name();
     }
 
     @Override
@@ -45,24 +44,20 @@ public class HomeFrgPagerAdapter extends FragmentPagerAdapter {
         notifyDataSetChanged();
     }
 
-    public void addItems(@Nullable List<ColunmBean> channelBeanList){
+    public void addItems(@Nullable ArrayList<FirstColumnBean.TabBean> channelBeanList){
         titleList.clear();
         fragmentList.clear();
         titleList.addAll(channelBeanList);
-        for (ColunmBean newsChannelBean:channelBeanList){
-            fragmentList.add(HomeVideoFragment.newInstance(newsChannelBean));
+        for (FirstColumnBean.TabBean newsChannelBean:channelBeanList){
+            fragmentList.add(HomeVideoFragment.newInstance(newsChannelBean,channelBeanList));
         }
         notifyDataSetChanged();
     }
 
-    public void addItem(@Nullable ColunmBean bean){
-        titleList.add(bean);
-        fragmentList.add(HomeVideoFragment.newInstance(bean));
-        notifyDataSetChanged();
-    }
 
 
-    public void remove(@Nullable ColumnBean bean){
+
+    public void remove(@Nullable FirstColumnBean.TabBean bean){
         int pos =  titleList.indexOf(bean);
         titleList.remove(pos);
         fragmentList.remove(pos);

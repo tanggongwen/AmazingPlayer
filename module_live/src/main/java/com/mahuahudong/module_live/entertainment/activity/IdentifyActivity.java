@@ -40,7 +40,7 @@ import com.netease.nimlib.sdk.auth.AuthServiceObserver;
 /**
  * Created by hzxuwen on 2016/3/2.
  */
-@Route(path = "live/i")
+@Route(path = "/live/identify")
 public class IdentifyActivity extends TActivity implements View.OnClickListener {
     private final int BASIC_PERMISSION_REQUEST_CODE = 100;
     public final static int ACTION_REQ_CODE = 21;

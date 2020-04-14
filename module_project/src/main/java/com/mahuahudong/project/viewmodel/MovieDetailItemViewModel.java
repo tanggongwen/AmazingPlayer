@@ -12,6 +12,8 @@ import com.mahuahudong.project.NetDateProvider;
 import com.mahuahudong.project.R;
 
 import com.mahuahudong.project.model.HomeModel;
+import com.mahuahudong.res.beans.VideoDetailBean;
+import com.mahuahudong.res.beans.VideoRespBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,17 +25,13 @@ public class MovieDetailItemViewModel<VM extends BaseViewModel<HomeModel>>  {
 
     private HomeModel videoModel;
     private List<VideoBean> videoBeanList = new ArrayList<>();
-    public MovieDetailItemViewModel(@NonNull final VM viewModel, HomeModel videoModel, VideoBean videoBean) {
+    public MovieDetailItemViewModel(@NonNull final VM viewModel, HomeModel videoModel, List<VideoRespBean.TabBean.RowsBean> list,String title) {
         this.viewModel = viewModel;
         this.videoModel = videoModel;
-        if (null!=videoBean&&null!=videoBean.getVideoBeans()&&videoBean.getVideoBeans().size()>0){
-            for (VideoBean moreVideo:videoBean.getVideoBeans()){
-                gridItems.add(new MovieGridItemViewModel<>(viewModel,moreVideo));
-            }
-        }else {
-            videoBeanList.addAll(NetDateProvider.getVideoList());
-            for (VideoBean movieBean:videoBeanList){
-                gridItems.add(new MovieGridItemViewModel<>(viewModel,movieBean));
+        typeTitle.set(title);
+        if (null!=list&&list.size()>0){
+            for (VideoRespBean.TabBean.RowsBean recBean:list){
+                gridItems.add(new MovieGridItemViewModel<>(viewModel,recBean));
             }
         }
     }

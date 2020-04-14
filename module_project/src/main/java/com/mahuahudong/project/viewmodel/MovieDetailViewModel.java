@@ -19,6 +19,7 @@ import com.mahuahudong.mvvm.bus.RxSubscriptions;
 import com.mahuahudong.mvvm.bus.event.SingleLiveEvent;
 import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
+import com.mahuahudong.mvvm.utils.RxUtils;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
 import com.mahuahudong.project.model.HomeModel;
@@ -26,6 +27,8 @@ import com.mahuahudong.res.StringUtils;
 
 
 import com.mahuahudong.res.beans.NewsCommontBean;
+import com.mahuahudong.res.beans.VideoDetailBean;
+import com.mahuahudong.res.beans.VideoRespBean;
 import com.mahuahudong.res.controller.PersonInfoManager;
 import com.mahuahudong.res.subscriptions.VideoDetailEnd;
 
@@ -38,7 +41,8 @@ import me.tatarka.bindingcollectionadapter2.OnItemBind;
 
 public class MovieDetailViewModel extends BaseViewModel<HomeModel> {
     private Disposable finishSubscribe;
-    private VideoBean videoBean;
+    private VideoDetailBean videoBean;
+    public String currentUrl = "";
     private int commontCount;
     private boolean canCommont;
     private MovieDetailProgsItemViewModel movieProgItemViewModel;
@@ -63,29 +67,49 @@ public class MovieDetailViewModel extends BaseViewModel<HomeModel> {
     }
 
     @SuppressLint("CheckResult")
-    public void initVideoData(VideoBean videoBean){
+    public void initVideoData(String videoId){
         items.clear();
-        this.videoBean = videoBean;
+        model.getVideoDetail(videoId)
+                .compose(RxUtils.schedulersTransformer())
+                .doOnSubscribe(MovieDetailViewModel.this)
+                .subscribe(new Consumer<VideoDetailBean>() {
+                    @Override
+                    public void accept(VideoDetailBean videoDetailBean) {
+                        if (videoDetailBean.getCode().equals("200")){
+                            videoBean = videoDetailBean;
+                            items.add(new MovieDetailRelatedViewModel<>(MovieDetailViewModel.this,model,videoBean));
+                            if (videoBean.getDetail().getUrl().get(0).size()>0){
+                                movieProgItemViewModel = new MovieDetailProgsItemViewModel(MovieDetailViewModel.this,model,videoBean,currentUrl);
+                                items.add(movieProgItemViewModel);
+                            }
+                            if (null!=videoDetailBean.getDetail().getRecom()&&videoDetailBean.getDetail().getRecom().size()>0){
+                                items.add(new MovieDetailItemViewModel<>(MovieDetailViewModel.this,model,videoBean.getDetail().getRecom(),"推荐视频"));
 
-        items.add(new MovieDetailRelatedViewModel<>(MovieDetailViewModel.this,model,videoBean));
-        if (!videoBean.isAsMovie()){
-            movieProgItemViewModel = new MovieDetailProgsItemViewModel(MovieDetailViewModel.this,model,videoBean);
-            items.add(movieProgItemViewModel);
-        }
-        items.add(new MovieDetailItemViewModel<>(MovieDetailViewModel.this,model,videoBean));
-        initVideoEvent.setValue(videoBean);
+                            }
+                        }
+                        if (null!=videoDetailBean.getDetail().getRelated()&&videoDetailBean.getDetail().getRelated().size()>0){
+                            items.add(new MovieDetailItemViewModel<>(MovieDetailViewModel.this,model,videoBean.getDetail().getRelated(),"相关视频"));
+
+                        }
+                            initVideoEvent.setValue(videoBean);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) {
+
+                    }
+                });
+
+
     }
 
-    public ObservableField<String> commontCountOb = new ObservableField<>("0");
-
-    public ObservableInt commontCountVisible = new ObservableInt(View.GONE);
 
     public SingleLiveEvent inputEvent = new SingleLiveEvent();
 
     public SingleLiveEvent commontEvent = new SingleLiveEvent();
 
 
-    public SingleLiveEvent<com.mahuahudong.mvvm.databean.VideoBean> initVideoEvent = new SingleLiveEvent<>();
+    public SingleLiveEvent<VideoDetailBean> initVideoEvent = new SingleLiveEvent<>();
 
 
     public SingleLiveEvent<List<NewsCommontBean.UserCommontBean>> updateNewsCommontsEvent = new SingleLiveEvent<>();

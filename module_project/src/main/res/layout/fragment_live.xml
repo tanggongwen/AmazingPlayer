@@ -7,30 +7,48 @@
             name="viewModel"
             type="com.mahuahudong.project.viewmodel.LiveFrgViewModel" />
     </data>
-
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.flyco.tablayout.SlidingTabLayout
-            android:id="@+id/tabs"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="80mm"
-            binding:tl_indicator_height="0mm"
-            binding:tl_indicator_width_equal_title="true"
-            binding:tl_tab_padding="20mm"
-            binding:tl_textSelectColor="#e70000"
-            binding:tl_textUnselectColor="#000000"
-            binding:tl_textBold="true"
-            binding:tl_rvtextsize="34mm"
-            binding:tl_textsize="34mm"/>
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vp_videos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            binding:adapter="@{viewModel.bindingViewPagerAdapter}"
-            binding:items="@{viewModel.imageitems}"
-            binding:itemBinding="@{viewModel.imageBinding}"
-            />
-    </LinearLayout>
+            android:layout_height="match_parent">
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="80mm"
+                binding:tl_indicator_height="0mm"
+                binding:tl_indicator_width_equal_title="true"
+                binding:tl_tab_padding="20mm"
+                binding:tl_textSelectColor="#e70000"
+                binding:tl_textUnselectColor="#000000"
+                binding:tl_textBold="true"
+                binding:tl_rvtextsize="34mm"
+                android:visibility="gone"
+                binding:tl_textsize="34mm"/>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_videos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:adapter="@{viewModel.bindingViewPagerAdapter}"
+                binding:items="@{viewModel.imageitems}"
+                binding:itemBinding="@{viewModel.imageBinding}"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20mm"
+            android:text="开直播"
+            android:textSize="30mm"
+            android:textColor="#ffffff"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40mm"
+            android:layout_marginBottom="40mm"
+            binding:onClickCommand="@{viewModel.startLiveCommand}"
+            android:background="#DB0E0E"/>
+    </RelativeLayout>
+
 </layout>

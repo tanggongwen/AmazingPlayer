@@ -169,10 +169,7 @@
         <!-- require String to load Image"-->
         <attr name="url" />
     </declare-styleable>
-    <declare-styleable name="LooperNewsView">
-        <attr name="looperdatas" format="reference"/>
-        <attr name="looperClickListener" format="reference"/>
-    </declare-styleable>
+
 
     <declare-styleable name="ScrollView">
         <!-- require BindingCommand<ScrollDataWrapper> -->

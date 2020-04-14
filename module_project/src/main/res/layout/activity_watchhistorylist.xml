@@ -42,6 +42,7 @@
             binding:tl_textSelectColor="#e70000"
             binding:tl_textUnselectColor="#000000"
             binding:tl_textBold="true"
+            android:visibility="gone"
             binding:tl_rvtextsize="26mm"
             binding:tl_textsize="30mm"/>
         <androidx.viewpager.widget.ViewPager

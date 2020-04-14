@@ -3,10 +3,18 @@ package com.mahuahudong.project.model;
 import androidx.annotation.NonNull;
 
 import com.mahuahudong.mvvm.base.BaseModel;
+import com.mahuahudong.res.beans.FirstColumnBean;
+import com.mahuahudong.res.beans.LiveListBean;
+import com.mahuahudong.res.beans.SedColumnBean;
+import com.mahuahudong.res.beans.UserBean;
 import com.mahuahudong.project.config.datasource.HomeHttpDataSource;
 import com.mahuahudong.project.config.datasource.HomeLocalDataSource;
+import com.mahuahudong.res.beans.VideoDetailBean;
+import com.mahuahudong.res.beans.VideoRespBean;
 
 import java.util.Set;
+
+import io.reactivex.Observable;
 
 
 /**
@@ -53,5 +61,38 @@ public class HomeModel extends BaseModel implements HomeHttpDataSource, HomeLoca
     }
 
 
+    @Override
+    public Observable<UserBean> register(String username, String password) {
+        return mHttpDataSource.register(username,password);
+    }
 
+    @Override
+    public Observable<UserBean> login(String username, String password) {
+        return mHttpDataSource.login(username,password);
+    }
+
+    @Override
+    public Observable<FirstColumnBean> getFirstColumn() {
+        return mHttpDataSource.getFirstColumn();
+    }
+
+    @Override
+    public Observable<SedColumnBean> getSecendColumn(String pid) {
+        return mHttpDataSource.getSecendColumn(pid);
+    }
+
+    @Override
+    public Observable<VideoRespBean> getVideoHomeDatas(String pid, String page, String size) {
+        return mHttpDataSource.getVideoHomeDatas(pid,page,size);
+    }
+
+    @Override
+    public Observable<VideoDetailBean> getVideoDetail( String vid) {
+        return mHttpDataSource.getVideoDetail(vid);
+    }
+
+    @Override
+    public Observable<LiveListBean> getLiveList(String page, String size) {
+        return mHttpDataSource.getLiveList(page,size);
+    }
 }

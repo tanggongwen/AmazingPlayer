@@ -36,4 +36,6 @@ public class RouterActivityPath {
 
         public static final String PAGER_LIVELOGIN= "/live/login";
 
+        public static final String PAGER_INDENTIFY= "/live/identify";
+
 }

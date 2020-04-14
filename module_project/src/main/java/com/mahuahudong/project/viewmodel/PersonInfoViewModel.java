@@ -4,6 +4,8 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableInt;
 import androidx.databinding.ObservableList;
 
 import com.mahuahudong.mvvm.base.BaseViewModel;
@@ -12,6 +14,7 @@ import com.mahuahudong.mvvm.binding.command.BindingCommand;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
 import com.mahuahudong.project.model.HomeModel;
+import com.mahuahudong.res.controller.PersonInfoManager;
 
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import me.tatarka.bindingcollectionadapter2.OnItemBind;
@@ -19,6 +22,9 @@ import me.tatarka.bindingcollectionadapter2.OnItemBind;
 public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
     public PersonInfoViewModel(@NonNull Application application, HomeModel model) {
         super(application, model);
+        if (null!= PersonInfoManager.INSTANCE.getUserBean()){
+            nickNameOb.set(PersonInfoManager.INSTANCE.getUserBean().getInfo().getNickname());
+        }
         items.add(new PersonInfoItemViewModel(PersonInfoViewModel.this));
         items.add(new PersonStateItemViewModel(PersonInfoViewModel.this));
         items.add(new PersonStateItemViewModel(PersonInfoViewModel.this));
@@ -38,6 +44,8 @@ public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
         }
     };
 
+
+    public ObservableField<String> nickNameOb = new ObservableField<>("游客");
 
     public BindingCommand refreshCommand = new BindingCommand(new BindingAction() {
         @Override

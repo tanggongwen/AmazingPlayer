@@ -11,6 +11,7 @@ import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
 
 import com.mahuahudong.project.model.HomeModel;
+import com.mahuahudong.res.beans.VideoDetailBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +23,12 @@ public class MovieDetailProgsItemViewModel<VM extends BaseViewModel<HomeModel>> 
 
     private HomeModel videoModel;
     private List<VideoBean> videoBeanList = new ArrayList<>();
-    public MovieDetailProgsItemViewModel(@NonNull final VM viewModel, HomeModel videoModel, VideoBean videoBean) {
+    public MovieDetailProgsItemViewModel(@NonNull final VM viewModel, HomeModel videoModel, VideoDetailBean videoBean,String currentUrl) {
         this.viewModel = viewModel;
         this.videoModel = videoModel;
-        if (null!=videoBean&&null!=videoBean.getVideoBeans()&&videoBean.getVideoBeans().size()>0){
-            for (VideoBean moreVideo:videoBean.getVideoBeans()){
-                gridItems.add(new MovieProgItemViewModel<>(viewModel,moreVideo,videoBean.getVideoId()));
+        if (null!=videoBean&&null!=videoBean.getDetail().getUrl().get(0)&&videoBean.getDetail().getUrl().get(0).size()>0){
+            for (VideoDetailBean.DetailBean.UrlBean urlBean:videoBean.getDetail().getUrl().get(0)){
+                gridItems.add(new MovieProgItemViewModel<>(viewModel,urlBean,currentUrl));
             }
         }
     }

@@ -54,6 +54,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10mm"
             android:textSize="28mm"
+            android:textColor="#000000"
+            binding:textChanged="@{viewModel.accountChange}"
             android:maxLines="1"
             android:hint="请输入你的账号"/>
         <RelativeLayout
@@ -76,6 +78,8 @@
             android:layout_marginTop="10mm"
             android:textSize="28mm"
             android:maxLines="1"
+            android:textColor="#000000"
+            binding:textChanged="@{viewModel.cpwChange}"
             android:hint="请输入你的密码"
             android:inputType="textPassword"/>
         <TextView
@@ -87,6 +91,7 @@
             android:textColor="#ffffff"
             android:layout_marginTop="50mm"
             android:text="登录"
+            binding:onClickCommand="@{viewModel.loginCommand}"
             android:layout_gravity="center_horizontal"/>
         <RelativeLayout
             android:layout_width="600mm"

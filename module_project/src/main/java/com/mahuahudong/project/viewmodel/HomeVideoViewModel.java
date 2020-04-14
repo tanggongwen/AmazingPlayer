@@ -1,5 +1,6 @@
 package com.mahuahudong.project.viewmodel;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
@@ -9,17 +10,31 @@ import androidx.databinding.ObservableList;
 import com.mahuahudong.mvvm.base.BaseViewModel;
 import com.mahuahudong.mvvm.binding.command.BindingAction;
 import com.mahuahudong.mvvm.binding.command.BindingCommand;
+import com.mahuahudong.mvvm.utils.RxUtils;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.NetDateProvider;
 import com.mahuahudong.project.R;
 import com.mahuahudong.project.model.HomeModel;
+import com.mahuahudong.res.beans.VideoRespBean;
 
+import io.reactivex.functions.Consumer;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import me.tatarka.bindingcollectionadapter2.OnItemBind;
 
 public class HomeVideoViewModel extends BaseViewModel<HomeModel> {
+    private int pageSize = 10;
+    private String pid="";
+    private int page = 1;
+    private HomeHeadItemViewModel homeHeadItemViewModel = new HomeHeadItemViewModel(HomeVideoViewModel.this);
+    private VideoGridViewModel videoGridViewModel = new VideoGridViewModel(HomeVideoViewModel.this,"为您推荐");
+    private HomeTypeItemViewModel homeTypeItemViewModel = new HomeTypeItemViewModel(HomeVideoViewModel.this);
     public HomeVideoViewModel(@NonNull Application application, HomeModel model) {
         super(application, model);
+
+    }
+
+    public void initData(String pid){
+        this.pid = pid;
         getHomeDatas();
     }
 
@@ -45,6 +60,7 @@ public class HomeVideoViewModel extends BaseViewModel<HomeModel> {
         @Override
         public void call() {
             items.clear();
+            page =1;
             getHomeDatas();
         }
     });
@@ -53,14 +69,47 @@ public class HomeVideoViewModel extends BaseViewModel<HomeModel> {
     public BindingCommand onLoadMoreCommand = new BindingCommand<>(new BindingAction() {
         @Override
         public void call() {
-
+            getHomeDatas();
         }
     });
 
+    @SuppressLint("CheckResult")
     private void getHomeDatas(){
-        items.add(new HomeHeadItemViewModel(HomeVideoViewModel.this));
-        items.add(new HomeTypeItemViewModel(HomeVideoViewModel.this));
-        items.add(new VideoGridViewModel<>(HomeVideoViewModel.this,"为您推荐", NetDateProvider.getVideoList()));
+        model.getVideoHomeDatas(pid,page+"",pageSize+"")
+                .compose(RxUtils.schedulersTransformer())
+                .doOnSubscribe(HomeVideoViewModel.this)
+                .subscribe(new Consumer<VideoRespBean>() {
+                    @Override
+                    public void accept(VideoRespBean firstColumnBean) {
+                        if (firstColumnBean.getCode().equals("200")){
+
+                                if (null!=firstColumnBean.getTab().getRec()&&firstColumnBean.getTab().getRec().size()>0){
+                                    if (!items.contains(homeHeadItemViewModel)){
+                                        items.add(homeHeadItemViewModel);
+                                    }
+                                    homeHeadItemViewModel.setDatas(firstColumnBean.getTab().getRec());
+                                    if (!items.contains(homeTypeItemViewModel)){
+                                        items.add(homeTypeItemViewModel);
+                                    }
+                                }
+
+                                if (null!=firstColumnBean.getTab().getRows()&&firstColumnBean.getTab().getRows().size()>0){
+                                    if (!items.contains(videoGridViewModel)){
+                                        items.add(videoGridViewModel);
+                                        page =pageSize+1;
+                                    }
+                                    videoGridViewModel.addItems(firstColumnBean.getTab().getRows());
+                                }
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) {
+
+                    }
+                });
+
+
     }
 
 

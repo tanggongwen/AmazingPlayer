@@ -44,7 +44,7 @@ public class RetrofitClient {
 
 //        public static String baseUrl = "https://dev-app.zhcs.csbtv.com/";
 
-    public static String baseUrl = "https://uat-app.zhcs.csbtv.com/";
+    public static String baseUrl = "http://mh.haotuyun.cn/";
 
 //        public static String baseUrl = "https://app.zhcs.csbtv.com/";
 

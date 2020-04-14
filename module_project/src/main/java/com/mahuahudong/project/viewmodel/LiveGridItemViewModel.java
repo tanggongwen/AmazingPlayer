@@ -11,10 +11,11 @@ import com.mahuahudong.mvvm.binding.command.BindingCommand;
 import com.mahuahudong.mvvm.databean.LiveBean;
 import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
+import com.mahuahudong.res.beans.LiveListBean;
 
 public class LiveGridItemViewModel<VM extends BaseViewModel> {
 
-    private LiveBean liveBean;
+    private LiveListBean.ListBean.LiveRowBean liveBean;
     public BindingCommand itemClickCommand = new BindingCommand(new BindingAction() {
 
         @Override
@@ -24,13 +25,13 @@ public class LiveGridItemViewModel<VM extends BaseViewModel> {
     });
 
     protected VM viewModel;
-    public LiveGridItemViewModel(@NonNull VM viewModel, LiveBean liveBean) {
+    public LiveGridItemViewModel(@NonNull VM viewModel, LiveListBean.ListBean.LiveRowBean liveBean) {
         this.viewModel = viewModel;
         this.liveBean = liveBean;
-        titleOb.set(liveBean.getLiveOwner());
-        coverOb.set(liveBean.getCover());
-        introduceOb.set(liveBean.getLiveIntro());
-        hotOb.set(liveBean.getLiveHot());
+        titleOb.set(liveBean.getTitle());
+        coverOb.set(liveBean.getPic());
+        introduceOb.set(liveBean.getName());
+        hotOb.set(liveBean.getPop());
     }
 
     public ObservableField<String> titleOb = new ObservableField<>();

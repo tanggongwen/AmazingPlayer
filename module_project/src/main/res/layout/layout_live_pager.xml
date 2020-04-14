@@ -8,19 +8,29 @@
             type="com.mahuahudong.project.viewmodel.LivePagerViewModel" />
     </data>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rylcContentGridView"
+        <com.mahuahudong.res.weiget.swipetoloadlayout.SwipeToLoadLayout
+            android:id="@+id/swipe"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10mm"
-            binding:items="@{itemViewModel.items}"
-            binding:itemBinding="@{itemViewModel.onItemBind}"
-            binding:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            binding:spanCount="2" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            binding:onRefreshCommand="@{itemViewModel.refreshCommand}"
+            binding:onLoadMoreCommand="@{itemViewModel.onLoadMoreCommand}">
+            <com.mahuahudong.res.weiget.swipetoloadlayout.HeaderView
+                android:id="@+id/swipe_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/swipe_target"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10mm"
+                binding:items="@{itemViewModel.items}"
+                binding:itemBinding="@{itemViewModel.onItemBind}"
+                binding:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                binding:spanCount="2" />
+            <com.mahuahudong.res.weiget.swipetoloadlayout.FooterView
+                android:id="@+id/swipe_load_more_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.mahuahudong.res.weiget.swipetoloadlayout.SwipeToLoadLayout>
+
 </layout>

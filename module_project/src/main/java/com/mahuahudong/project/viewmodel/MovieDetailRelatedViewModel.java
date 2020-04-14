@@ -9,18 +9,20 @@ import com.mahuahudong.mvvm.base.BaseViewModel;
 
 import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.project.model.HomeModel;
+import com.mahuahudong.res.beans.VideoDetailBean;
+import com.mahuahudong.res.beans.VideoRespBean;
 
 public class MovieDetailRelatedViewModel<VM extends BaseViewModel<HomeModel>> {
     protected VM viewModel;
 
     private HomeModel videoModel;
-    private VideoBean currentVideo;
+    private VideoDetailBean currentVideo;
     @SuppressLint("CheckResult")
-    public MovieDetailRelatedViewModel(@NonNull final VM viewModel, HomeModel videoModel, VideoBean videoBean) {
+    public MovieDetailRelatedViewModel(@NonNull final VM viewModel, HomeModel videoModel, VideoDetailBean videoBean) {
         this.viewModel  = viewModel;
         this.videoModel = videoModel;
-        titleOb.set(videoBean.getTitle());
-        desOb.set(videoBean.getIntro());
+        titleOb.set(videoBean.getDetail().getName());
+        desOb.set(videoBean.getDetail().getActor());
 
         this.currentVideo = videoBean;
 

@@ -20,7 +20,8 @@
                 android:layout_width="120mm"
                 android:layout_height="120mm"
                 android:layout_marginLeft="30mm"
-                android:src="@drawable/ic_account_circle_48px"
+                binding:url="@{itemViewModel.headUrl}"
+                binding:placeholderRes="@{itemViewModel.headPlaceHoder}"
                 android:layout_gravity="center_vertical" />
 
             <LinearLayout

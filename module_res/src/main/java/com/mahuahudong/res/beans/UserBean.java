@@ -5,104 +5,92 @@ import java.io.Serializable;
 public class UserBean implements Serializable {
 
     /**
-     * addr :
-     * birthDate :
-     * cardNo :
-     * isSigned : 0
-     * petName :
-     * profilePhoto : http://dev-rgw.zhcs.csbtv.com/zhcs/images/7db3a6b5b2ff443faef15a6e506c924b.jpg?AWSAccessKeyId=W665ISTJ7KL08YZ4Z66I&Expires=1572593492&Signature=lh6I3YQBjVzCXELfp8TNLTRXDdo%3D
-     * sex :
-     * userName : jjh
+     * code : 200
+     * msg : 注册成功
+     * token : e05a223a3fff2c9bd72395f4baaa5866
+     * info : {"userid":"478","username":"zjj2338829","nickname":"麻花小主730269","pic":"0.png"}
      */
 
-    private String addr;
-    private String birthDate;
-    private String cardNo;
-    private String isSigned;
-    private String petName;
-    private String profilePhoto;
-    private String sex;
-    private String userName;
-    private String mobile;
-    private String userId;
+    private String code;
+    private String msg;
+    private String token;
+    private InfoBean info;
 
-    public String getAddr() {
-        return addr;
+    public String getCode() {
+        return code;
     }
 
-    public void setAddr(String addr) {
-        this.addr = addr;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public String getCardNo() {
-        return cardNo;
+    public String getToken() {
+        return token;
     }
 
-    public void setCardNo(String cardNo) {
-        this.cardNo = cardNo;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public String getIsSigned() {
-        return isSigned;
+    public InfoBean getInfo() {
+        return info;
     }
 
-    public void setIsSigned(String isSigned) {
-        this.isSigned = isSigned;
+    public void setInfo(InfoBean info) {
+        this.info = info;
     }
 
-    public String getPetName() {
-        return petName;
-    }
+    public static class InfoBean {
+        /**
+         * userid : 478
+         * username : zjj2338829
+         * nickname : 麻花小主730269
+         * pic : 0.png
+         */
 
-    public void setPetName(String petName) {
-        this.petName = petName;
-    }
+        private String userid;
+        private String username;
+        private String nickname;
+        private String pic;
 
-    public String getProfilePhoto() {
-        return profilePhoto;
-    }
+        public String getUserid() {
+            return userid;
+        }
 
-    public void setProfilePhoto(String profilePhoto) {
-        this.profilePhoto = profilePhoto;
-    }
+        public void setUserid(String userid) {
+            this.userid = userid;
+        }
 
-    public String getSex() {
-        return sex;
-    }
+        public String getUsername() {
+            return username;
+        }
 
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
+        public void setUsername(String username) {
+            this.username = username;
+        }
 
-    public String getUserName() {
-        return userName;
-    }
+        public String getNickname() {
+            return nickname;
+        }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+        public void setNickname(String nickname) {
+            this.nickname = nickname;
+        }
 
-    public String getMobile() {
-        return mobile;
-    }
+        public String getPic() {
+            return pic;
+        }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+        public void setPic(String pic) {
+            this.pic = pic;
+        }
     }
 }

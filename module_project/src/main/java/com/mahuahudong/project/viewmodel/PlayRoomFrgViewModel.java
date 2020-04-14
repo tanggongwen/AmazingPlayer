@@ -26,13 +26,9 @@ public class PlayRoomFrgViewModel extends BaseViewModel<HomeModel> {
         ColunmBean movie = new ColunmBean();
         movie.setColumnId("1");
         movie.setColumnName("午间剧场");
-        ColunmBean movie2 = new ColunmBean();
-        movie2.setColumnId("2");
-        movie2.setColumnName("晚间剧场");
+
         list.add(movie);
-        imageitems.add(new PlayRoomVideoViewModel(PlayRoomFrgViewModel.this));
-        list.add(movie2);
-        imageitems.add(new PlayRoomVideoViewModel(PlayRoomFrgViewModel.this));
+        imageitems.add(new PlayRoomVideoViewModel(PlayRoomFrgViewModel.this,model));
         colunList.setValue(list);
 
     }

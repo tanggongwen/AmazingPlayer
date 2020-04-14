@@ -13,9 +13,10 @@ import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.project.R;
 
 import com.mahuahudong.res.Utils;
+import com.mahuahudong.res.beans.VideoDetailBean;
 
 public class MovieProgItemViewModel<VM extends BaseViewModel> {
-    private VideoBean videoBean;
+    VideoDetailBean.DetailBean.UrlBean videoBean;
     public BindingCommand itemClickCommand = new BindingCommand(new BindingAction() {
 
         @Override
@@ -25,11 +26,11 @@ public class MovieProgItemViewModel<VM extends BaseViewModel> {
     });
 
     protected VM viewModel;
-    public MovieProgItemViewModel(@NonNull VM viewModel, VideoBean videoBean,String videoId) {
+    public MovieProgItemViewModel(@NonNull VM viewModel, VideoDetailBean.DetailBean.UrlBean urlBean,String url) {
         this.viewModel = viewModel;
-        this.videoBean = videoBean;
-        titleOb.set(videoBean.getCurrentCount());
-        if (videoBean.getVideoId().equals(videoId)){
+        this.videoBean = urlBean;
+        titleOb.set(videoBean.getCount());
+        if (videoBean.getUrl().equals(url)){
             tvColorOb.set(Utils.getContext().getResources().getColor(R.color.tvselected));
         }else {
             tvColorOb.set(Utils.getContext().getResources().getColor(R.color.tvNomormal));
@@ -38,8 +39,8 @@ public class MovieProgItemViewModel<VM extends BaseViewModel> {
 
     public ObservableField<String> titleOb = new ObservableField<>();
 
-    public void updateTvColor(String videoId){
-        if (videoBean.getVideoId().equals(videoId)){
+    public void updateTvColor(String url){
+        if (videoBean.getUrl().equals(url)){
             tvColorOb.set(Utils.getContext().getResources().getColor(R.color.tvselected));
         }else {
             tvColorOb.set(Utils.getContext().getResources().getColor(R.color.tvNomormal));

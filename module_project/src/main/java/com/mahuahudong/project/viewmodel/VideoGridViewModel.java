@@ -9,6 +9,7 @@ import com.mahuahudong.mvvm.base.BaseViewModel;
 import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
+import com.mahuahudong.res.beans.VideoRespBean;
 
 
 import java.util.List;
@@ -19,16 +20,15 @@ public class VideoGridViewModel<VM extends BaseViewModel>{
 
     protected VM viewModel;
 
-    public VideoGridViewModel(@NonNull VM viewModel, String title, List<VideoBean> list) {
+    public VideoGridViewModel(@NonNull VM viewModel, String title) {
         this.viewModel = viewModel;
         titleOb.set(title);
-        addItems(list);
     }
 
 
 
-    public void addItems(List<VideoBean> list){
-        for (VideoBean videoBean:list){
+    public void addItems(List<VideoRespBean.TabBean.RowsBean> list){
+        for (VideoRespBean.TabBean.RowsBean videoBean:list){
             gridItems.add(new VideoGridItemViewModel(viewModel,videoBean));
         }
     }

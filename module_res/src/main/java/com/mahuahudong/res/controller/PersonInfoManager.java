@@ -3,10 +3,13 @@ package com.mahuahudong.res.controller;
 import com.mahuahudong.res.GsonUtil;
 import com.mahuahudong.res.SPUtils;
 import com.mahuahudong.res.StringUtils;
-import com.mahuahudong.res.beans.MyCommunityBean;
+
 import com.mahuahudong.res.beans.UserBean;
 import com.mahuahudong.res.constants.Constants;
 import com.mahuahudong.res.constants.SpConstants;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public enum PersonInfoManager {
     INSTANCE;
@@ -17,6 +20,19 @@ public enum PersonInfoManager {
 
     public String getToken() {
         return SPUtils.getInstance().getString(Constants.TYPE_TOKEO,"");
+    }
+
+
+    public Map getHeader(){
+        Map<String,String> headerMap = new HashMap<>();
+        headerMap.put("token",PersonInfoManager.INSTANCE.getToken());
+        headerMap.put("tokensource","Android");
+        if (null!=PersonInfoManager.INSTANCE.getUserBean()){
+            headerMap.put("username",PersonInfoManager.INSTANCE.getUserBean().getInfo().getUsername());
+        }else {
+            headerMap.put("username","");
+        }
+        return headerMap;
     }
 
     public void setToken(String token) {
@@ -33,15 +49,6 @@ public enum PersonInfoManager {
     }
 
 
-    public void setUserCommunityBean(MyCommunityBean communityBean){
-        SPUtils.getInstance().put(SpConstants.KEY_COMMUNITY_BEAN,GsonUtil.GsonString(communityBean));
-    }
-
-
-    public MyCommunityBean getUserCommunityBean(){
-        return GsonUtil.GsonToBean(SPUtils.getInstance().getString(SpConstants.KEY_COMMUNITY_BEAN,""), MyCommunityBean.class);
-    }
-
     public String getUserToken(){
         if (StringUtils.isEmpty(PersonInfoManager.INSTANCE.getToken())){
             return "";
@@ -50,11 +57,4 @@ public enum PersonInfoManager {
         }
     }
 
-    public String getUserTokenForH5(){
-        if (StringUtils.isEmpty(PersonInfoManager.INSTANCE.getToken())){
-            return "";
-        }else {
-            return PersonInfoManager.INSTANCE.getToken();
-        }
-    }
 }

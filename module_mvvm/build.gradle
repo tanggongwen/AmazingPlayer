@@ -56,6 +56,7 @@ dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     //公用资源在mvvm中依赖
     api project(':module_res')
+    api project(':module_live')
 
     //阿里路由框架
     api rootProject.ext.dependencies["arouter-api"]

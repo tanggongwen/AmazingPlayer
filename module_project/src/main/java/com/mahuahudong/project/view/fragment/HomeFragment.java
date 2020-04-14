@@ -20,6 +20,7 @@ import com.mahuahudong.project.config.HomeViewModelFactory;
 import com.mahuahudong.project.databinding.FragmentHomeBinding;
 
 import com.mahuahudong.project.viewmodel.HomeFrgViewModel;
+import com.mahuahudong.res.beans.FirstColumnBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,14 +54,14 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFrgViewM
 
     @Override
     public void initViewObservable() {
-        viewModel.colunList.observe(this, new Observer<List<ColunmBean>>() {
+        viewModel.colunList.observe(this, new Observer<ArrayList<FirstColumnBean.TabBean>>() {
             @Override
-            public void onChanged(List<ColunmBean> colunmBeans) {
+            public void onChanged(ArrayList<FirstColumnBean.TabBean> colunmBeans) {
                 binding.vpVideos.setOffscreenPageLimit(colunmBeans.size());
                 adapter.addItems(colunmBeans);
                 colunmList.clear();
-                for (ColunmBean channelBean:colunmBeans){
-                    colunmList.add(channelBean.getColumnName());
+                for (FirstColumnBean.TabBean channelBean:colunmBeans){
+                    colunmList.add(channelBean.getList_name());
                 }
                 String[] titles = colunmList.toArray(new String[colunmList.size()]);
                 binding.tabs.setViewPager(binding.vpVideos,titles);

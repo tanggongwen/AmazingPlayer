@@ -41,21 +41,11 @@ public class WatchHistoryListViewModel extends BaseViewModel<HomeModel> {
     public WatchHistoryListViewModel(@NonNull Application application, HomeModel model) {
         super(application, model);
         historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
-        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
-        historyPagers.add(new WatchHistoryPagerViewModel(WatchHistoryListViewModel.this));
         final List<ColunmBean> list = new ArrayList<>();
         ColunmBean movie = new ColunmBean();
         movie.setColumnId("1");
         movie.setColumnName("全部");
-        ColunmBean movie2 = new ColunmBean();
-        movie2.setColumnId("2");
-        movie2.setColumnName("电影");
-        ColunmBean movie3 = new ColunmBean();
-        movie3.setColumnId("3");
-        movie3.setColumnName("电视剧");
         list.add(movie);
-        list.add(movie2);
-        list.add(movie3);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

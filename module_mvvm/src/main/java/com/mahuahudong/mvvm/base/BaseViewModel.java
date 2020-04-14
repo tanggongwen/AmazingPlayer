@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer;
 
 import com.mahuahudong.mvvm.bus.event.SingleLiveEvent;
 import com.mahuahudong.mvvm.databean.VideoBean;
+import com.mahuahudong.res.beans.VideoDetailBean;
 import com.trello.rxlifecycle3.LifecycleProvider;
 
 import java.lang.ref.WeakReference;
@@ -208,7 +209,7 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
         private SingleLiveEvent<String> wxClientEvent;
         private SingleLiveEvent<Integer> indicEvent;
         private SingleLiveEvent<Integer> serviceIndicEvent;
-        private SingleLiveEvent<VideoBean> reloadEvent;
+        private SingleLiveEvent<VideoDetailBean.DetailBean.UrlBean> reloadEvent;
 
         public SingleLiveEvent<String> getShowDialogEvent() {
             return showDialogEvent = createLiveData(showDialogEvent);
@@ -262,7 +263,7 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
             return serviceIndicEvent = createLiveData(serviceIndicEvent);
         }
 
-        public SingleLiveEvent<VideoBean> getReloadEvent(){
+        public SingleLiveEvent<VideoDetailBean.DetailBean.UrlBean> getReloadEvent(){
             return reloadEvent = createLiveData(reloadEvent);
         }
 

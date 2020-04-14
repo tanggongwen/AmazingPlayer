@@ -22,6 +22,8 @@ import com.mahuahudong.project.viewmodel.MovieDetailViewModel;
 import com.mahuahudong.res.ScreenUtils;
 import com.mahuahudong.res.StringUtils;
 import com.mahuahudong.res.beans.NewsCommontBean;
+import com.mahuahudong.res.beans.VideoDetailBean;
+import com.mahuahudong.res.beans.VideoRespBean;
 import com.mahuahudong.res.constants.RouterParames;
 import com.mahuahudong.res.controller.PersonInfoManager;
 import com.mahuahudong.res.controller.StandardVideoController;
@@ -33,12 +35,10 @@ import java.util.List;
 
 @Route(path = RouterActivityPath.PAGER_MOVIEDETAIL)
 public class MovieDetailActivity extends BaseActivity<ActivityMovieDetailBinding, MovieDetailViewModel> {
-    private InputPopupWindow inputPopupWindow;
-    private CommontPopupWindow commontPopupWindow;
     private View rootView;
 
-    private VideoBean videoBean;
-    private String newsId="";
+    private VideoDetailBean videoDetailBean;
+    private String videoId ="";
     private StandardVideoController controller;
     private boolean showCommontDialog = false;
 
@@ -57,9 +57,7 @@ public class MovieDetailActivity extends BaseActivity<ActivityMovieDetailBinding
         super.initData();
         initVideoView();
         rootView = LayoutInflater.from(MovieDetailActivity.this).inflate(R.layout.activity_movie_detail, null);
-        inputPopupWindow = new InputPopupWindow(this,commontPopupWindowClickListener);
-        commontPopupWindow = new CommontPopupWindow(this);
-        commontPopupWindow.setCommontPopupClickListener(commontPopupWindowClickListener);
+
     }
 
     @Override
@@ -77,25 +75,13 @@ public class MovieDetailActivity extends BaseActivity<ActivityMovieDetailBinding
 
     @Override
     public void initViewObservable() {
-        viewModel.inputEvent.observe(this, new Observer() {
-            @Override
-            public void onChanged(Object o) {
-                inputPopupWindow.showAtLocation(rootView);
-            }
-        });
 
-        viewModel.commontEvent.observe(this, new Observer() {
-            @Override
-            public void onChanged(Object o) {
-                commontPopupWindow.showAtLocation(rootView);
-            }
-        });
 
-        viewModel.initVideoEvent.observe(this, new Observer<VideoBean>() {
+        viewModel.initVideoEvent.observe(this, new Observer<VideoDetailBean>() {
             @Override
-            public void onChanged(VideoBean bean) {
+            public void onChanged(VideoDetailBean bean) {
 
-                videoBean = bean;
+                videoDetailBean = bean;
                 resetVideoDetail();
             }
         });
@@ -103,45 +89,39 @@ public class MovieDetailActivity extends BaseActivity<ActivityMovieDetailBinding
 
 
 
-        viewModel.updateNewsCommontsEvent.observe(this, new Observer<List<NewsCommontBean.UserCommontBean>>() {
+
+        viewModel.getUC().getReloadEvent().observe(this, new Observer<VideoDetailBean.DetailBean.UrlBean>() {
             @Override
-            public void onChanged(List<NewsCommontBean.UserCommontBean> newsCommontBean) {
-                commontPopupWindow.setCommontList(newsCommontBean);
-            }
-        });
-        viewModel.getUC().getReloadEvent().observe(this, new Observer<com.mahuahudong.mvvm.databean.VideoBean>() {
-            @Override
-            public void onChanged(VideoBean videoBean) {
+            public void onChanged(VideoDetailBean.DetailBean.UrlBean videoBean) {
                 binding.videoPlayer.release();
-                binding.videoPlayer.setUrl(videoBean.getVideoUrl());
+                binding.videoPlayer.setUrl(videoBean.getUrl());
                 binding.videoPlayer.start();
-                viewModel.updataProg(videoBean.getVideoId());
+                viewModel.currentUrl = videoBean.getUrl();
+                viewModel.updataProg(videoBean.getUrl());
             }
         });
     }
 
     private void initVideoView(){
-        videoBean = (VideoBean) getIntent().getSerializableExtra(RouterParames.KEY_VIDEO_BEAN);
-        newsId = getIntent().getStringExtra(RouterParames.KEY_NEWS_ID);
+        videoId = getIntent().getStringExtra(RouterParames.KEY_VIDEO_ID);
         controller = new StandardVideoController(this);
         showCommontDialog = getIntent().getBooleanExtra(RouterParames.SHOW_COMMONTDIALOG,false);
-//        viewModel.getVideoDetail(newsId);
-        viewModel.initVideoData(videoBean);
+//        viewModel.getVideoDetail(videoId);
+        viewModel.initVideoData(videoId);
     }
 
     private void resetVideoDetail(){
             binding.videoPlayer.setVisibility(View.VISIBLE);
             binding.videoPlayer.setVideoController(controller);
-            binding.videoPlayer.setUrl(videoBean.getVideoUrl());
+            viewModel.currentUrl = videoDetailBean.getDetail().getUrl().get(0).get(0).getUrl();
+            binding.videoPlayer.setUrl(videoDetailBean.getDetail().getUrl().get(0).get(0).getUrl());
             binding.videoPlayer.setMute(false);
             //播放状态监听
             binding.videoPlayer.addOnVideoViewStateChangeListener(mOnVideoViewStateChangeListener);
             binding.videoPlayer.start();
 //        viewModel.initVideoData(videoBean);
         binding.ryContent.scrollToPosition(0);
-        if (showCommontDialog){
-            commontPopupWindow.showAtLocation(rootView);
-        }
+
     }
 
 
@@ -185,49 +165,7 @@ public class MovieDetailActivity extends BaseActivity<ActivityMovieDetailBinding
     };
 
 
-    private CommontPopupWindow.CommontPopupWindowClickListener commontPopupWindowClickListener = new CommontPopupWindow.CommontPopupWindowClickListener() {
-        @Override
-        public void onShowDialog() {
-            viewModel.getNewsCommonts(newsId);
-        }
 
-        @Override
-        public void onClickClose() {
-            commontPopupWindow.dismiss();
-        }
-
-        @Override
-        public void onInputClick() {
-            if (StringUtils.isEmpty(PersonInfoManager.INSTANCE.getUserToken())){
-                ARouter.getInstance().build(RouterActivityPath.PAGER_LOGIN).navigation();
-                return;
-            }
-            inputPopupWindow.showAtLocation(binding.rlytRoot);
-        }
-
-        @Override
-        public void onSend(String content) {
-            if (StringUtils.isEmpty(content)){
-                TipToast.showTextToas(MovieDetailActivity.this,"内容不能为空");
-                return;
-            }
-            viewModel.sendCommont(newsId,content);
-            if (commontPopupWindow.isShowing()){
-                commontPopupWindow.dismiss();
-            }
-            if (inputPopupWindow.isShowing()){
-                inputPopupWindow.dismiss();
-            }
-        }
-
-        @Override
-        public void onClickLike(String commontId) {
-            if (StringUtils.isEmpty(PersonInfoManager.INSTANCE.getUserToken())){
-                ARouter.getInstance().build(RouterActivityPath.PAGER_LOGIN).navigation();
-                return;
-            }
-        }
-    };
 
     @Override
     protected void onPause() {
@@ -250,20 +188,11 @@ public class MovieDetailActivity extends BaseActivity<ActivityMovieDetailBinding
 
     @Override
     public void onBackPressed() {
-        hidePopWindow();
         if (!binding.videoPlayer.onBackPressed()) {
             super.onBackPressed();
         }
     }
 
-    private void hidePopWindow(){
-        if (null!=commontPopupWindow&&commontPopupWindow.isShowing()){
-            commontPopupWindow.dismiss();
-        }
-        if (null!=inputPopupWindow&&inputPopupWindow.isShowing()){
-            inputPopupWindow.dismiss();
-        }
-    }
 
 
 }

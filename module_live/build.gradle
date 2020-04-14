@@ -24,7 +24,6 @@ dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation rootProject.ext.support["junit"]
     api rootProject.ext.dependencies["arouter-api"]
-    api project(path: ':module_mvvm')
 
         implementation 'androidx.appcompat:appcompat:1.1.0'
         implementation 'com.google.android.material:material:1.0.0'

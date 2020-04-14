@@ -26,7 +26,7 @@
                 android:layout_height="120mm"
                 binding:url="@{viewModel.headUrl}"
                 binding:onClickCommand="@{viewModel.openPersonInfoCommand}"
-                binding:placeholderRes="@{viewModel.headPlaceHolder}"
+                binding:placeholderRes="@{viewModel.headPlaceHoder}"
                 android:layout_centerVertical="true"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -42,14 +42,14 @@
                     android:textSize="36mm"
                     android:textColor="#000000"
                     android:textStyle="bold"
-                    android:text="登录/注册"/>
+                    android:text="@{viewModel.nickNameOb}"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#999999"
                     android:textSize="30mm"
                     android:layout_marginTop="10mm"
-                    android:text="登录一下，内容更精彩"/>
+                    android:text="@{viewModel.userDesOb}"/>
             </LinearLayout>
 
         </RelativeLayout>
@@ -132,8 +132,7 @@
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="80mm"
-                binding:onClickCommand="@{viewModel.openWatchHistoryListCommand}">
+                android:layout_height="80mm">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -153,7 +152,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="80mm"
-                binding:onClickCommand="@{viewModel.openWatchHistoryListCommand}">
+                android:visibility="@{viewModel.exitVisible}"
+                binding:onClickCommand="@{viewModel.exitCommand}">
 
                 <TextView
                     android:layout_width="wrap_content"

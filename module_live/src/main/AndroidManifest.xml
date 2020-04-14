@@ -44,7 +44,7 @@
 
         <meta-data
             android:name="com.netease.nim.appKey"
-			android:value="6f49e3f759ccd47810b445444eebc090" />
+			android:value="d25f86e4f00aa9db6838dd1b17a2b160" />
 
         <uses-library
             android:name="com.google.android.maps"

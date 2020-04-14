@@ -12,26 +12,27 @@ import com.mahuahudong.mvvm.binding.command.BindingCommand;
 import com.mahuahudong.mvvm.databean.VideoBean;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
 
+import com.mahuahudong.res.beans.VideoRespBean;
 import com.mahuahudong.res.constants.RouterParames;
 
 public class VideoGridItemViewModel<VM extends BaseViewModel> {
 
-    private VideoBean videoBean;
+    private VideoRespBean.TabBean.RowsBean videoBean;
         public BindingCommand itemClickCommand = new BindingCommand(new BindingAction() {
 
             @Override
             public void call() {
-                ARouter.getInstance().build(RouterActivityPath.PAGER_MOVIEDETAIL).withSerializable(RouterParames.KEY_VIDEO_BEAN,videoBean).navigation();
+                ARouter.getInstance().build(RouterActivityPath.PAGER_MOVIEDETAIL).withSerializable(RouterParames.KEY_VIDEO_ID,videoBean.getVid()).navigation();
             }
         });
 
         protected VM viewModel;
-        public VideoGridItemViewModel(@NonNull VM viewModel, VideoBean videoBean) {
+        public VideoGridItemViewModel(@NonNull VM viewModel, VideoRespBean.TabBean.RowsBean videoBean) {
             this.viewModel = viewModel;
             this.videoBean = videoBean;
-            titleOb.set(videoBean.getTitle());
-            coverOb.set(videoBean.getCover());
-            introduceOb.set(videoBean.getIntro());
+            titleOb.set(videoBean.getName());
+            coverOb.set(videoBean.getPic());
+            introduceOb.set(videoBean.getActor());
         }
 
         public ObservableField<String> titleOb = new ObservableField<>();

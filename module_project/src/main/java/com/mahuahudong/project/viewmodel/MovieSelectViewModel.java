@@ -32,7 +32,7 @@ public class MovieSelectViewModel extends BaseViewModel<HomeModel> {
 
     private void refreshVideos(){
         for (VideoBean videoBean: videoBeanList){
-            items.add(new MovieGridItemViewModel(MovieSelectViewModel.this,videoBean));
+//            items.add(new MovieGridItemViewModel(MovieSelectViewModel.this,videoBean));
         }
     }
 
@@ -65,7 +65,7 @@ public class MovieSelectViewModel extends BaseViewModel<HomeModel> {
             List<VideoBean> moreVideos = new ArrayList<>();
             moreVideos.addAll(NetDateProvider.getVideoList());
             for (VideoBean videoBean:moreVideos){
-                items.add(new MovieGridItemViewModel(MovieSelectViewModel.this,videoBean));
+//                items.add(new MovieGridItemViewModel(MovieSelectViewModel.this,videoBean));
                 videoBeanList.add(videoBean);
             }
         }
