@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.mahuahudong.module_live.entertainment.activity.LiveActivity;
+import com.mahuahudong.module_live.entertainment.activity.LiveModeChooseActivity;
 import com.mahuahudong.mvvm.base.BaseFragment;
 import com.mahuahudong.mvvm.router.RouterFragmentPath;
 import com.mahuahudong.project.BR;
@@ -65,6 +67,12 @@ public class LiveFragment extends BaseFragment<FragmentLiveBinding, LiveFrgViewM
 
                     }
                 });
+            }
+        });
+        viewModel.startLiveEvent.observe(this, new Observer() {
+            @Override
+            public void onChanged(Object o) {
+                LiveActivity.start(getActivity(), true, true);
             }
         });
     }

@@ -9,6 +9,7 @@ import com.mahuahudong.res.beans.SedColumnBean;
 import com.mahuahudong.res.beans.UserBean;
 import com.mahuahudong.project.config.datasource.HomeHttpDataSource;
 import com.mahuahudong.project.config.datasource.HomeLocalDataSource;
+import com.mahuahudong.res.beans.UserFocusBean;
 import com.mahuahudong.res.beans.VideoDetailBean;
 import com.mahuahudong.res.beans.VideoRespBean;
 
@@ -94,5 +95,15 @@ public class HomeModel extends BaseModel implements HomeHttpDataSource, HomeLoca
     @Override
     public Observable<LiveListBean> getLiveList(String page, String size) {
         return mHttpDataSource.getLiveList(page,size);
+    }
+
+    @Override
+    public Observable<LiveListBean> getFocusList(String page, String size, String lid) {
+        return mHttpDataSource.getFocusList(page,size,lid);
+    }
+
+    @Override
+    public Observable<UserFocusBean> addFocus(String lid) {
+        return mHttpDataSource.addFocus(lid);
     }
 }

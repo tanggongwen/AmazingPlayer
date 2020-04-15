@@ -4,9 +4,13 @@ package com.mahuahudong.project.config.http.service;
 import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.LiveReqBean;
+import com.mahuahudong.res.beans.MyFocusBean;
+import com.mahuahudong.res.beans.MyFocusReqBean;
 import com.mahuahudong.res.beans.RegisterRqBean;
 import com.mahuahudong.res.beans.SedReqBean;
 import com.mahuahudong.res.beans.UserBean;
+import com.mahuahudong.res.beans.UserFocusBean;
+import com.mahuahudong.res.beans.UserFocusReqBean;
 import com.mahuahudong.res.beans.VideoDetailBean;
 import com.mahuahudong.res.beans.VideoDetailReqBean;
 import com.mahuahudong.res.beans.VideoHomeReqBean;
@@ -50,5 +54,8 @@ public interface HomeApiService {
     Observable<LiveListBean> getLiveList(@HeaderMap Map<String, String> header, @Body LiveReqBean liveReqBean);
 
     @POST("user/my-focus")
-    Observable<String> getMyFocusList(@HeaderMap Map<String, String> header, @Body LiveReqBean liveReqBean);
+    Observable<MyFocusBean> getMyFocusList(@HeaderMap Map<String, String> header, @Body MyFocusReqBean myFocusReqBean);
+
+    @POST("/user/focus")
+    Observable<UserFocusBean> addFocus(@HeaderMap Map<String, String> header, @Body UserFocusReqBean userFocusReqBean);
 }

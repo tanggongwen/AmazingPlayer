@@ -4,6 +4,7 @@ import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.SedColumnBean;
 import com.mahuahudong.res.beans.UserBean;
+import com.mahuahudong.res.beans.UserFocusBean;
 import com.mahuahudong.res.beans.VideoDetailBean;
 import com.mahuahudong.res.beans.VideoRespBean;
 
@@ -27,4 +28,8 @@ public interface HomeHttpDataSource {
     Observable<VideoDetailBean> getVideoDetail( String vid);
 
     Observable<LiveListBean> getLiveList(String page,String size);
+
+    Observable<LiveListBean> getFocusList(String page,String size,String lid);
+
+    Observable<UserFocusBean> addFocus(String lid);
 }

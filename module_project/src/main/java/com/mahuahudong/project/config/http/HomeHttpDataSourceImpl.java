@@ -4,12 +4,15 @@ package com.mahuahudong.project.config.http;
 import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.LiveReqBean;
+import com.mahuahudong.res.beans.MyFocusReqBean;
 import com.mahuahudong.res.beans.RegisterRqBean;
 import com.mahuahudong.res.beans.SedColumnBean;
 import com.mahuahudong.res.beans.SedReqBean;
 import com.mahuahudong.res.beans.UserBean;
 import com.mahuahudong.project.config.datasource.HomeHttpDataSource;
 import com.mahuahudong.project.config.http.service.HomeApiService;
+import com.mahuahudong.res.beans.UserFocusBean;
+import com.mahuahudong.res.beans.UserFocusReqBean;
 import com.mahuahudong.res.beans.VideoDetailBean;
 import com.mahuahudong.res.beans.VideoDetailReqBean;
 import com.mahuahudong.res.beans.VideoHomeReqBean;
@@ -95,5 +98,21 @@ public class HomeHttpDataSourceImpl implements HomeHttpDataSource {
         liveReqBean.setPage(page);
         liveReqBean.setSize(size);
         return apiService.getLiveList(PersonInfoManager.INSTANCE.getHeader(),liveReqBean);
+    }
+
+    @Override
+    public Observable<LiveListBean> getFocusList(String page, String size, String lid) {
+        MyFocusReqBean myFocusReqBean = new MyFocusReqBean();
+        myFocusReqBean.setPage(page);
+        myFocusReqBean.setSize(size);
+        myFocusReqBean.setLid(lid);
+        return apiService.getMyFocusList(PersonInfoManager.INSTANCE.getHeader(),myFocusReqBean);
+    }
+
+    @Override
+    public Observable<UserFocusBean> addFocus(String lid) {
+        UserFocusReqBean userFocusReqBean = new UserFocusReqBean();
+        userFocusReqBean.setLid(lid);
+        return apiService.addFocus(PersonInfoManager.INSTANCE.getHeader(),userFocusReqBean);
     }
 }

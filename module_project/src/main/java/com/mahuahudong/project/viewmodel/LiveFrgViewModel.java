@@ -8,6 +8,8 @@ import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.mahuahudong.module_live.entertainment.activity.LiveActivity;
+import com.mahuahudong.module_live.entertainment.activity.LiveModeChooseActivity;
 import com.mahuahudong.module_live.im.activity.LoginActivity;
 import com.mahuahudong.module_live.inject.FlavorDependent;
 import com.mahuahudong.mvvm.base.BaseViewModel;
@@ -41,7 +43,7 @@ public class LiveFrgViewModel extends BaseViewModel<HomeModel> {
 
     public SingleLiveEvent<List<ColunmBean>> colunList = new SingleLiveEvent<>();
 
-
+    public SingleLiveEvent startLiveEvent = new SingleLiveEvent();
 
     public ObservableList<LivePagerViewModel> imageitems = new ObservableArrayList<>();
     public ItemBinding<LivePagerViewModel> imageBinding = ItemBinding.of(BR.itemViewModel, R.layout.layout_live_pager);
@@ -54,7 +56,7 @@ public class LiveFrgViewModel extends BaseViewModel<HomeModel> {
     public BindingCommand startLiveCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-            ARouter.getInstance().build(RouterActivityPath.PAGER_INDENTIFY).navigation();
+            startLiveEvent.setValue("");
         }
     });
 }

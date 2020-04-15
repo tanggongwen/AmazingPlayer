@@ -33,6 +33,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.mahuahudong.module_live.DemoCache;
@@ -121,7 +122,7 @@ import java.util.Map;
  * 互动直播开发指南文档地址：
  * http://dev.netease.im/docs/product/互动直播/SDK开发集成/Android开发集成
  */
-
+@Route(path = "/live/start")
 public class LiveActivity extends LivePlayerBaseActivity implements InteractionAdapter.MemberLinkListener {
 
     private static final String TAG = "LiveActivity";

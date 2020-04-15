@@ -7,6 +7,6 @@ final class ServerEnvs {
     // DEFAULT Env.REL
     //
 
-    static final ServerConfig.ServerEnv SERVER = ServerConfig.ServerEnv.REL;
+    static final ServerConfig.ServerEnv SERVER = ServerConfig.ServerEnv.TEST;
 
 }

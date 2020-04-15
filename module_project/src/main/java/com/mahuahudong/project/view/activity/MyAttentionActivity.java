@@ -30,4 +30,7 @@ public class MyAttentionActivity extends BaseActivity<ActivityMyattentionBinding
         HomeViewModelFactory factory = HomeViewModelFactory.getInstance(getApplication());
         return ViewModelProviders.of(this,factory).get(MyAttentionViewModel.class);
     }
+
+
+
 }
