@@ -16,6 +16,7 @@ import com.mahuahudong.project.model.HomeModel;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
 public class TrendsViewModel extends BaseViewModel<HomeModel> {
+
     public TrendsViewModel(@NonNull Application application, HomeModel model) {
         super(application, model);
         items.add(new TrendsMessageItemViewModel(TrendsViewModel.this));

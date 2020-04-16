@@ -1,5 +1,6 @@
 package com.mahuahudong.project.viewmodel;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
@@ -11,23 +12,31 @@ import androidx.databinding.ObservableList;
 import com.mahuahudong.mvvm.base.BaseViewModel;
 import com.mahuahudong.mvvm.binding.command.BindingAction;
 import com.mahuahudong.mvvm.binding.command.BindingCommand;
+import com.mahuahudong.mvvm.utils.RxUtils;
+import com.mahuahudong.mvvm.utils.Utils;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
 import com.mahuahudong.project.model.HomeModel;
+import com.mahuahudong.res.beans.MyFocusBean;
+import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.controller.PersonInfoManager;
+import com.mahuahudong.res.weiget.TipToast;
 
+import io.reactivex.functions.Consumer;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import me.tatarka.bindingcollectionadapter2.OnItemBind;
 
 public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
+    private int page = 1;
+    private int size = 10;
     public PersonInfoViewModel(@NonNull Application application, HomeModel model) {
         super(application, model);
         if (null!= PersonInfoManager.INSTANCE.getUserBean()){
             nickNameOb.set(PersonInfoManager.INSTANCE.getUserBean().getInfo().getNickname());
         }
         items.add(new PersonInfoItemViewModel(PersonInfoViewModel.this));
-        items.add(new PersonStateItemViewModel(PersonInfoViewModel.this));
-        items.add(new PersonStateItemViewModel(PersonInfoViewModel.this));
+//        items.add(new PersonStateItemViewModel(PersonInfoViewModel.this));
+//        items.add(new PersonStateItemViewModel(PersonInfoViewModel.this));
     }
 
     public ObservableList<Object> items = new ObservableArrayList<>();
@@ -50,14 +59,17 @@ public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
     public BindingCommand refreshCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-
+            page = 1;
+            items.clear();
+            items.add(new PersonInfoItemViewModel(PersonInfoViewModel.this));
+            getTrendList();
         }
     });
 
     public BindingCommand onLoadMoreCommand = new BindingCommand<>(new BindingAction() {
         @Override
         public void call() {
-
+            getTrendList();
         }
     });
 
@@ -67,4 +79,30 @@ public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
             finish();
         }
     });
+
+    @SuppressLint("CheckResult")
+    private void getTrendList(){
+        model.getMyTrends(page+"",size+"","")
+                .compose(RxUtils.schedulersTransformer())
+                .doOnSubscribe(PersonInfoViewModel.this)
+                .subscribe(new Consumer<MyTrendsBean>() {
+                    @Override
+                    public void accept(MyTrendsBean myTrendsBean) {
+                        if (myTrendsBean.getCode().equals("200")){
+                            if (null!=myTrendsBean.getList()&&myTrendsBean.getList().getRows().size()>0){
+                                for (MyTrendsBean.ListBean.RowsBean rowsBean:myTrendsBean.getList().getRows()){
+                                    items.add(new PersonStateItemViewModel(PersonInfoViewModel.this,rowsBean));
+                                }
+                                page =page+1;
+                            }
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) {
+                        TipToast.showTextToas(Utils.getContext(),throwable.toString());
+                    }
+                });
+
+    }
 }

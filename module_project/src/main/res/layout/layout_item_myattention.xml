@@ -50,6 +50,7 @@
             android:textSize="24mm"
             android:gravity="center"
             android:textColor="#000000"
+            binding:onClickCommand="@{itemViewModel.focusCommand}"
             android:text="已关注"
             android:background="@drawable/shape_tv_attentioned_bg"/>
     </LinearLayout>

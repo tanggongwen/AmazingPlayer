@@ -5,6 +5,8 @@ import androidx.annotation.NonNull;
 import com.mahuahudong.mvvm.base.BaseModel;
 import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
+import com.mahuahudong.res.beans.MyFocusBean;
+import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.SedColumnBean;
 import com.mahuahudong.res.beans.UserBean;
 import com.mahuahudong.project.config.datasource.HomeHttpDataSource;
@@ -98,12 +100,17 @@ public class HomeModel extends BaseModel implements HomeHttpDataSource, HomeLoca
     }
 
     @Override
-    public Observable<LiveListBean> getFocusList(String page, String size, String lid) {
+    public Observable<MyFocusBean> getFocusList(String page, String size, String lid) {
         return mHttpDataSource.getFocusList(page,size,lid);
     }
 
     @Override
     public Observable<UserFocusBean> addFocus(String lid) {
         return mHttpDataSource.addFocus(lid);
+    }
+
+    @Override
+    public Observable<MyTrendsBean> getMyTrends(String page, String size, String lid) {
+        return mHttpDataSource.getMyTrends(page,size,lid);
     }
 }

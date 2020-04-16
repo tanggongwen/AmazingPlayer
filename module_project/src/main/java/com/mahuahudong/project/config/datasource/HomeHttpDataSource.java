@@ -2,6 +2,9 @@ package com.mahuahudong.project.config.datasource;
 
 import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
+import com.mahuahudong.res.beans.MyFocusBean;
+import com.mahuahudong.res.beans.MyFocusReqBean;
+import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.SedColumnBean;
 import com.mahuahudong.res.beans.UserBean;
 import com.mahuahudong.res.beans.UserFocusBean;
@@ -29,7 +32,9 @@ public interface HomeHttpDataSource {
 
     Observable<LiveListBean> getLiveList(String page,String size);
 
-    Observable<LiveListBean> getFocusList(String page,String size,String lid);
+    Observable<MyFocusBean> getFocusList(String page, String size, String lid);
 
     Observable<UserFocusBean> addFocus(String lid);
+
+    Observable<MyTrendsBean> getMyTrends(String page, String size, String lid);
 }

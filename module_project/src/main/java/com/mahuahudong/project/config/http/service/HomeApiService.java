@@ -6,6 +6,8 @@ import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.LiveReqBean;
 import com.mahuahudong.res.beans.MyFocusBean;
 import com.mahuahudong.res.beans.MyFocusReqBean;
+import com.mahuahudong.res.beans.MyTrendReqBean;
+import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.RegisterRqBean;
 import com.mahuahudong.res.beans.SedReqBean;
 import com.mahuahudong.res.beans.UserBean;
@@ -58,4 +60,8 @@ public interface HomeApiService {
 
     @POST("/user/focus")
     Observable<UserFocusBean> addFocus(@HeaderMap Map<String, String> header, @Body UserFocusReqBean userFocusReqBean);
+
+    @POST("/user/my-trends")
+    Observable<MyTrendsBean> getMyTrendList(@HeaderMap Map<String, String> header, @Body MyTrendReqBean myTrendReqBean);
+
 }

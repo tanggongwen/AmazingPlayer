@@ -4,7 +4,10 @@ package com.mahuahudong.project.config.http;
 import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.LiveReqBean;
+import com.mahuahudong.res.beans.MyFocusBean;
 import com.mahuahudong.res.beans.MyFocusReqBean;
+import com.mahuahudong.res.beans.MyTrendReqBean;
+import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.RegisterRqBean;
 import com.mahuahudong.res.beans.SedColumnBean;
 import com.mahuahudong.res.beans.SedReqBean;
@@ -101,7 +104,7 @@ public class HomeHttpDataSourceImpl implements HomeHttpDataSource {
     }
 
     @Override
-    public Observable<LiveListBean> getFocusList(String page, String size, String lid) {
+    public Observable<MyFocusBean> getFocusList(String page, String size, String lid) {
         MyFocusReqBean myFocusReqBean = new MyFocusReqBean();
         myFocusReqBean.setPage(page);
         myFocusReqBean.setSize(size);
@@ -114,5 +117,14 @@ public class HomeHttpDataSourceImpl implements HomeHttpDataSource {
         UserFocusReqBean userFocusReqBean = new UserFocusReqBean();
         userFocusReqBean.setLid(lid);
         return apiService.addFocus(PersonInfoManager.INSTANCE.getHeader(),userFocusReqBean);
+    }
+
+    @Override
+    public Observable<MyTrendsBean> getMyTrends(String page, String size, String lid) {
+        MyTrendReqBean myTrendReqBean = new MyTrendReqBean();
+        myTrendReqBean.setPage(page);
+        myTrendReqBean.setSize(size);
+        myTrendReqBean.setLid(lid);
+        return apiService.getMyTrendList(PersonInfoManager.INSTANCE.getHeader(),myTrendReqBean);
     }
 }
