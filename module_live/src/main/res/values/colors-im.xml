@@ -6,7 +6,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="navigationBarColor">#2196F3</color>
     <color name="color_blue_1081ea">#1081ea</color>
-    <color name="color_activity_blue_bg">#389fff</color>
+    <color name="color_activity_blue_bg">#ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="color_white_alpha">#ccffffff</color>
 
@@ -38,7 +38,7 @@
     <color name="color_gray_f0f0f0">#f0f0f0</color>
     <color name="action_bar_tittle_color_555555">#555555</color>
     <color name="color_blue_238efa">#238efa</color>
-    <color name="color_background">#ECF1F5</color>
+    <color name="color_background">#ffffff</color>
     <color name="color_gray_bfc2c5">#bfc2c5</color>
     <color name="color_red_ff4055">#ff4055</color>
 </resources>

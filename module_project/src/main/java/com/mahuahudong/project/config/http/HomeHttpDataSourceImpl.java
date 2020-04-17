@@ -1,6 +1,8 @@
 package com.mahuahudong.project.config.http;
 
 
+import com.mahuahudong.res.beans.AddTrendRespBean;
+import com.mahuahudong.res.beans.AddTrendbean;
 import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.LiveReqBean;
@@ -126,5 +128,12 @@ public class HomeHttpDataSourceImpl implements HomeHttpDataSource {
         myTrendReqBean.setSize(size);
         myTrendReqBean.setLid(lid);
         return apiService.getMyTrendList(PersonInfoManager.INSTANCE.getHeader(),myTrendReqBean);
+    }
+
+    @Override
+    public Observable<AddTrendbean> addTrend(String content) {
+        AddTrendbean addTrendbean = new AddTrendbean();
+        addTrendbean.setContent(content);
+        return apiService.addTrend(PersonInfoManager.INSTANCE.getHeader(),addTrendbean);
     }
 }

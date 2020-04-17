@@ -1,5 +1,7 @@
 package com.mahuahudong.project.config.datasource;
 
+import com.mahuahudong.res.beans.AddTrendRespBean;
+import com.mahuahudong.res.beans.AddTrendbean;
 import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.MyFocusBean;
@@ -37,4 +39,6 @@ public interface HomeHttpDataSource {
     Observable<UserFocusBean> addFocus(String lid);
 
     Observable<MyTrendsBean> getMyTrends(String page, String size, String lid);
+
+    Observable<AddTrendbean> addTrend(String content);
 }

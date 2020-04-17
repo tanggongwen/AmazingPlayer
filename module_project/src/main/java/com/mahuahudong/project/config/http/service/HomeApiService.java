@@ -1,6 +1,8 @@
 package com.mahuahudong.project.config.http.service;
 
 
+import com.mahuahudong.res.beans.AddTrendRespBean;
+import com.mahuahudong.res.beans.AddTrendbean;
 import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.LiveReqBean;
@@ -25,7 +27,6 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 /**
  * Created by tanggongen on 2019/9/17
@@ -63,5 +64,9 @@ public interface HomeApiService {
 
     @POST("/user/my-trends")
     Observable<MyTrendsBean> getMyTrendList(@HeaderMap Map<String, String> header, @Body MyTrendReqBean myTrendReqBean);
+
+    @POST("/user/set-trends")
+    Observable<AddTrendRespBean> addTrend(@HeaderMap Map<String, String> header, @Body AddTrendbean addTrendbean);
+
 
 }

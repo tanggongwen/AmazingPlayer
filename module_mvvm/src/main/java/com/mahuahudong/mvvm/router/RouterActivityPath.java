@@ -38,4 +38,5 @@ public class RouterActivityPath {
 
         public static final String PAGER_INDENTIFY= "/live/identify";
 
+        public static final String PAGER_SENDTREND= MINE+"/sendtrend";
 }

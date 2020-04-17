@@ -73,6 +73,7 @@
             android:layout_marginBottom="40mm"
             android:textColor="#ffffff"
             android:textSize="32mm"
+            binding:onClickCommand="@{viewModel.sendCommand}"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>

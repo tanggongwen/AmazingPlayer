@@ -3,6 +3,7 @@ package com.mahuahudong.project.model;
 import androidx.annotation.NonNull;
 
 import com.mahuahudong.mvvm.base.BaseModel;
+import com.mahuahudong.res.beans.AddTrendbean;
 import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.MyFocusBean;
@@ -112,5 +113,10 @@ public class HomeModel extends BaseModel implements HomeHttpDataSource, HomeLoca
     @Override
     public Observable<MyTrendsBean> getMyTrends(String page, String size, String lid) {
         return mHttpDataSource.getMyTrends(page,size,lid);
+    }
+
+    @Override
+    public Observable<AddTrendbean> addTrend(String content) {
+        return mHttpDataSource.addTrend(content);
     }
 }

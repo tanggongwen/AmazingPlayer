@@ -22,6 +22,7 @@ import com.mahuahudong.project.viewmodel.MyAttentionViewModel;
 import com.mahuahudong.project.viewmodel.PersonInfoViewModel;
 import com.mahuahudong.project.viewmodel.PlayRoomFrgViewModel;
 import com.mahuahudong.project.viewmodel.RegisterViewModel;
+import com.mahuahudong.project.viewmodel.SendTrendViewModel;
 import com.mahuahudong.project.viewmodel.TrendsViewModel;
 import com.mahuahudong.project.viewmodel.WatchHistoryListViewModel;
 
@@ -88,6 +89,8 @@ public class HomeViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new MovieDetailViewModel(mApplication, homeModel);
         }else  if (modelClass.isAssignableFrom(MovieSelectViewModel.class)){
             return (T) new MovieSelectViewModel(mApplication, homeModel);
+        }else  if (modelClass.isAssignableFrom(SendTrendViewModel.class)){
+            return (T) new SendTrendViewModel(mApplication, homeModel);
         }
 
 

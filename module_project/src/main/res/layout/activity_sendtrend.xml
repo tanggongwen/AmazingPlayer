@@ -11,7 +11,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#ffffff">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="80mm">
@@ -44,13 +45,18 @@
                 android:paddingBottom="14mm"
                 android:textSize="26mm"
                 android:layout_marginRight="30mm"
+                binding:onClickCommand="@{viewModel.sendCommand}"
                 android:text="发表"
                 android:textColor="@{viewModel.tvColorOb}"/>
         </RelativeLayout>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="300mm"
+            android:layout_height="400mm"
             android:textSize="26mm"
+            android:paddingLeft="30mm"
+            android:paddingRight="30mm"
+            android:textColor="#000000"
+            binding:textChanged="@{viewModel.edtChanged}"
             android:hint="这一刻的想法"
             android:gravity="start"/>
     </LinearLayout>

@@ -25,5 +25,7 @@
             android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".view.activity.MovieSelectActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.SendTrendActivity"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>
