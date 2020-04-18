@@ -60,6 +60,7 @@ public class UserBean implements Serializable {
         private String username;
         private String nickname;
         private String pic;
+        private String signature;
 
         public String getUserid() {
             return userid;
@@ -91,6 +92,14 @@ public class UserBean implements Serializable {
 
         public void setPic(String pic) {
             this.pic = pic;
+        }
+
+        public String getSignature() {
+            return signature;
+        }
+
+        public void setSignature(String signature) {
+            this.signature = signature;
         }
     }
 }

@@ -8,6 +8,9 @@ import com.mahuahudong.res.beans.MyFocusBean;
 import com.mahuahudong.res.beans.MyFocusReqBean;
 import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.SedColumnBean;
+import com.mahuahudong.res.beans.SelectedVideoRespBean;
+import com.mahuahudong.res.beans.UpdateUserRespBean;
+import com.mahuahudong.res.beans.UploadHeadRespBean;
 import com.mahuahudong.res.beans.UserBean;
 import com.mahuahudong.res.beans.UserFocusBean;
 import com.mahuahudong.res.beans.VideoDetailBean;
@@ -41,4 +44,10 @@ public interface HomeHttpDataSource {
     Observable<MyTrendsBean> getMyTrends(String page, String size, String lid);
 
     Observable<AddTrendbean> addTrend(String content);
+
+    Observable<UploadHeadRespBean> uploadHead(String filePath);
+
+    Observable<UpdateUserRespBean> updateUser(String signature,String nickname,String avatar);
+
+    Observable<SelectedVideoRespBean> getSelectedVideoList(String page,String size,String type,String cate,String area,String year,String word,String style);
 }

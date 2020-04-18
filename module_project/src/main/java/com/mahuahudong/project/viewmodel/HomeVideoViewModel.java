@@ -24,7 +24,7 @@ import me.tatarka.bindingcollectionadapter2.OnItemBind;
 public class HomeVideoViewModel extends BaseViewModel<HomeModel> {
     private int pageSize = 10;
     private String pid="";
-    private int page = 1;
+    private int page = 0;
     private HomeHeadItemViewModel homeHeadItemViewModel = new HomeHeadItemViewModel(HomeVideoViewModel.this);
     private VideoGridViewModel videoGridViewModel = new VideoGridViewModel(HomeVideoViewModel.this,"为您推荐");
     private HomeTypeItemViewModel homeTypeItemViewModel = new HomeTypeItemViewModel(HomeVideoViewModel.this);

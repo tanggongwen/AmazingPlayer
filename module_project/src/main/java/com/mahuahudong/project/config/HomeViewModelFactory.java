@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.mahuahudong.project.model.HomeModel;
 import com.mahuahudong.project.viewmodel.AccountManagerViewModel;
+import com.mahuahudong.project.viewmodel.ChangeUserInfoViewModel;
 import com.mahuahudong.project.viewmodel.HomeFrgViewModel;
 import com.mahuahudong.project.viewmodel.HomeVideoViewModel;
 import com.mahuahudong.project.viewmodel.HomeViewModel;
@@ -91,6 +92,8 @@ public class HomeViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new MovieSelectViewModel(mApplication, homeModel);
         }else  if (modelClass.isAssignableFrom(SendTrendViewModel.class)){
             return (T) new SendTrendViewModel(mApplication, homeModel);
+        }else if (modelClass.isAssignableFrom(ChangeUserInfoViewModel.class)){
+            return (T) new ChangeUserInfoViewModel(mApplication,homeModel);
         }
 
 

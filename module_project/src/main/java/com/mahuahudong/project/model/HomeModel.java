@@ -9,6 +9,8 @@ import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.MyFocusBean;
 import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.SedColumnBean;
+import com.mahuahudong.res.beans.UpdateUserRespBean;
+import com.mahuahudong.res.beans.UploadHeadRespBean;
 import com.mahuahudong.res.beans.UserBean;
 import com.mahuahudong.project.config.datasource.HomeHttpDataSource;
 import com.mahuahudong.project.config.datasource.HomeLocalDataSource;
@@ -118,5 +120,15 @@ public class HomeModel extends BaseModel implements HomeHttpDataSource, HomeLoca
     @Override
     public Observable<AddTrendbean> addTrend(String content) {
         return mHttpDataSource.addTrend(content);
+    }
+
+    @Override
+    public Observable<UploadHeadRespBean> uploadHead(String filePath) {
+        return mHttpDataSource.uploadHead(filePath);
+    }
+
+    @Override
+    public Observable<UpdateUserRespBean> updateUser(String signature, String nickname, String avatar) {
+        return mHttpDataSource.updateUser(signature,nickname,avatar);
     }
 }

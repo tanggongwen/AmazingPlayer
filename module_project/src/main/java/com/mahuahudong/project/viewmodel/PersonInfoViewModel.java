@@ -20,18 +20,21 @@ import com.mahuahudong.mvvm.utils.Utils;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
 import com.mahuahudong.project.model.HomeModel;
+import com.mahuahudong.res.beans.AddTrendRespBean;
 import com.mahuahudong.res.beans.AddTrendbean;
 import com.mahuahudong.res.beans.MyFocusBean;
 import com.mahuahudong.res.beans.MyTrendsBean;
+import com.mahuahudong.res.beans.UpdateUserRespBean;
 import com.mahuahudong.res.controller.PersonInfoManager;
 import com.mahuahudong.res.weiget.TipToast;
 
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import me.tatarka.bindingcollectionadapter2.OnItemBind;
 
 public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
-    private int page = 1;
+    private int page = 0;
     private int size = 10;
     @SuppressLint("CheckResult")
     public PersonInfoViewModel(@NonNull Application application, HomeModel model) {
@@ -42,10 +45,10 @@ public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
         items.add(new PersonInfoItemViewModel(PersonInfoViewModel.this));
 //        items.add(new PersonStateItemViewModel(PersonInfoViewModel.this));
 //        items.add(new PersonStateItemViewModel(PersonInfoViewModel.this));
-        RxBus.getDefault().toObservableSticky(AddTrendbean.class).compose(RxUtils.schedulersTransformer()).subscribe(new Consumer() {
+       RxBus.getDefault().toObservableSticky(AddTrendRespBean.class).compose(RxUtils.schedulersTransformer()).subscribe(new Consumer() {
             @Override
             public void accept(Object o) throws Exception {
-                page = 1;
+                page = 0;
                 items.clear();
                 items.add(new PersonInfoItemViewModel(PersonInfoViewModel.this));
                 getTrendList();
@@ -56,6 +59,20 @@ public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
 
             }
         });
+       RxBus.getDefault().toObservableSticky(UpdateUserRespBean.class).compose(RxUtils.schedulersTransformer()).subscribe(new Consumer() {
+           @Override
+           public void accept(Object o) throws Exception {
+               page = 0;
+               items.clear();
+               items.add(new PersonInfoItemViewModel(PersonInfoViewModel.this));
+               getTrendList();
+           }
+       }, new Consumer<Throwable>() {
+           @Override
+           public void accept(Throwable throwable) throws Exception {
+
+           }
+       });
     }
 
     public ObservableList<Object> items = new ObservableArrayList<>();
@@ -78,7 +95,7 @@ public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
     public BindingCommand refreshCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-            page = 1;
+            page = 0;
             items.clear();
             items.add(new PersonInfoItemViewModel(PersonInfoViewModel.this));
             getTrendList();

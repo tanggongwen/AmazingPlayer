@@ -37,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="80mm"
             android:layout_marginTop="10mm"
+            binding:onClickCommand="@{viewModel.changeHeadCommand}"
             android:background="#ffffff">
             <TextView
                 android:layout_width="wrap_content"
@@ -57,7 +58,8 @@
                 <com.mahuahudong.res.weiget.CircleImageView
                     android:layout_width="60mm"
                     android:layout_height="60mm"
-                    android:src="@drawable/ic_account_circle_48px"/>
+                    binding:placeholderRes="@{viewModel.headPlaceHolder}"
+                    binding:url="@{viewModel.headUrl}" />
                 <ImageView
                     android:layout_width="40mm"
                     android:layout_height="40mm"
@@ -67,6 +69,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="80mm"
+            binding:onClickCommand="@{viewModel.changeNickNameCommand}"
+
             android:background="#ffffff">
             <TextView
                 android:layout_width="wrap_content"
@@ -87,7 +91,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Anthony"
+                    android:text="@{viewModel.nickNameOb}"
                     android:textSize="26mm"
                     android:textColor="#999999"/>
                 <ImageView
@@ -99,6 +103,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="80mm"
+            binding:onClickCommand="@{viewModel.changeIntroCommmand}"
+
             android:background="#ffffff">
             <TextView
                 android:layout_width="wrap_content"

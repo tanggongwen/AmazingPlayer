@@ -21,7 +21,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import me.tatarka.bindingcollectionadapter2.OnItemBind;
 
 public class PlayRoomVideoViewModel extends ItemViewModel<PlayRoomFrgViewModel> {
-        private int page = 1;
+        private int page = 0;
         private int size = 10;
         private HomeModel model;
     private HomeHeadItemViewModel homeHeadItemViewModel = new HomeHeadItemViewModel(viewModel);
@@ -49,7 +49,7 @@ public class PlayRoomVideoViewModel extends ItemViewModel<PlayRoomFrgViewModel> 
         @Override
         public void call() {
             items.clear();
-            page = 1;
+            page = 0;
             getHomeDatas();
         }
     });

@@ -23,7 +23,7 @@ import io.reactivex.functions.Consumer;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
 public class MyAttentionViewModel extends BaseViewModel<HomeModel> {
-    private int page = 1;
+    private int page = 0;
     private int size = 10;
     public MyAttentionViewModel(@NonNull Application application, HomeModel model) {
         super(application, model);
@@ -59,7 +59,7 @@ public class MyAttentionViewModel extends BaseViewModel<HomeModel> {
 
     private void refreshFocusList(){
         items.clear();
-        page = 1;
+        page = 0;
         getFocusList();
     }
 

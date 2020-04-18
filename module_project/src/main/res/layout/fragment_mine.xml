@@ -34,7 +34,6 @@
                 android:orientation="vertical"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20mm"
-                binding:onClickCommand="@{viewModel.loginCommand}"
                 android:layout_toRightOf="@id/imgHead">
                 <TextView
                     android:layout_width="wrap_content"

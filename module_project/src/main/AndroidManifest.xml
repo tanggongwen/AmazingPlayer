@@ -27,5 +27,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.activity.SendTrendActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.ChangeUserInfoActivity"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>

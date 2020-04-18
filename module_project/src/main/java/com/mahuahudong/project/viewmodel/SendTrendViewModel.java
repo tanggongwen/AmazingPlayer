@@ -69,6 +69,7 @@ public class SendTrendViewModel extends BaseViewModel<HomeModel> {
                     @Override
                     public void accept(AddTrendRespBean addTrendRespBean) {
                         if (addTrendRespBean.getCode().equals("200")){
+                            TipToast.showTextToas(Utils.getContext(),addTrendRespBean.getMsg());
                             RxBus.getDefault().postSticky(addTrendRespBean);
                             finish();
                         }else {

@@ -1,5 +1,6 @@
 package com.mahuahudong.project.viewmodel;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.view.View;
 
@@ -16,9 +17,11 @@ import com.mahuahudong.mvvm.binding.command.BindingCommand;
 import com.mahuahudong.mvvm.bus.RxBus;
 import com.mahuahudong.mvvm.bus.event.SingleLiveEvent;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
+import com.mahuahudong.mvvm.utils.RxUtils;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
 import com.mahuahudong.project.model.HomeModel;
+import com.mahuahudong.res.beans.UpdateUserRespBean;
 import com.mahuahudong.res.controller.PersonInfoManager;
 import com.mahuahudong.res.subscriptions.RefreshUserInfo;
 
@@ -38,6 +41,7 @@ public class MineFrgViewModel extends BaseViewModel<HomeModel> {
 //        itemViewModels.add(new WatchHistoryItemViewModel(MineFrgViewModel.this));
     }
 
+    @SuppressLint("CheckResult")
     private void initDispoes(){
         //监听刷新页面
         refreshUserInfoEvent = RxBus.getDefault().toObservable(RefreshUserInfo.class).subscribe(new Consumer<RefreshUserInfo>() {
@@ -48,6 +52,17 @@ public class MineFrgViewModel extends BaseViewModel<HomeModel> {
             }
         });
         addSubscribe(refreshUserInfoEvent);
+        RxBus.getDefault().toObservableSticky(UpdateUserRespBean.class).compose(RxUtils.schedulersTransformer()).subscribe(new Consumer() {
+            @Override
+            public void accept(Object o) throws Exception {
+                updateUser();
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+
+            }
+        });
     }
 
     public SingleLiveEvent exitEvent = new SingleLiveEvent();
@@ -112,7 +127,7 @@ public class MineFrgViewModel extends BaseViewModel<HomeModel> {
     public void updateUser(){
         if (null!= PersonInfoManager.INSTANCE.getUserBean()){
             nickNameOb.set(PersonInfoManager.INSTANCE.getUserBean().getInfo().getNickname());
-            userDesOb.set("这个人很懒，什么都没留下");
+            userDesOb.set(PersonInfoManager.INSTANCE.getUserBean().getInfo().getSignature());
             headUrl.set(PersonInfoManager.INSTANCE.getUserBean().getInfo().getPic());
             exitVisible.set(View.VISIBLE);
         }else {

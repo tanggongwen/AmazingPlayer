@@ -43,7 +43,7 @@ public class LivePagerViewModel extends ItemViewModel<LiveFrgViewModel> {
         @Override
         public void call() {
             items.clear();
-            page = 1;
+            page = 0;
             getLiveDatas();
         }
     });

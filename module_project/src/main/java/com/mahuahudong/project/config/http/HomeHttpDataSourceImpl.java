@@ -1,6 +1,7 @@
 package com.mahuahudong.project.config.http;
 
 
+import com.mahuahudong.module_live.base.util.StringUtil;
 import com.mahuahudong.res.beans.AddTrendRespBean;
 import com.mahuahudong.res.beans.AddTrendbean;
 import com.mahuahudong.res.beans.FirstColumnBean;
@@ -13,6 +14,11 @@ import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.RegisterRqBean;
 import com.mahuahudong.res.beans.SedColumnBean;
 import com.mahuahudong.res.beans.SedReqBean;
+import com.mahuahudong.res.beans.SelectedVideoReqBean;
+import com.mahuahudong.res.beans.SelectedVideoRespBean;
+import com.mahuahudong.res.beans.UpdateUserBean;
+import com.mahuahudong.res.beans.UpdateUserRespBean;
+import com.mahuahudong.res.beans.UploadHeadRespBean;
 import com.mahuahudong.res.beans.UserBean;
 import com.mahuahudong.project.config.datasource.HomeHttpDataSource;
 import com.mahuahudong.project.config.http.service.HomeApiService;
@@ -24,7 +30,12 @@ import com.mahuahudong.res.beans.VideoHomeReqBean;
 import com.mahuahudong.res.beans.VideoRespBean;
 import com.mahuahudong.res.controller.PersonInfoManager;
 
+import java.io.File;
+
 import io.reactivex.Observable;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 /**
  * Created by tanggongwen on 2019/9/17.
@@ -135,5 +146,49 @@ public class HomeHttpDataSourceImpl implements HomeHttpDataSource {
         AddTrendbean addTrendbean = new AddTrendbean();
         addTrendbean.setContent(content);
         return apiService.addTrend(PersonInfoManager.INSTANCE.getHeader(),addTrendbean);
+    }
+
+    @Override
+    public Observable<UploadHeadRespBean> uploadHead(String filePath) {
+        File file = new File(filePath);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file",file.getName(),requestBody);
+        return apiService.uploadAvaTar(PersonInfoManager.INSTANCE.getHeader(),body);
+    }
+
+    @Override
+    public Observable<UpdateUserRespBean> updateUser(String signature, String nickname, String avatar) {
+        UpdateUserBean updateUserBean = new UpdateUserBean();
+        updateUserBean.setSex("0");
+        if (StringUtil.isEmpty(signature)){
+            updateUserBean.setSignature(PersonInfoManager.INSTANCE.getUserBean().getInfo().getSignature());
+        }else {
+            updateUserBean.setSignature(signature);
+        }
+        if (StringUtil.isEmpty(nickname)){
+            updateUserBean.setNickname(PersonInfoManager.INSTANCE.getUserBean().getInfo().getNickname());
+        }else {
+            updateUserBean.setNickname(nickname);
+        }
+        if (StringUtil.isEmpty(avatar)){
+            updateUserBean.setNickname(PersonInfoManager.INSTANCE.getUserBean().getInfo().getPic());
+        }else {
+            updateUserBean.setNickname(avatar);
+        }
+        return apiService.updateUserInfo(PersonInfoManager.INSTANCE.getHeader(),updateUserBean);
+    }
+
+    @Override
+    public Observable<SelectedVideoRespBean> getSelectedVideoList(String page, String size, String type, String cate, String area, String year, String word, String style) {
+        SelectedVideoReqBean selectedVideoReqBean = new SelectedVideoReqBean();
+        selectedVideoReqBean.setPage(page);
+        selectedVideoReqBean.setSize(size);
+        selectedVideoReqBean.setType(type);
+        selectedVideoReqBean.setCate(cate);
+        selectedVideoReqBean.setArea(area);
+        selectedVideoReqBean.setYear(year);
+        selectedVideoReqBean.setWord(word);
+        selectedVideoReqBean.setStyle(style);
+        return apiService.getSelectedVideoList(PersonInfoManager.INSTANCE.getHeader(),selectedVideoReqBean);
     }
 }
