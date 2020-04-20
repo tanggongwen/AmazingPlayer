@@ -73,6 +73,7 @@ public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
 
            }
        });
+        getTrendList();
     }
 
     public ObservableList<Object> items = new ObservableArrayList<>();
