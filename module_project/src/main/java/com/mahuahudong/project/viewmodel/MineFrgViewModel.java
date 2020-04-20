@@ -93,7 +93,9 @@ public class MineFrgViewModel extends BaseViewModel<HomeModel> {
     public BindingCommand loginCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-            ARouter.getInstance().build(RouterActivityPath.PAGER_LOGIN).navigation();
+            if (null== PersonInfoManager.INSTANCE.getUserBean()) {
+                ARouter.getInstance().build(RouterActivityPath.PAGER_LOGIN).navigation();
+            }
         }
     });
 

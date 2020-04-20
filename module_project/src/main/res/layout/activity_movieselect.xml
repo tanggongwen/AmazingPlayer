@@ -25,7 +25,7 @@
                 android:src="@drawable/ic_chevron_left_48px"/>
         </RelativeLayout>
         <com.mahuahudong.res.weiget.SlidingRvTabLayout
-            android:id="@+id/tabArea"
+            android:id="@+id/tabCate"
             android:layout_width="match_parent"
             android:layout_height="80mm"
             binding:tl_rvtextSelectColor="#e70000"
@@ -55,7 +55,17 @@
             binding:tl_rvtextBold="SELECT"
             binding:tl_rvtextsize="30mm"/>
         <com.mahuahudong.res.weiget.SlidingRvTabLayout
-            android:id="@+id/tabTop"
+            android:id="@+id/tabState"
+            android:layout_width="match_parent"
+            android:layout_height="80mm"
+            binding:tl_rvtextSelectColor="#e70000"
+            binding:tl_rvindicator_height="0mm"
+            binding:tl_rvtab_padding="20mm"
+            binding:tl_rvtextUnselectColor="#acacac"
+            binding:tl_rvtextBold="SELECT"
+            binding:tl_rvtextsize="30mm"/>
+        <com.mahuahudong.res.weiget.SlidingRvTabLayout
+            android:id="@+id/tabWord"
             android:layout_width="match_parent"
             android:layout_height="80mm"
             binding:tl_rvtextSelectColor="#e70000"

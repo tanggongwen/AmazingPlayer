@@ -1,3 +1,4 @@
+
 package com.mahuahudong.project.viewmodel;
 
 import android.annotation.SuppressLint;
@@ -83,23 +84,24 @@ public class HomeVideoViewModel extends BaseViewModel<HomeModel> {
                     public void accept(VideoRespBean firstColumnBean) {
                         if (firstColumnBean.getCode().equals("200")){
 
-                                if (null!=firstColumnBean.getTab().getRec()&&firstColumnBean.getTab().getRec().size()>0){
-                                    if (!items.contains(homeHeadItemViewModel)){
-                                        items.add(homeHeadItemViewModel);
-                                    }
-                                    homeHeadItemViewModel.setDatas(firstColumnBean.getTab().getRec());
-                                    if (!items.contains(homeTypeItemViewModel)){
-                                        items.add(homeTypeItemViewModel);
-                                    }
+                            if (null!=firstColumnBean.getTab().getRec()&&firstColumnBean.getTab().getRec().size()>0){
+                                if (!items.contains(homeHeadItemViewModel)){
+                                    items.add(homeHeadItemViewModel);
                                 }
+                                homeHeadItemViewModel.setDatas(firstColumnBean.getTab().getRec());
+                                if (!items.contains(homeTypeItemViewModel)){
+                                    homeTypeItemViewModel.setPid(pid);
+                                    items.add(homeTypeItemViewModel);
+                                }
+                            }
 
-                                if (null!=firstColumnBean.getTab().getRows()&&firstColumnBean.getTab().getRows().size()>0){
-                                    if (!items.contains(videoGridViewModel)){
-                                        items.add(videoGridViewModel);
-                                        page =pageSize+1;
-                                    }
-                                    videoGridViewModel.addItems(firstColumnBean.getTab().getRows());
+                            if (null!=firstColumnBean.getTab().getRows()&&firstColumnBean.getTab().getRows().size()>0){
+                                if (!items.contains(videoGridViewModel)){
+                                    items.add(videoGridViewModel);
+                                    page =pageSize+1;
                                 }
+                                videoGridViewModel.addItems(firstColumnBean.getTab().getRows());
+                            }
                         }
                     }
                 }, new Consumer<Throwable>() {
@@ -114,3 +116,4 @@ public class HomeVideoViewModel extends BaseViewModel<HomeModel> {
 
 
 }
+

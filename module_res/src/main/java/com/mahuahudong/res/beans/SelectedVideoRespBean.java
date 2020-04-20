@@ -1,5 +1,7 @@
 package com.mahuahudong.res.beans;
 
+import com.mahuahudong.res.beans.VideoRespBean.TabBean.RowsBean;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -54,110 +56,5 @@ public class SelectedVideoRespBean implements Serializable {
             this.rows = rows;
         }
 
-        public static class RowsBean {
-            /**
-             * vid : 1
-             * name : 爱情能再触电吗
-             * aliases :
-             * actor : 卞贞秀,郑灿宇,金泰妍,边宇民,李英幼,李相宇,朴哲民,李东勋,申珠雅
-             * dire :
-             * score : 7.1
-             * scorer : 90
-             * pop : 139
-             * pic : http://pc3.songziwu.com/uploads/vod/2018-11-30/5c012428ac213.jpg
-             * time : 2010-01-31 01:33:58
-             */
-
-            private String vid;
-            private String name;
-            private String aliases;
-            private String actor;
-            private String dire;
-            private String score;
-            private String scorer;
-            private String pop;
-            private String pic;
-            private String time;
-
-            public String getVid() {
-                return vid;
-            }
-
-            public void setVid(String vid) {
-                this.vid = vid;
-            }
-
-            public String getName() {
-                return name;
-            }
-
-            public void setName(String name) {
-                this.name = name;
-            }
-
-            public String getAliases() {
-                return aliases;
-            }
-
-            public void setAliases(String aliases) {
-                this.aliases = aliases;
-            }
-
-            public String getActor() {
-                return actor;
-            }
-
-            public void setActor(String actor) {
-                this.actor = actor;
-            }
-
-            public String getDire() {
-                return dire;
-            }
-
-            public void setDire(String dire) {
-                this.dire = dire;
-            }
-
-            public String getScore() {
-                return score;
-            }
-
-            public void setScore(String score) {
-                this.score = score;
-            }
-
-            public String getScorer() {
-                return scorer;
-            }
-
-            public void setScorer(String scorer) {
-                this.scorer = scorer;
-            }
-
-            public String getPop() {
-                return pop;
-            }
-
-            public void setPop(String pop) {
-                this.pop = pop;
-            }
-
-            public String getPic() {
-                return pic;
-            }
-
-            public void setPic(String pic) {
-                this.pic = pic;
-            }
-
-            public String getTime() {
-                return time;
-            }
-
-            public void setTime(String time) {
-                this.time = time;
-            }
-        }
     }
 }

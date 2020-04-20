@@ -9,6 +9,7 @@ import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.MyFocusBean;
 import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.SedColumnBean;
+import com.mahuahudong.res.beans.SelectedVideoRespBean;
 import com.mahuahudong.res.beans.UpdateUserRespBean;
 import com.mahuahudong.res.beans.UploadHeadRespBean;
 import com.mahuahudong.res.beans.UserBean;
@@ -131,4 +132,10 @@ public class HomeModel extends BaseModel implements HomeHttpDataSource, HomeLoca
     public Observable<UpdateUserRespBean> updateUser(String signature, String nickname, String avatar) {
         return mHttpDataSource.updateUser(signature,nickname,avatar);
     }
+
+    @Override
+    public Observable<SelectedVideoRespBean> getSelectedVideoList(String page, String size, String type, String cate, String area, String year, String word, String style) {
+        return mHttpDataSource.getSelectedVideoList(page,size,type,cate,area,year,word,style);
+    }
 }
+

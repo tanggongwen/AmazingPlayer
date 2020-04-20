@@ -59,6 +59,8 @@ public class RegisterViewModel extends BaseViewModel<HomeModel> {
                             if (userBean.getCode().equals("200")){
                                 TipToast.showTextToas(getApplication(),"注册成功");
                                 finish();
+                            }else {
+                                TipToast.showTextToas(getApplication(),"注册失败");
                             }
                         }
                     }, new Consumer<Throwable>() {

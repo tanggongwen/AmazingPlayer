@@ -14,5 +14,6 @@ public class RouterParames {
     public static final String KEY_VIDEO_ID = "video_id";
 
     public static final String KEY_CHANGE_NICK = "change_nickname";
+    public static final String KEY_PID = "key_pid";
 }
 

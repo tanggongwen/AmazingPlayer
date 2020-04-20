@@ -53,7 +53,7 @@ public interface HomeApiService {
     @GET("info/dress-fst")
     Observable<FirstColumnBean> getFirstColumn(@HeaderMap Map<String, String> header);
 
-    @GET("info/dress-sed")
+    @POST("info/dress-sed")
     Observable<SelectedRespBean> getSecendColumn(@HeaderMap Map<String, String> header , @Body SedReqBean sedReqBean);
 
     @POST("info/video-index")
