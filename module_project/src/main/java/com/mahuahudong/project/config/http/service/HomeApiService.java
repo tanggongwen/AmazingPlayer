@@ -11,10 +11,14 @@ import com.mahuahudong.res.beans.MyFocusReqBean;
 import com.mahuahudong.res.beans.MyTrendReqBean;
 import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.RegisterRqBean;
+import com.mahuahudong.res.beans.ReplyReqBean;
+import com.mahuahudong.res.beans.ReplyRespBean;
 import com.mahuahudong.res.beans.SedReqBean;
 import com.mahuahudong.res.beans.SelectedRespBean;
 import com.mahuahudong.res.beans.SelectedVideoReqBean;
 import com.mahuahudong.res.beans.SelectedVideoRespBean;
+import com.mahuahudong.res.beans.ThumbReqBean;
+import com.mahuahudong.res.beans.ThumbRespBean;
 import com.mahuahudong.res.beans.UpdateUserBean;
 import com.mahuahudong.res.beans.UpdateUserRespBean;
 import com.mahuahudong.res.beans.UserBean;
@@ -86,4 +90,12 @@ public interface HomeApiService {
 
     @POST("/user/set-info")
     Observable<UpdateUserRespBean> updateUserInfo(@HeaderMap Map<String,String> header,@Body UpdateUserBean userBean);
+
+    @POST("/user/thumb-up")
+    Observable<ThumbRespBean> thumb(@HeaderMap Map<String,String> header, @Body ThumbReqBean thumbReqBean);
+
+    @POST("user/get-trend")
+    Observable<ReplyRespBean> getReplyList(@HeaderMap Map<String,String> header, @Body ReplyReqBean replyReqBean);
+
+
 }

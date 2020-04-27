@@ -18,6 +18,8 @@ public class PersonInfoItemViewModel extends ItemViewModel<PersonInfoViewModel> 
         if (null!= PersonInfoManager.INSTANCE.getUserBean()){
             headUrl.set(PersonInfoManager.INSTANCE.getUserBean().getInfo().getPic());
         }
+        focusMeCountOb.set(PersonInfoManager.INSTANCE.getUserBean().getInfo().getFocusme());
+        myFocusOb.set(PersonInfoManager.INSTANCE.getUserBean().getInfo().getMyfocus());
     }
 
     public BindingCommand openMyAttentionCommand = new BindingCommand(new BindingAction() {
@@ -40,4 +42,9 @@ public class PersonInfoItemViewModel extends ItemViewModel<PersonInfoViewModel> 
 
 
     public ObservableInt headPlaceHoder = new ObservableInt(R.drawable.ic_account_circle_48px);
+
+
+    public ObservableField<String> focusMeCountOb = new ObservableField<>("0");
+
+    public ObservableField<String> myFocusOb = new ObservableField<>("0");
 }

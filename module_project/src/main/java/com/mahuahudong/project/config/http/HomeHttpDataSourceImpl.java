@@ -12,10 +12,14 @@ import com.mahuahudong.res.beans.MyFocusReqBean;
 import com.mahuahudong.res.beans.MyTrendReqBean;
 import com.mahuahudong.res.beans.MyTrendsBean;
 import com.mahuahudong.res.beans.RegisterRqBean;
+import com.mahuahudong.res.beans.ReplyReqBean;
+import com.mahuahudong.res.beans.ReplyRespBean;
 import com.mahuahudong.res.beans.SedColumnBean;
 import com.mahuahudong.res.beans.SedReqBean;
 import com.mahuahudong.res.beans.SelectedVideoReqBean;
 import com.mahuahudong.res.beans.SelectedVideoRespBean;
+import com.mahuahudong.res.beans.ThumbReqBean;
+import com.mahuahudong.res.beans.ThumbRespBean;
 import com.mahuahudong.res.beans.UpdateUserBean;
 import com.mahuahudong.res.beans.UpdateUserRespBean;
 import com.mahuahudong.res.beans.UploadHeadRespBean;
@@ -190,5 +194,19 @@ public class HomeHttpDataSourceImpl implements HomeHttpDataSource {
         selectedVideoReqBean.setWord(word);
         selectedVideoReqBean.setStyle(style);
         return apiService.getSelectedVideoList(PersonInfoManager.INSTANCE.getHeader(),selectedVideoReqBean);
+    }
+
+    @Override
+    public Observable<ThumbRespBean> thumb(String tid) {
+        ThumbReqBean thumbReqBean = new ThumbReqBean();
+        thumbReqBean.setTid(tid);
+        return apiService.thumb(PersonInfoManager.INSTANCE.getHeader(),thumbReqBean);
+    }
+
+    @Override
+    public Observable<ReplyRespBean> getReplyList(String tid) {
+        ReplyReqBean replyReqBean = new ReplyReqBean();
+        replyReqBean.setTid(tid);
+        return apiService.getReplyList(PersonInfoManager.INSTANCE.getHeader(),replyReqBean);
     }
 }

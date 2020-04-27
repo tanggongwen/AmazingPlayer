@@ -15,5 +15,7 @@ public class RouterParames {
 
     public static final String KEY_CHANGE_NICK = "change_nickname";
     public static final String KEY_PID = "key_pid";
+
+    public static final String KEY_COMMENT = "key_comment";
 }
 

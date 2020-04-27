@@ -5,18 +5,29 @@ import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
 
 import com.mahuahudong.mvvm.base.ItemViewModel;
+import com.mahuahudong.mvvm.databean.VideoHistoryBean;
+import com.mahuahudong.mvvm.utils.database.VideoHistoryManager;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import me.tatarka.bindingcollectionadapter2.OnItemBind;
 
 public class WatchHistoryPagerItemViewModel extends ItemViewModel<WatchHistoryListViewModel> {
+    private List<VideoHistoryBean> videoHistoryBeanList = new ArrayList<>();
     public WatchHistoryPagerItemViewModel(@NonNull WatchHistoryListViewModel viewModel) {
         super(viewModel);
-        items.add(new WatchHistoryMovieItemViewModel(viewModel));
-        items.add(new WatchHistoryMovieItemViewModel(viewModel));
-        items.add(new WatchHistorySerialItemViewModel(viewModel));
+        videoHistoryBeanList = VideoHistoryManager.INSTANCE.getAllHistory();
+        if (null!=videoHistoryBeanList&&videoHistoryBeanList.size()>0){
+            for (VideoHistoryBean videoHistoryBean:videoHistoryBeanList) {
+                items.add(new WatchHistoryMovieItemViewModel(viewModel,videoHistoryBean));
+            }
+        }
+//        items.add(new WatchHistoryMovieItemViewModel(viewModel));
+//        items.add(new WatchHistorySerialItemViewModel(viewModel));
 
     }
 

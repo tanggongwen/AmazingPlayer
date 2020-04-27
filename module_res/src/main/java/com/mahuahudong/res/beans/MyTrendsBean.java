@@ -54,7 +54,7 @@ public class MyTrendsBean implements Serializable {
             this.rows = rows;
         }
 
-        public static class RowsBean {
+        public static class RowsBean implements Serializable{
             /**
              * id : 1
              * uid : 1
@@ -70,6 +70,9 @@ public class MyTrendsBean implements Serializable {
             private String avatar;
             private String content;
             private String created_at;
+            private String comments;
+            private String thumps;
+            private int is_thump;
 
             public String getId() {
                 return id;
@@ -117,6 +120,30 @@ public class MyTrendsBean implements Serializable {
 
             public void setCreated_at(String created_at) {
                 this.created_at = created_at;
+            }
+
+            public int getIs_thump() {
+                return is_thump;
+            }
+
+            public void setIs_thump(int is_thump) {
+                this.is_thump = is_thump;
+            }
+
+            public String getThumps() {
+                return thumps;
+            }
+
+            public void setThumps(String thumps) {
+                this.thumps = thumps;
+            }
+
+            public String getComments() {
+                return comments;
+            }
+
+            public void setComments(String comments) {
+                this.comments = comments;
             }
         }
     }

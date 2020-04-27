@@ -61,6 +61,8 @@ public class UserBean implements Serializable {
         private String nickname;
         private String pic;
         private String signature;
+        private String myfocus;
+        private String focusme;
 
         public String getUserid() {
             return userid;
@@ -100,6 +102,22 @@ public class UserBean implements Serializable {
 
         public void setSignature(String signature) {
             this.signature = signature;
+        }
+
+        public String getFocusme() {
+            return focusme;
+        }
+
+        public void setFocusme(String focusme) {
+            this.focusme = focusme;
+        }
+
+        public String getMyfocus() {
+            return myfocus;
+        }
+
+        public void setMyfocus(String myfocus) {
+            this.myfocus = myfocus;
         }
     }
 }

@@ -42,6 +42,8 @@ public class RetrofitClient {
     //服务端根路径
 //        public static String baseUrl = "http://172.16.65.250:9015/";
 
+
+
 //        public static String baseUrl = "https://dev-app.zhcs.csbtv.com/";
 
     public static String baseUrl = "http://mh.haotuyun.cn/";

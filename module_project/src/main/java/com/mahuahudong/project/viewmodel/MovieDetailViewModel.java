@@ -18,8 +18,10 @@ import com.mahuahudong.mvvm.bus.RxBus;
 import com.mahuahudong.mvvm.bus.RxSubscriptions;
 import com.mahuahudong.mvvm.bus.event.SingleLiveEvent;
 import com.mahuahudong.mvvm.databean.VideoBean;
+import com.mahuahudong.mvvm.databean.VideoHistoryBean;
 import com.mahuahudong.mvvm.router.RouterActivityPath;
 import com.mahuahudong.mvvm.utils.RxUtils;
+import com.mahuahudong.mvvm.utils.database.VideoHistoryManager;
 import com.mahuahudong.project.BR;
 import com.mahuahudong.project.R;
 import com.mahuahudong.project.model.HomeModel;
@@ -77,6 +79,12 @@ public class MovieDetailViewModel extends BaseViewModel<HomeModel> {
                     public void accept(VideoDetailBean videoDetailBean) {
                         if (videoDetailBean.getCode().equals("200")){
                             videoBean = videoDetailBean;
+                            VideoHistoryBean historyBean = new VideoHistoryBean();
+                            historyBean.setName(videoBean.getDetail().getName());
+                            historyBean.setPic(videoBean.getDetail().getPic());
+                            historyBean.setVid(videoBean.getDetail().getVid());
+                            historyBean.setTimeStamp(System.currentTimeMillis());
+                            VideoHistoryManager.INSTANCE.insert(historyBean);
                             items.add(new MovieDetailRelatedViewModel<>(MovieDetailViewModel.this,model,videoBean));
                             if (videoBean.getDetail().getUrl().get(0).size()>0){
                                 movieProgItemViewModel = new MovieDetailProgsItemViewModel(MovieDetailViewModel.this,model,videoBean,currentUrl);

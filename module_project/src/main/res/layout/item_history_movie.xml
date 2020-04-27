@@ -11,7 +11,8 @@
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        binding:onClickCommand="@{itemViewModel.itemCommand}">
         <RelativeLayout
             android:id="@+id/rlytCover"
             android:layout_width="220mm"
@@ -33,6 +34,7 @@
                 android:text="12：20：20"
                 android:layout_marginBottom="5mm"
                 android:layout_marginRight="5mm"
+                android:visibility="gone"
                 android:background="#4DC4C1C1"/>
         </RelativeLayout>
         <LinearLayout
@@ -51,7 +53,7 @@
                 android:maxLines="2"
                 android:textColor="#000000"
                 android:textSize="28mm"
-                android:text="电视剧"/>
+                android:text="@{itemViewModel.nameOb}"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,7 +61,7 @@
                 android:layout_marginTop="5mm"
                 android:textColor="#dddddd"
                 android:textSize="24mm"
-                android:text="观看到1%"/>
+                android:text="@{itemViewModel.timeOb}"/>
         </LinearLayout>
     </RelativeLayout>
 

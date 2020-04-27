@@ -24,6 +24,7 @@ import com.mahuahudong.res.beans.AddTrendRespBean;
 import com.mahuahudong.res.beans.AddTrendbean;
 import com.mahuahudong.res.beans.MyFocusBean;
 import com.mahuahudong.res.beans.MyTrendsBean;
+import com.mahuahudong.res.beans.ThumbRespBean;
 import com.mahuahudong.res.beans.UpdateUserRespBean;
 import com.mahuahudong.res.controller.PersonInfoManager;
 import com.mahuahudong.res.weiget.TipToast;
@@ -141,6 +142,22 @@ public class PersonInfoViewModel extends BaseViewModel<HomeModel> {
                     }
                 });
 
+    }
+
+    public void thumb(String tid){
+        model.thumb(tid).compose(RxUtils.schedulersTransformer())
+                .doOnSubscribe(PersonInfoViewModel.this)
+                .subscribe(new Consumer<ThumbRespBean>() {
+                    @Override
+                    public void accept(ThumbRespBean thumbRespBean) throws Exception {
+
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                    }
+                });
     }
 
     public BindingCommand sendCommand = new BindingCommand(new BindingAction() {

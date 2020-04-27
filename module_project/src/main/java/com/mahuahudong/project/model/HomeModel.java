@@ -8,8 +8,10 @@ import com.mahuahudong.res.beans.FirstColumnBean;
 import com.mahuahudong.res.beans.LiveListBean;
 import com.mahuahudong.res.beans.MyFocusBean;
 import com.mahuahudong.res.beans.MyTrendsBean;
+import com.mahuahudong.res.beans.ReplyRespBean;
 import com.mahuahudong.res.beans.SedColumnBean;
 import com.mahuahudong.res.beans.SelectedVideoRespBean;
+import com.mahuahudong.res.beans.ThumbRespBean;
 import com.mahuahudong.res.beans.UpdateUserRespBean;
 import com.mahuahudong.res.beans.UploadHeadRespBean;
 import com.mahuahudong.res.beans.UserBean;
@@ -136,6 +138,16 @@ public class HomeModel extends BaseModel implements HomeHttpDataSource, HomeLoca
     @Override
     public Observable<SelectedVideoRespBean> getSelectedVideoList(String page, String size, String type, String cate, String area, String year, String word, String style) {
         return mHttpDataSource.getSelectedVideoList(page,size,type,cate,area,year,word,style);
+    }
+
+    @Override
+    public Observable<ThumbRespBean> thumb(String tid) {
+        return mHttpDataSource.thumb(tid);
+    }
+
+    @Override
+    public Observable<ReplyRespBean> getReplyList(String tid) {
+        return mHttpDataSource.getReplyList(tid);
     }
 }
 

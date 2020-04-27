@@ -19,9 +19,6 @@ public class TrendsViewModel extends BaseViewModel<HomeModel> {
 
     public TrendsViewModel(@NonNull Application application, HomeModel model) {
         super(application, model);
-        items.add(new TrendsMessageItemViewModel(TrendsViewModel.this));
-        items.add(new TrendsMessageItemViewModel(TrendsViewModel.this));
-        items.add(new TrendsMessageItemViewModel(TrendsViewModel.this));
     }
 
     public BindingCommand backCommand = new BindingCommand(new BindingAction() {
@@ -41,7 +38,7 @@ public class TrendsViewModel extends BaseViewModel<HomeModel> {
     public BindingCommand refreshCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-
+            items.clear();
         }
     });
 
@@ -52,5 +49,7 @@ public class TrendsViewModel extends BaseViewModel<HomeModel> {
         }
     });
 
+    public void getReplys(String tid){
+    }
 
 }

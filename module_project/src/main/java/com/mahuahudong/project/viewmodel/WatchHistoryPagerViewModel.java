@@ -16,8 +16,6 @@ public class WatchHistoryPagerViewModel extends ItemViewModel<WatchHistoryListVi
     public WatchHistoryPagerViewModel(@NonNull WatchHistoryListViewModel viewModel) {
         super(viewModel);
         items.add(new WatchHistoryPagerItemViewModel(viewModel));
-        items.add(new WatchHistoryPagerItemViewModel(viewModel));
-        items.add(new WatchHistoryPagerItemViewModel(viewModel));
     }
 
     public ObservableList<WatchHistoryPagerItemViewModel> items = new ObservableArrayList<>();
