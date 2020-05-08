@@ -94,7 +94,7 @@ public interface HomeApiService {
     @POST("/user/thumb-up")
     Observable<ThumbRespBean> thumb(@HeaderMap Map<String,String> header, @Body ThumbReqBean thumbReqBean);
 
-    @POST("user/get-trend")
+    @POST("user/get-trends")
     Observable<ReplyRespBean> getReplyList(@HeaderMap Map<String,String> header, @Body ReplyReqBean replyReqBean);
 
 

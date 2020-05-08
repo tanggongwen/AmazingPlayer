@@ -41,7 +41,7 @@
             <com.mahuahudong.res.weiget.CircleImageView
                 android:layout_width="60mm"
                 android:layout_height="60mm"
-                android:src="@drawable/ic_account_circle_48px"/>
+                binding:url="@{viewModel.headUrlOb}"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:textSize="26mm"
-                    android:text="Anthony"/>
+                    android:text="@{viewModel.nameOb}"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:textSize="26mm"
-            android:text="这里春天的夜晚比冬天的更冷"
+            android:text="@{viewModel.contentOb}"
             android:layout_marginLeft="30mm"
             android:layout_marginTop="10mm"/>
         <TextView
@@ -78,7 +78,7 @@
             android:layout_height="60mm"
             android:textSize="26mm"
             android:paddingLeft="30mm"
-            android:text="留言板(4)"
+            android:text="留言板"
             android:textColor="#000000"
             android:gravity="center_vertical"/>
         <TextView

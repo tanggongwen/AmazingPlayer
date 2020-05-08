@@ -12,9 +12,12 @@ import com.mahuahudong.project.R;
 import com.mahuahudong.project.config.HomeViewModelFactory;
 import com.mahuahudong.project.databinding.ActivityTrendsBinding;
 import com.mahuahudong.project.viewmodel.TrendsViewModel;
+import com.mahuahudong.res.beans.MyTrendsBean;
+import com.mahuahudong.res.constants.RouterParames;
 
 @Route(path = RouterActivityPath.PAGER_TRENDS)
 public class TrendsActivity extends BaseActivity<ActivityTrendsBinding, TrendsViewModel> {
+    private MyTrendsBean.ListBean.RowsBean rowsBean;
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_trends;
@@ -25,6 +28,11 @@ public class TrendsActivity extends BaseActivity<ActivityTrendsBinding, TrendsVi
         return BR.viewModel;
     }
 
+    @Override
+    public void initData() {
+        rowsBean = (MyTrendsBean.ListBean.RowsBean) getIntent().getSerializableExtra(RouterParames.KEY_COMMENT);
+        viewModel.initData(rowsBean);
+    }
 
     @Override
     public TrendsViewModel initViewModel() {
